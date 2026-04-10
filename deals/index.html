@@ -462,11 +462,11 @@
 
     <!-- Tabs -->
     <div class="tabs">
-        <div class="tab active" onclick="switchTab('briefing')">Briefing</div>
-        <div class="tab" onclick="switchTab('portfolio')">Portfolio Heat</div>
-        <div class="tab" onclick="switchTab('deals')">Deal Flow</div>
-        <div class="tab" onclick="switchTab('signals')">Market Signals</div>
-        <div class="tab" onclick="switchTab('table')">Full Database</div>
+        <div class="tab active" onclick="switchTab('briefing', this)">Briefing</div>
+        <div class="tab" onclick="switchTab('portfolio', this)">Portfolio Heat</div>
+        <div class="tab" onclick="switchTab('deals', this)">Deal Flow</div>
+        <div class="tab" onclick="switchTab('signals', this)">Market Signals</div>
+        <div class="tab" onclick="switchTab('table', this)">Full Database</div>
     </div>
 
     <!-- TAB: Briefing -->
@@ -573,19 +573,19 @@
                     
         <tr>
             <td><strong>Tapestry</strong></td>
-            <td class="sectors-cell">crypto, fintech, consumer</td>
+            <td class="sectors-cell">consumer, fintech, crypto</td>
             <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
             <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
         </tr>
         <tr>
             <td><strong>Hopscotch</strong></td>
-            <td class="sectors-cell">fintech, b2b payments</td>
+            <td class="sectors-cell">b2b payments, fintech</td>
             <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
             <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
         </tr>
         <tr>
             <td><strong>Vybe</strong></td>
-            <td class="sectors-cell">computer vision, ai</td>
+            <td class="sectors-cell">ai, computer vision</td>
             <td><span class="heat warm">WARM</span> <span class="heat-count">2</span></td>
             <td class="deal-names">Patlytics, Juno</td>
         </tr>
@@ -603,7 +603,7 @@
         </tr>
         <tr>
             <td><strong>Revin</strong></td>
-            <td class="sectors-cell">home services, saas</td>
+            <td class="sectors-cell">saas, home services</td>
             <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
             <td class="deal-names">—</td>
         </tr>
@@ -651,13 +651,13 @@
         </tr>
         <tr>
             <td><strong>PromptLayer</strong></td>
-            <td class="sectors-cell">dev tools, ai infrastructure</td>
+            <td class="sectors-cell">ai infrastructure, dev tools</td>
             <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
             <td class="deal-names">—</td>
         </tr>
         <tr>
             <td><strong>Strobe</strong></td>
-            <td class="sectors-cell">energy, climate tech</td>
+            <td class="sectors-cell">climate tech, energy</td>
             <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
             <td class="deal-names">—</td>
         </tr>
@@ -933,16 +933,11 @@
 </div>
 
 <script>
-function switchTab(name) {
+function switchTab(name, el) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
-    // Find the clicked tab
-    document.querySelectorAll('.tab').forEach(t => {
-        if (t.textContent.toLowerCase().includes(name.substring(0, 4))) t.classList.add('active');
-    });
-    // Fix active tab by onclick match
-    event.target.classList.add('active');
+    el.classList.add('active');
 }
 
 function filterTable() {
