@@ -4,378 +4,973 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deal Radar — Stellation VC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #FFC501;
+            --gold-dim: rgba(255, 197, 1, 0.15);
+            --gold-glow: rgba(255, 197, 1, 0.08);
+            --bg: #0b0f1a;
+            --surface: #111827;
+            --surface2: #1a2235;
+            --border: rgba(255,255,255,0.06);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --green: #22c55e;
+            --green-dim: rgba(34, 197, 94, 0.15);
+            --orange: #f59e0b;
+            --orange-dim: rgba(245, 158, 11, 0.15);
+            --red: #ef4444;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59, 130, 246, 0.12);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Nunito Sans', sans-serif;
-            background: #0a0e1a;
-            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 960px; margin: 0 auto; }
-        h1 { color: #FFC501; font-size: 1.8rem; margin-bottom: 4px; }
-        h2 { color: #FFC501; font-size: 1.2rem; margin: 32px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
-        h3.portfolio-co { color: #FFC501; font-size: 1rem; margin: 20px 0 8px; }
-        .subtitle { color: #888; font-size: 0.85rem; margin-bottom: 24px; }
-        .deal-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            padding: 14px 16px;
-            margin-bottom: 10px;
+
+        .page { max-width: 1080px; margin: 0 auto; padding: 32px 24px; }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        .deal-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-        .deal-header strong { color: #fff; font-size: 0.95rem; }
-        .deal-meta { color: #FFC501; font-size: 0.85rem; font-weight: 600; }
-        .deal-investors { color: #aaa; font-size: 0.85rem; margin-top: 4px; }
-        .deal-desc { color: #999; font-size: 0.8rem; margin-top: 4px; }
-        .deal-footer { color: #666; font-size: 0.75rem; margin-top: 8px; }
-        .flag {
-            display: inline-block;
-            background: rgba(255,197,1,0.15);
-            color: #FFC501;
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .header h1 span { color: var(--gold); }
+        .updated {
             font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-top: 6px;
-            margin-right: 4px;
+            color: var(--text-muted);
         }
-        .watch-flag {
-            display: inline-block;
-            background: rgba(100,200,255,0.15);
-            color: #64c8ff;
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-top: 6px;
-            margin-right: 4px;
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 32px;
         }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
-        .stat-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-        .stat-label { color: #aaa; font-size: 0.8rem; min-width: 120px; text-align: right; }
-        .stat-bar {
-            background: rgba(255,197,1,0.3);
-            color: #FFC501;
-            font-size: 0.75rem;
+
+        /* --- KPI strip --- */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+        .kpi {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .kpi-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .kpi-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        /* --- Section --- */
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-header {
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 3px;
-            min-width: 24px;
-            text-align: center;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
         }
-        .muted { color: #666; font-size: 0.85rem; }
-        table {
+
+        /* --- Briefing (markdown) --- */
+        .briefing {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 36px;
+        }
+        .brief-h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin: 24px 0 10px;
+        }
+        .brief-h3:first-child { margin-top: 0; }
+        .brief-h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 20px 0 8px;
+        }
+        .brief-p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .brief-p strong { color: #fff; font-weight: 600; }
+        .brief-bullet {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            padding-left: 16px;
+            margin-bottom: 6px;
+            position: relative;
+            line-height: 1.7;
+        }
+        .brief-bullet::before {
+            content: "·";
+            position: absolute;
+            left: 4px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .brief-bullet strong { color: #fff; }
+        .brief-hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 20px 0;
+        }
+        .brief-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.8rem;
-            margin-top: 12px;
+            margin: 12px 0;
         }
-        th {
+        .brief-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        .brief-table td:first-child { color: #fff; font-weight: 500; }
+        .brief-table td strong { color: #fff; }
+        .portfolio-note {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-top: 4px;
+            opacity: 0.8;
+        }
+
+        /* --- Portfolio heat --- */
+        .heat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        .heat-table th {
             text-align: left;
-            color: #888;
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 8px 6px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            cursor: pointer;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border);
         }
-        th:hover { color: #FFC501; }
-        td { padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-        tr.flagged td { background: rgba(255,197,1,0.05); }
-        .nyc {
-            background: rgba(100,200,255,0.2);
-            color: #64c8ff;
+        .heat-table td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .heat-table td strong { color: #fff; }
+        .sectors-cell { color: var(--text-muted); font-size: 0.75rem; }
+        .deal-names { color: var(--text-dim); font-size: 0.78rem; }
+        .heat {
+            display: inline-block;
             font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .heat.hot { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+        .heat.warm { background: var(--orange-dim); color: var(--orange); }
+        .heat.quiet { background: rgba(100, 116, 139, 0.15); color: var(--text-muted); }
+        .heat-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
+
+        /* --- Bar charts --- */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 700px) { .charts-grid { grid-template-columns: 1fr; } }
+        .chart-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .chart-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .bar-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            min-width: 100px;
+            text-align: right;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .bar-fill {
+            background: var(--gold-dim);
+            border-radius: 4px;
+            padding: 3px 8px;
+            min-width: 24px;
+            transition: width 0.3s;
+        }
+        .bar-fill span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        .stage-fill {
+            background: var(--blue-dim);
+        }
+        .stage-fill span { color: var(--blue); }
+        .investor-fill {
+            background: var(--green-dim);
+        }
+        .investor-fill span { color: var(--green); }
+
+        /* --- Deal cards --- */
+        .deal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .deal-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .card-company {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .card-amount {
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .card-stage {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .card-investors {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+        .tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+        }
+        .sector-tag { background: var(--blue-dim); color: var(--blue); }
+        .portfolio-tag { background: var(--gold-dim); color: var(--gold); }
+        .card-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Full table --- */
+        .table-wrap {
+            overflow-x: auto;
+        }
+        .deals-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+        }
+        .deals-table th {
+            text-align: left;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .deals-table th:hover { color: var(--gold); }
+        .deals-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        .deals-table td strong { color: #fff; font-weight: 500; }
+        .deals-table tr.flagged td { background: var(--gold-glow); }
+        .amount-cell { font-weight: 600; color: #fff !important; white-space: nowrap; }
+        .source-cell { color: var(--text-muted); }
+        .nyc-badge {
+            background: var(--blue-dim);
+            color: var(--blue);
+            font-size: 0.6rem;
+            font-weight: 700;
             padding: 1px 5px;
             border-radius: 3px;
-            margin-left: 4px;
-            font-weight: 600;
+            margin-left: 6px;
         }
-        .filter-bar {
-            display: flex;
-            gap: 8px;
-            margin: 12px 0;
-            flex-wrap: wrap;
-        }
-        .filter-bar input, .filter-bar select {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #e0e0e0;
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-family: 'Nunito Sans', sans-serif;
+        .search-bar {
+            width: 100%;
+            max-width: 320px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
+            margin-bottom: 12px;
         }
-        .caveat {
-            color: #555;
-            font-size: 0.7rem;
+        .search-bar:focus { outline: none; border-color: var(--gold); }
+
+        /* --- Footer --- */
+        .footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 16px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            line-height: 1.8;
         }
-        .counter { color: #FFC501; font-weight: 700; }
+
+        /* --- Nav tabs --- */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab {
+            padding: 10px 18px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.15s;
+        }
+        .tab:hover { color: var(--text); }
+        .tab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .muted { color: var(--text-muted); font-size: 0.82rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Deal Radar</h1>
-        <p class="subtitle">Stellation VC deal flow intelligence &middot; Updated 2026-04-10T10:14</p>
+<div class="page">
 
-        <h2>This Week <span class="counter">7</span></h2>
-        
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="robotics autonomous vessels" data-stage="Series D">
-            <div class="deal-header">
-                <strong>Saronic</strong>
-                <span class="deal-meta">$1.75B &middot; Series D</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">Developer of autonomous vessels</div>
-            
-            
-            <div class="deal-footer">Crunchbase &middot; 2026-04-06</div>
+    <div class="header">
+        <h1><span>Deal Radar</span></h1>
+        <div class="updated">Updated Apr 10, 2026 at 10:14 AM ET</div>
+    </div>
+    <div class="tagline">Stellation VC — deal flow intelligence, market signals, portfolio heat</div>
+
+    <!-- KPI Strip -->
+    <div class="kpi-strip">
+        <div class="kpi">
+            <div class="kpi-value">7</div>
+            <div class="kpi-label">Deals This Week</div>
         </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="fintech prediction markets" data-stage="Growth">
-            <div class="deal-header">
-                <strong>Kalshi</strong>
-                <span class="deal-meta">$1B &middot; Growth</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">Prediction market platform</div>
-            
-            
-            <div class="deal-footer">AlleyWatch &middot; 2026-04-07</div>
+        <div class="kpi">
+            <div class="kpi-value">$2.8B</div>
+            <div class="kpi-label">Capital Tracked</div>
         </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="fintech tax software AI" data-stage="Seed">
-            <div class="deal-header">
-                <strong>Juno</strong>
-                <span class="deal-meta">$12M &middot; Seed</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">AI-assisted tax preparation software</div>
-            
-            
-            <div class="deal-footer">Crunchbase Daily &middot; 2026-04-10</div>
+        <div class="kpi">
+            <div class="kpi-value">0</div>
+            <div class="kpi-label">Portfolio-Adjacent</div>
         </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="fintech savings" data-stage="Undisclosed">
-            <div class="deal-header">
-                <strong>Vestwell</strong>
-                <span class="deal-meta"> &middot; Undisclosed</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">Digital savings platform</div>
-            
-            
-            <div class="deal-footer">Crunchbase Daily &middot; 2026-04-10</div>
+        <div class="kpi">
+            <div class="kpi-value">7</div>
+            <div class="kpi-label">All-Time Deals</div>
         </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="fintech predictions" data-stage="Undisclosed">
-            <div class="deal-header">
-                <strong>Kalshi</strong>
-                <span class="deal-meta"> &middot; Undisclosed</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">Predictions marketplace</div>
-            
-            
-            <div class="deal-footer">Crunchbase Daily &middot; 2026-04-10</div>
+        <div class="kpi">
+            <div class="kpi-value">3</div>
+            <div class="kpi-label">Active Sources</div>
         </div>
+    </div>
 
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="patents IP litigation AI" data-stage="Undisclosed">
-            <div class="deal-header">
-                <strong>Patlytics</strong>
-                <span class="deal-meta">$40M &middot; Undisclosed</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">AI-driven platform for patent filings and IP litigation</div>
-            
-            
-            <div class="deal-footer">AlleyWatch &middot; 2026-04-10</div>
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('briefing')">Briefing</div>
+        <div class="tab" onclick="switchTab('portfolio')">Portfolio Heat</div>
+        <div class="tab" onclick="switchTab('deals')">Deal Flow</div>
+        <div class="tab" onclick="switchTab('signals')">Market Signals</div>
+        <div class="tab" onclick="switchTab('table')">Full Database</div>
+    </div>
+
+    <!-- TAB: Briefing -->
+    <div id="tab-briefing" class="tab-content active">
+        <div class="briefing">
+            <h3 class="brief-h3">Deal Radar — Week of Apr 6–10, 2026</h3>
+
+<p class="brief-p"><strong>Sources scanned:</strong> AlleyWatch (5 editions), Crunchbase Daily (5), Axios Pro Rata (1). TLDR ran but had no deal content. StrictlyVC, Fortune Term Sheet, TechCrunch, CB Insights just subscribed — will start contributing next week.</p>
+
+<hr class="brief-hr">
+
+<h4 class="brief-h4">The Big Picture</h4>
+
+<p class="brief-p">Q1 2026 was a record quarter. North American startups raised $252B+ — more than 3x the prior quarter and the largest quarterly total ever. Nearly two-thirds of global VC went to just four companies. AI took the lion's share, but early/seed-stage funding stayed robust across robotics, semiconductors, and AI infrastructure. An unprecedented number of early-stage unicorns were minted in Q1 alone.</p>
+
+<p class="brief-p">Private credit is flashing warning signs — Carlyle's credit fund saw 15.7% redemption requests (3x the cap), and Blue Owl and BlackRock are getting more asks than they can fill. Dan Primack's take: PE rode the private credit wave. It may get hit by breakers.</p>
+
+<hr class="brief-hr">
+
+<h4 class="brief-h4">Portfolio-Relevant Deals</h4>
+
+<p class="brief-p"><strong>Spade</strong> — $40M | Fintech/data infrastructure</p>
+<p class="brief-p">Turns messy transaction data into a strategic asset for banks and fintechs. Stripe, PayPal, and Mercury now depend on it as core infrastructure. The problem: payment data hasn't meaningfully changed in 50 years, costing FIs billions in disputes, fraud, and missed AI opportunities.</p>
+<p class="brief-p">→ <em>Tapestry, Hopscotch overlap (fintech). Worth watching — Spade is becoming the pipes layer that consumer crypto/payments companies will sit on top of.</em></p>
+
+<p class="brief-p"><strong>Patlytics</strong> — $40M | AI/legal tech</p>
+<p class="brief-p">AI-driven patent filing analysis and IP litigation intelligence. Already used by 40%+ of Am Law 100 firms. Patent filings AND IP litigation are both surging because of AI — Patlytics benefits from both sides.</p>
+<p class="brief-p">→ <em>Vybe, Mainframe overlap (AI). Different application but same underlying thesis: AI tooling for domain experts.</em></p>
+
+<p class="brief-p"><strong>Kalshi</strong> — $1B late-stage (led NYC's $3.94B March) | Fintech/prediction markets</p>
+<p class="brief-p">NYC-based prediction market platform. This round led a historic March for NYC VC — $3.94B across 97 deals, 293.6% YoY surge. Kalshi alone was $1B of that. NYC captured 20.7% of all US venture capital, with Series A dominance (39.8% of national deals).</p>
+<p class="brief-p">→ <em>Tapestry, Hopscotch overlap (fintech). The NYC stat matters — Stellation's NYC thesis continues to have tailwinds.</em></p>
+
+<p class="brief-p"><strong>Juno</strong> — $12M Seed | Fintech/AI (San Francisco)</p>
+<p class="brief-p">AI-assisted tax prep. Founded by CPA Dave Haase, automates up to 90% of tax-prep grunt work. Already at hundreds of firms and mid-seven-figure ARR. Crunchbase exclusive.</p>
+<p class="brief-p">→ <em>Tapestry, Hopscotch (fintech); Vybe, Mainframe (AI). Classic "AI for domain experts" play — same thesis as PromptLayer.</em></p>
+
+<hr class="brief-hr">
+
+<h4 class="brief-h4">Other Notable Deals (from Axios Pro Rata, Apr 10)</h4>
+
+<table class="brief-table"><tbody>
+<tr><td>Company</td><td>Amount</td><td>Stage</td><td>Sector</td><td>Lead</td></tr>
+<tr><td><strong>ShengShu</strong></td><td>$293M</td><td>—</td><td>AI video (Beijing)</td><td>Alibaba, Baidu Ventures</td></tr>
+<tr><td><strong>Chapter</strong></td><td>$100M</td><td>Series E</td><td>Medicare navigation</td><td>Generation Investment Mgmt</td></tr>
+<tr><td><strong>Elorian</strong></td><td>$55M</td><td>Seed ($300M val)</td><td>AI visual reasoning</td><td>Striker Ventures, Menlo, Altimeter, Nvidia</td></tr>
+<tr><td><strong>Luminai</strong></td><td>$38M</td><td>Series B</td><td>Healthcare automation</td><td>Peak XV Partners</td></tr>
+<tr><td><strong>Paysend</strong></td><td>$25M</td><td>—</td><td>Intl money transfer (UK)</td><td>Claret Capital</td></tr>
+<tr><td><strong>SiFive</strong></td><td>—</td><td>—</td><td>Semiconductor/RISC-V</td><td>—</td></tr>
+<tr><td><strong>Saronic</strong></td><td>$1.75B</td><td>Series D</td><td>Autonomous vessels</td><td>—</td></tr>
+</table>
+
+<p class="brief-p"><strong>Saronic</strong> ($1.75B Series D) was the biggest single round of the week — autonomous military vessels. Defense tech continues to attract massive capital.</p>
+
+<p class="brief-p"><strong>Elorian</strong> is interesting at $55M seed/$300M valuation for visual reasoning AI — Jeff Dean is in. Early signal that the AI funding wave is expanding beyond language models into perception.</p>
+
+<hr class="brief-hr">
+
+<h4 class="brief-h4">Market Signals</h4>
+
+<div class="brief-bullet"><strong>Fintech consolidating up:</strong> Funding rose in Q1 despite ~30% fewer deals. Investors are concentrating into "high-conviction" bets. Fewer companies, bigger checks.</div>
+<div class="brief-bullet"><strong>NYC having a moment:</strong> $3.94B in March alone. 20.7% of all US VC. Series A dominance nationally.</div>
+<div class="brief-bullet"><strong>LatAm shift:</strong> Mexico topped Brazil as LatAm's biggest VC market for only the second time since 2012.</div>
+<div class="brief-bullet"><strong>AI everywhere:</strong> Even "non-AI" categories (tax prep, patent law, ferries) are getting funded on AI theses.</div>
+<div class="brief-bullet"><strong>Private credit stress → PE risk:</strong> Watch this. If private credit contracts, PE dealmaking contracts with it.</div>
+
+<hr class="brief-hr">
+
+<h4 class="brief-h4">Portfolio Heat Map</h4>
+
+<table class="brief-table"><tbody>
+<tr><td>Company</td><td>Signals This Week</td></tr>
+<tr><td>Tapestry (fintech/crypto)</td><td>4 sector-adjacent deals</td></tr>
+<tr><td>Hopscotch (fintech/B2B payments)</td><td>4 sector-adjacent deals</td></tr>
+<tr><td>Vybe (AI/computer vision)</td><td>2 sector-adjacent deals</td></tr>
+<tr><td>Mainframe (AI/productivity)</td><td>2 sector-adjacent deals</td></tr>
+<tr><td>PromptLayer (AI infra/dev tools)</td><td>Juno validates "AI for domain experts" thesis</td></tr>
+<tr><td>Strobe (energy/climate)</td><td>Energy tech in Crunchbase "interesting deals" but no specific round</td></tr>
+<tr><td>swsh, Koodos, Diem (consumer social)</td><td>Quiet week. No deals in consumer social.</td></tr>
+<tr><td>Enigma Labs (data/aerospace)</td><td>Nothing adjacent</td></tr>
+</table>
+
+<hr class="brief-hr">
+
+<p class="brief-p"><em>7 deals tracked from 11 newsletter editions. 5 more newsletter sources come online next week. Data caveats: publicly announced deals only, amounts may include undrawn commitments, most seed rounds never get press.</em></p>
+
         </div>
+    </div>
 
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.1);" data-sector="fintech data" data-stage="Undisclosed">
-            <div class="deal-header">
-                <strong>Spade</strong>
-                <span class="deal-meta">$40M &middot; Undisclosed</span>
-            </div>
-            <div class="deal-investors">Led by Undisclosed</div>
-            <div class="deal-desc">Transforms messy transaction data into strategic assets for banks and fintechs</div>
-            
-            
-            <div class="deal-footer">AlleyWatch &middot; 2026-04-10</div>
-        </div>
-
-        
-
-        <h2>Weekly Stats</h2>
-        <div class="stats-grid">
-            <div>
-                <h3 style="color:#aaa;font-size:0.85rem;margin-bottom:8px;">By Sector</h3>
-                
-            <div class="stat-row">
-                <span class="stat-label">fintech</span>
-                <div class="stat-bar" style="width: 100%">5</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">AI</span>
-                <div class="stat-bar" style="width: 40%">2</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">robotics</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">autonomous vessels</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">prediction markets</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">tax software</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">savings</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">predictions</span>
-                <div class="stat-bar" style="width: 20%">1</div>
-            </div>
-            </div>
-            <div>
-                <h3 style="color:#aaa;font-size:0.85rem;margin-bottom:8px;">By Stage</h3>
-                
-            <div class="stat-row">
-                <span class="stat-label">Undisclosed</span>
-                <div class="stat-bar" style="width: 100%">4</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">Series D</span>
-                <div class="stat-bar" style="width: 25%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">Growth</span>
-                <div class="stat-bar" style="width: 25%">1</div>
-            </div>
-            <div class="stat-row">
-                <span class="stat-label">Seed</span>
-                <div class="stat-bar" style="width: 25%">1</div>
-            </div>
-            </div>
-        </div>
-
-        <h2>All Deals <span class="counter">7</span></h2>
-        <div class="filter-bar">
-            <input type="text" id="search" placeholder="Search company or investor..." oninput="filterTable()">
-        </div>
-        <table id="deals-table">
-            <thead>
-                <tr>
-                    <th onclick="sortTable(0)">Date</th>
-                    <th onclick="sortTable(1)">Company</th>
-                    <th onclick="sortTable(2)">Amount</th>
-                    <th onclick="sortTable(3)">Stage</th>
-                    <th onclick="sortTable(4)">Lead</th>
-                    <th onclick="sortTable(5)">Source</th>
-                </tr>
-            </thead>
-            <tbody>
-                
+    <!-- TAB: Portfolio Heat -->
+    <div id="tab-portfolio" class="tab-content">
+        <div class="section">
+            <div class="section-header">Portfolio Relevance — This Week</div>
+            <table class="heat-table">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Sectors</th>
+                        <th>Signal</th>
+                        <th>Adjacent Deals</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
         <tr>
-            <td>2026-04-06</td>
-            <td><strong>Saronic</strong></td>
-            <td>$1.75B</td>
-            <td>Series D</td>
-            <td>—</td>
-            <td>Crunchbase</td>
+            <td><strong>Tapestry</strong></td>
+            <td class="sectors-cell">crypto, fintech, consumer</td>
+            <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
+            <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
         </tr>
         <tr>
-            <td>2026-04-07</td>
-            <td><strong>Kalshi</strong></td>
-            <td>$1B</td>
-            <td>Growth</td>
-            <td>—</td>
-            <td>AlleyWatch</td>
+            <td><strong>Hopscotch</strong></td>
+            <td class="sectors-cell">fintech, b2b payments</td>
+            <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
+            <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
         </tr>
+        <tr>
+            <td><strong>Vybe</strong></td>
+            <td class="sectors-cell">computer vision, ai</td>
+            <td><span class="heat warm">WARM</span> <span class="heat-count">2</span></td>
+            <td class="deal-names">Patlytics, Juno</td>
+        </tr>
+        <tr>
+            <td><strong>Mainframe</strong></td>
+            <td class="sectors-cell">ai, productivity</td>
+            <td><span class="heat warm">WARM</span> <span class="heat-count">2</span></td>
+            <td class="deal-names">Patlytics, Juno</td>
+        </tr>
+        <tr>
+            <td><strong>Enigma Labs</strong></td>
+            <td class="sectors-cell">data, aerospace</td>
+            <td><span class="heat warm">WARM</span> <span class="heat-count">1</span></td>
+            <td class="deal-names">Spade</td>
+        </tr>
+        <tr>
+            <td><strong>Revin</strong></td>
+            <td class="sectors-cell">home services, saas</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Hearth Display</strong></td>
+            <td class="sectors-cell">consumer hardware, smart home</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Software Applications Inc</strong></td>
+            <td class="sectors-cell">personal computing, software</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Block Party</strong></td>
+            <td class="sectors-cell">social, safety</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>AddGlow</strong></td>
+            <td class="sectors-cell">e-commerce, community saas</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Diem</strong></td>
+            <td class="sectors-cell">search, consumer social</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Indify</strong></td>
+            <td class="sectors-cell">creator economy, music</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Koodos Labs</strong></td>
+            <td class="sectors-cell">media, consumer social</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>PromptLayer</strong></td>
+            <td class="sectors-cell">dev tools, ai infrastructure</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>Strobe</strong></td>
+            <td class="sectors-cell">energy, climate tech</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+        <tr>
+            <td><strong>swsh</strong></td>
+            <td class="sectors-cell">consumer social</td>
+            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
+            <td class="deal-names">—</td>
+        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB: Deal Flow -->
+    <div id="tab-deals" class="tab-content">
+        <div class="section">
+            <div class="section-header">This Week's Deals</div>
+            <div class="deal-grid">
+                
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Spade</div>
+                <div class="card-amount">$40M <span class="card-stage">Undisclosed</span></div>
+            </div>
+            <div class="card-desc">Transforms messy transaction data into strategic assets for banks and fintechs</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">data</span></div>
+            <div class="card-meta">AlleyWatch · 2026-04-10</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Patlytics</div>
+                <div class="card-amount">$40M <span class="card-stage">Undisclosed</span></div>
+            </div>
+            <div class="card-desc">AI-driven platform for patent filings and IP litigation</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">patents</span><span class="tag sector-tag">IP litigation</span><span class="tag sector-tag">AI</span></div>
+            <div class="card-meta">AlleyWatch · 2026-04-10</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Kalshi</div>
+                <div class="card-amount">Undisclosed <span class="card-stage">Undisclosed</span></div>
+            </div>
+            <div class="card-desc">Predictions marketplace</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">predictions</span></div>
+            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Vestwell</div>
+                <div class="card-amount">Undisclosed <span class="card-stage">Undisclosed</span></div>
+            </div>
+            <div class="card-desc">Digital savings platform</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">savings</span></div>
+            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Juno</div>
+                <div class="card-amount">$12M <span class="card-stage">Seed</span></div>
+            </div>
+            <div class="card-desc">AI-assisted tax preparation software</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">tax software</span><span class="tag sector-tag">AI</span></div>
+            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Kalshi</div>
+                <div class="card-amount">$1B <span class="card-stage">Growth</span></div>
+            </div>
+            <div class="card-desc">Prediction market platform</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">prediction markets</span></div>
+            <div class="card-meta">AlleyWatch · 2026-04-07</div>
+        </div>
+
+        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
+            <div class="card-top">
+                <div class="card-company">Saronic</div>
+                <div class="card-amount">$1.75B <span class="card-stage">Series D</span></div>
+            </div>
+            <div class="card-desc">Developer of autonomous vessels</div>
+            
+            <div class="card-tags"><span class="tag sector-tag">robotics</span><span class="tag sector-tag">autonomous vessels</span></div>
+            <div class="card-meta">Crunchbase · 2026-04-06</div>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: Market Signals -->
+    <div id="tab-signals" class="tab-content">
+        <div class="charts-grid">
+            <div class="chart-box">
+                <div class="chart-title">Sector Activity (This Week)</div>
+                
+            <div class="bar-row">
+                <span class="bar-label">fintech</span>
+                <div class="bar-fill" style="width: 100%"><span>5</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">ai</span>
+                <div class="bar-fill" style="width: 40%"><span>2</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">data</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">patents</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">ip litigation</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">predictions</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">savings</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">tax software</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">prediction markets</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">robotics</span>
+                <div class="bar-fill" style="width: 20%"><span>1</span></div>
+            </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-title">Stage Distribution</div>
+                
+            <div class="bar-row">
+                <span class="bar-label">Seed</span>
+                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Series D</span>
+                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Growth</span>
+                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Undisclosed</span>
+                <div class="bar-fill stage-fill" style="width: 100%"><span>4</span></div>
+            </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-title">Most Active Investors</div>
+                <p class="muted">Not enough data yet — lead investors often undisclosed in email newsletters.</p>
+            </div>
+            <div class="chart-box">
+                <div class="chart-title">Newsletter Sources</div>
+                <div class="bar-row"><span class="bar-label">AlleyWatch</span><div class="bar-fill" style="width: 100%"><span>3</span></div></div><div class="bar-row"><span class="bar-label">Crunchbase Daily</span><div class="bar-fill" style="width: 100%"><span>3</span></div></div><div class="bar-row"><span class="bar-label">Crunchbase</span><div class="bar-fill" style="width: 33%"><span>1</span></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: Full Database -->
+    <div id="tab-table" class="tab-content">
+        <div class="section">
+            <input type="text" class="search-bar" id="search" placeholder="Search company, sector, or investor..." oninput="filterTable()">
+            <div class="table-wrap">
+                <table class="deals-table" id="deals-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Date</th>
+                            <th onclick="sortTable(1)">Company</th>
+                            <th onclick="sortTable(2)">Amount</th>
+                            <th onclick="sortTable(3)">Stage</th>
+                            <th onclick="sortTable(4)">Sector</th>
+                            <th onclick="sortTable(5)">Lead</th>
+                            <th onclick="sortTable(6)">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
         <tr>
             <td>2026-04-10</td>
-            <td><strong>Juno</strong></td>
-            <td>$12M</td>
-            <td>Seed</td>
-            <td>—</td>
-            <td>Crunchbase Daily</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Vestwell</strong></td>
-            <td></td>
+            <td><strong>Spade</strong></td>
+            <td class="amount-cell">$40M</td>
             <td>Undisclosed</td>
+            <td>fintech, data</td>
             <td>—</td>
-            <td>Crunchbase Daily</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Kalshi</strong></td>
-            <td></td>
-            <td>Undisclosed</td>
-            <td>—</td>
-            <td>Crunchbase Daily</td>
+            <td class="source-cell">AlleyWatch</td>
         </tr>
         <tr>
             <td>2026-04-10</td>
             <td><strong>Patlytics</strong></td>
-            <td>$40M</td>
+            <td class="amount-cell">$40M</td>
             <td>Undisclosed</td>
+            <td>patents, IP litigation</td>
             <td>—</td>
-            <td>AlleyWatch</td>
+            <td class="source-cell">AlleyWatch</td>
         </tr>
         <tr>
             <td>2026-04-10</td>
-            <td><strong>Spade</strong></td>
-            <td>$40M</td>
+            <td><strong>Kalshi</strong></td>
+            <td class="amount-cell">—</td>
             <td>Undisclosed</td>
+            <td>fintech, predictions</td>
             <td>—</td>
-            <td>AlleyWatch</td>
+            <td class="source-cell">Crunchbase Daily</td>
         </tr>
-            </tbody>
-        </table>
-
-        <div class="caveat">
-            Based on publicly announced deals via newsletter sources (StrictlyVC, Term Sheet, Axios Pro Rata, AlleyWatch, TechCrunch, Crunchbase, CB Insights, TLDR).<br>
-            Amounts and stages may be approximate. Most seed deals are never publicly announced. This is a curated feed, not a comprehensive market map.
+        <tr>
+            <td>2026-04-10</td>
+            <td><strong>Vestwell</strong></td>
+            <td class="amount-cell">—</td>
+            <td>Undisclosed</td>
+            <td>fintech, savings</td>
+            <td>—</td>
+            <td class="source-cell">Crunchbase Daily</td>
+        </tr>
+        <tr>
+            <td>2026-04-10</td>
+            <td><strong>Juno</strong></td>
+            <td class="amount-cell">$12M</td>
+            <td>Seed</td>
+            <td>fintech, tax software</td>
+            <td>—</td>
+            <td class="source-cell">Crunchbase Daily</td>
+        </tr>
+        <tr>
+            <td>2026-04-07</td>
+            <td><strong>Kalshi</strong></td>
+            <td class="amount-cell">$1B</td>
+            <td>Growth</td>
+            <td>fintech, prediction markets</td>
+            <td>—</td>
+            <td class="source-cell">AlleyWatch</td>
+        </tr>
+        <tr>
+            <td>2026-04-06</td>
+            <td><strong>Saronic</strong></td>
+            <td class="amount-cell">$1.75B</td>
+            <td>Series D</td>
+            <td>robotics, autonomous vessels</td>
+            <td>—</td>
+            <td class="source-cell">Crunchbase</td>
+        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <script>
-    function filterTable() {
-        const q = document.getElementById('search').value.toLowerCase();
-        const rows = document.querySelectorAll('#deals-table tbody tr');
-        rows.forEach(row => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(q) ? '' : 'none';
-        });
-    }
+    <div class="footer">
+        Stellation VC Deal Radar · Scans 8 newsletter sources daily<br>
+        Publicly announced deals only. Amounts approximate. Most seed rounds never reach press.<br>
+        This is a curated intelligence feed, not a comprehensive market map.
+    </div>
 
-    function sortTable(col) {
-        const table = document.getElementById('deals-table');
-        const tbody = table.querySelector('tbody');
-        const rows = Array.from(tbody.querySelectorAll('tr'));
-        const dir = table.dataset.sortDir === 'asc' ? 'desc' : 'asc';
-        table.dataset.sortDir = dir;
-        rows.sort((a, b) => {
-            const aVal = a.cells[col]?.textContent || '';
-            const bVal = b.cells[col]?.textContent || '';
-            return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        });
-        rows.forEach(row => tbody.appendChild(row));
-    }
-    </script>
+</div>
+
+<script>
+function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    // Find the clicked tab
+    document.querySelectorAll('.tab').forEach(t => {
+        if (t.textContent.toLowerCase().includes(name.substring(0, 4))) t.classList.add('active');
+    });
+    // Fix active tab by onclick match
+    event.target.classList.add('active');
+}
+
+function filterTable() {
+    const q = document.getElementById('search').value.toLowerCase();
+    document.querySelectorAll('#deals-table tbody tr').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+}
+
+function sortTable(col) {
+    const table = document.getElementById('deals-table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const dir = table.dataset.sortCol == col && table.dataset.sortDir === 'asc' ? 'desc' : 'asc';
+    table.dataset.sortDir = dir;
+    table.dataset.sortCol = col;
+    rows.sort((a, b) => {
+        let aVal = a.cells[col]?.textContent.trim() || '';
+        let bVal = b.cells[col]?.textContent.trim() || '';
+        // Try numeric sort for amount column
+        if (col === 2) {
+            const toNum = s => { const m = s.match(/[\d.]+/); return m ? parseFloat(m[0]) * (s.includes('B') ? 1000 : 1) : 0; };
+            return dir === 'asc' ? toNum(aVal) - toNum(bVal) : toNum(bVal) - toNum(aVal);
+        }
+        return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    });
+    rows.forEach(row => tbody.appendChild(row));
+}
+</script>
 </body>
 </html>
