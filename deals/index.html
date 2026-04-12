@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deal Radar — Stellation VC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Stellation Intelligence Brief</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #FFC501;
-            --gold-dim: rgba(255, 197, 1, 0.15);
-            --gold-glow: rgba(255, 197, 1, 0.08);
-            --bg: #0b0f1a;
+            --bg: #0b0f19;
             --surface: #111827;
-            --surface2: #1a2235;
             --border: rgba(255,255,255,0.06);
+            --gold: #e5a800;
+            --gold-soft: rgba(229,168,0,0.12);
             --text: #e2e8f0;
-            --text-dim: #94a3b8;
+            --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --green: #22c55e;
-            --green-dim: rgba(34, 197, 94, 0.15);
-            --orange: #f59e0b;
-            --orange-dim: rgba(245, 158, 11, 0.15);
+            --text-faint: #475569;
             --red: #ef4444;
-            --blue: #3b82f6;
-            --blue-dim: rgba(59, 130, 246, 0.12);
+            --green: #22c55e;
+            --blue: #60a5fa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,912 +27,581 @@
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .page { max-width: 1080px; margin: 0 auto; padding: 32px 24px; }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
 
-        /* --- Header --- */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-            gap: 8px;
+        /* --- Masthead --- */
+        .masthead {
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
         }
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .masthead-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 600;
             color: #fff;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
-        .header h1 span { color: var(--gold); }
-        .updated {
+        .masthead-sub {
             font-size: 0.75rem;
             color: var(--text-muted);
-        }
-        .tagline {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            margin-bottom: 32px;
+            margin-top: 4px;
         }
 
-        /* --- KPI strip --- */
-        .kpi-strip {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-            margin-bottom: 36px;
-        }
-        .kpi {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-        }
-        .kpi-value {
-            font-size: 1.5rem;
-            font-weight: 700;
+        /* --- The Lead --- */
+        .the-lead {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            line-height: 1.65;
             color: #fff;
-        }
-        .kpi-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
-        }
-
-        /* --- Section --- */
-        .section {
-            margin-bottom: 40px;
-        }
-        .section-header {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
+            margin-bottom: 48px;
+            padding: 24px 0;
             border-bottom: 1px solid var(--border);
         }
 
-        /* --- Briefing (markdown) --- */
-        .briefing {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px 32px;
-            margin-bottom: 36px;
-        }
-        .brief-h3 {
-            font-size: 1rem;
-            font-weight: 600;
+        /* --- Briefing sections --- */
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
             color: var(--gold);
-            margin: 24px 0 10px;
+            margin-top: 40px;
+            margin-bottom: 16px;
         }
-        .brief-h3:first-child { margin-top: 0; }
-        .brief-h4 {
-            font-size: 0.9rem;
+        .section-break {
+            height: 0;
+            margin: 8px 0;
+        }
+
+        h2 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #fff;
-            margin: 20px 0 8px;
+            margin-bottom: 20px;
+            display: none; /* Hide the top-level title from md — we use masthead */
         }
-        .brief-p {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            margin-bottom: 8px;
+
+        /* Key points (bold-start paragraphs) */
+        .key-point {
+            font-size: 0.88rem;
             line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 4px;
         }
-        .brief-p strong { color: #fff; font-weight: 600; }
-        .brief-bullet {
+        .key-point strong { color: #fff; font-weight: 600; }
+
+        /* Regular paragraphs */
+        p {
             font-size: 0.85rem;
-            color: var(--text-dim);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        p strong { color: #fff; font-weight: 500; }
+
+        /* Bullets */
+        .bullet {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 16px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .bullet::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+        .bullet strong { color: #fff; font-weight: 500; }
+        .bullet em { color: var(--text-muted); font-style: italic; }
+
+        /* Noise items (strikethrough) */
+        .noise-item {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
             padding-left: 16px;
             margin-bottom: 6px;
             position: relative;
-            line-height: 1.7;
         }
-        .brief-bullet::before {
-            content: "·";
+        .noise-item::before {
+            content: "✕";
             position: absolute;
-            left: 4px;
-            color: var(--gold);
-            font-weight: 700;
+            left: 0;
+            color: var(--text-faint);
+            font-size: 0.7rem;
         }
-        .brief-bullet strong { color: #fff; }
-        .brief-hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 20px 0;
-        }
-        .brief-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-            margin: 12px 0;
-        }
-        .brief-table td {
-            padding: 6px 10px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-dim);
-        }
-        .brief-table td:first-child { color: #fff; font-weight: 500; }
-        .brief-table td strong { color: #fff; }
-        .portfolio-note {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--gold);
-            margin-top: 4px;
-            opacity: 0.8;
+        .strikethrough {
+            text-decoration: line-through;
+            color: var(--text-faint);
         }
 
-        /* --- Portfolio heat --- */
-        .heat-table {
-            width: 100%;
-            border-collapse: collapse;
+        /* Implication arrows */
+        .implication {
             font-size: 0.82rem;
-        }
-        .heat-table th {
-            text-align: left;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 8px 10px;
-            border-bottom: 1px solid var(--border);
-        }
-        .heat-table td {
-            padding: 10px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        .heat-table td strong { color: #fff; }
-        .sectors-cell { color: var(--text-muted); font-size: 0.75rem; }
-        .deal-names { color: var(--text-dim); font-size: 0.78rem; }
-        .heat {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-        .heat.hot { background: rgba(239, 68, 68, 0.15); color: var(--red); }
-        .heat.warm { background: var(--orange-dim); color: var(--orange); }
-        .heat.quiet { background: rgba(100, 116, 139, 0.15); color: var(--text-muted); }
-        .heat-count {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 4px;
-        }
-
-        /* --- Bar charts --- */
-        .charts-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        @media (max-width: 700px) { .charts-grid { grid-template-columns: 1fr; } }
-        .chart-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .chart-title {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 14px;
-        }
-        .bar-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-        .bar-label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            min-width: 100px;
-            text-align: right;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .bar-fill {
-            background: var(--gold-dim);
-            border-radius: 4px;
-            padding: 3px 8px;
-            min-width: 24px;
-            transition: width 0.3s;
-        }
-        .bar-fill span {
-            font-size: 0.7rem;
-            font-weight: 600;
             color: var(--gold);
+            line-height: 1.6;
+            padding-left: 20px;
+            margin-bottom: 16px;
+            opacity: 0.85;
         }
-        .stage-fill {
-            background: var(--blue-dim);
-        }
-        .stage-fill span { color: var(--blue); }
-        .investor-fill {
-            background: var(--green-dim);
-        }
-        .investor-fill span { color: var(--green); }
+        .implication em { font-style: italic; }
+        .arrow { color: var(--gold); margin-right: 4px; }
 
-        /* --- Deal cards --- */
-        .deal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 12px;
+        /* Detail lines */
+        .detail {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-left: 20px;
+            margin-bottom: 4px;
         }
-        .deal-card {
+        .detail em { font-style: italic; }
+
+        /* Footnotes */
+        .footnote {
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            line-height: 1.6;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+
+        /* Pattern lines from md */
+        .pattern-line {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+        .pattern-line strong { color: #fff; }
+
+        /* --- Pattern tracker (from patterns.json) --- */
+        .patterns-section {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .pattern-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px 18px;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
         }
-        .card-top {
+        .pattern-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 6px;
+            align-items: center;
+            margin-bottom: 8px;
         }
-        .card-company {
+        .pattern-name {
+            font-size: 0.88rem;
             font-weight: 600;
             color: #fff;
-            font-size: 0.9rem;
         }
-        .card-amount {
-            font-weight: 700;
-            color: var(--gold);
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-        .card-stage {
-            font-weight: 500;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-        .card-desc {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-        .card-investors {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-        .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
-        .tag {
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.02em;
-        }
-        .sector-tag { background: var(--blue-dim); color: var(--blue); }
-        .portfolio-tag { background: var(--gold-dim); color: var(--gold); }
-        .card-meta {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        /* --- Full table --- */
-        .table-wrap {
-            overflow-x: auto;
-        }
-        .deals-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.78rem;
-        }
-        .deals-table th {
-            text-align: left;
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 10px 8px;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            user-select: none;
-            white-space: nowrap;
-        }
-        .deals-table th:hover { color: var(--gold); }
-        .deals-table td {
-            padding: 8px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-dim);
-        }
-        .deals-table td strong { color: #fff; font-weight: 500; }
-        .deals-table tr.flagged td { background: var(--gold-glow); }
-        .amount-cell { font-weight: 600; color: #fff !important; white-space: nowrap; }
-        .source-cell { color: var(--text-muted); }
-        .nyc-badge {
-            background: var(--blue-dim);
-            color: var(--blue);
+        .pattern-status {
             font-size: 0.6rem;
             font-weight: 700;
-            padding: 1px 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 2px 8px;
             border-radius: 3px;
-            margin-left: 6px;
         }
-        .search-bar {
+        .status-emerging { background: rgba(96,165,250,0.15); color: var(--blue); }
+        .status-building { background: var(--gold-soft); color: var(--gold); }
+        .status-established { background: rgba(34,197,94,0.12); color: var(--green); }
+        .status-fading { background: rgba(100,116,139,0.15); color: var(--text-muted); }
+        .status-contradicted { background: rgba(239,68,68,0.12); color: var(--red); }
+        .pattern-dots {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        .week-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--text-faint);
+        }
+        .week-dot.filled { background: var(--gold); border-color: var(--gold); }
+        .pattern-insight {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pattern-counter {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* --- Raw data table --- */
+        .evidence-section {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .evidence-toggle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .evidence-toggle:hover { color: var(--text); }
+        .evidence-body { display: none; margin-top: 12px; }
+        .evidence-body.open { display: block; }
+        .search-input {
             width: 100%;
-            max-width: 320px;
+            max-width: 280px;
             background: var(--surface);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 8px 14px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 6px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
+            font-size: 0.78rem;
+            margin-bottom: 10px;
         }
-        .search-bar:focus { outline: none; border-color: var(--gold); }
+        .search-input:focus { outline: none; border-color: var(--gold); }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+        .data-table th {
+            text-align: left;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 6px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+        .data-table th:hover { color: var(--gold); }
+        .data-table td {
+            padding: 7px 6px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .data-table td strong { color: #fff; font-weight: 500; }
+        .data-table .flagged td { background: var(--gold-soft); }
+        .amt { font-weight: 600; color: #fff !important; white-space: nowrap; }
+        .src { color: var(--text-muted); }
 
         /* --- Footer --- */
         .footer {
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.7rem;
+            color: var(--text-faint);
+            font-size: 0.68rem;
             margin-top: 48px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
             line-height: 1.8;
         }
 
-        /* --- Nav tabs --- */
-        .tabs {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 28px;
-            border-bottom: 1px solid var(--border);
-        }
-        .tab {
-            padding: 10px 18px;
-            font-size: 0.78rem;
-            font-weight: 500;
+        .empty {
             color: var(--text-muted);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.15s;
+            font-style: italic;
         }
-        .tab:hover { color: var(--text); }
-        .tab.active {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
 
-        .muted { color: var(--text-muted); font-size: 0.82rem; }
+        @media (max-width: 600px) {
+            .page { padding: 24px 16px 60px; }
+            .the-lead { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <div class="header">
-        <h1><span>Deal Radar</span></h1>
-        <div class="updated">Updated Apr 10, 2026 at 10:14 AM ET</div>
-    </div>
-    <div class="tagline">Stellation VC — deal flow intelligence, market signals, portfolio heat</div>
-
-    <!-- KPI Strip -->
-    <div class="kpi-strip">
-        <div class="kpi">
-            <div class="kpi-value">7</div>
-            <div class="kpi-label">Deals This Week</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">$2.8B</div>
-            <div class="kpi-label">Capital Tracked</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">0</div>
-            <div class="kpi-label">Portfolio-Adjacent</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">7</div>
-            <div class="kpi-label">All-Time Deals</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">3</div>
-            <div class="kpi-label">Active Sources</div>
-        </div>
+    <!-- Masthead -->
+    <div class="masthead">
+        <div class="masthead-title">Stellation Intelligence Brief</div>
+        <div class="masthead-sub">Week of April 12, 2026 · 7 deals · 5 active patterns</div>
     </div>
 
-    <!-- Tabs -->
-    <div class="tabs">
-        <div class="tab active" onclick="switchTab('briefing', this)">Briefing</div>
-        <div class="tab" onclick="switchTab('portfolio', this)">Portfolio Heat</div>
-        <div class="tab" onclick="switchTab('deals', this)">Deal Flow</div>
-        <div class="tab" onclick="switchTab('signals', this)">Market Signals</div>
-        <div class="tab" onclick="switchTab('table', this)">Full Database</div>
-    </div>
+    <!-- The Lead -->
+    <div class="the-lead">Agentic AI isn&#x27;t approaching a traction inflection — it already happened: Fleet went $1M to $63M ARR in six months, Hightouch has Spotify and Docusign in production, and the capital is now following reality, not narrative; the question for Peter is whether Mainframe is positioned to capture the same tailwind or get buried under it.</div>
 
-    <!-- TAB: Briefing -->
-    <div id="tab-briefing" class="tab-content active">
-        <div class="briefing">
-            <h3 class="brief-h3">Deal Radar — Week of Apr 6–10, 2026</h3>
+    <!-- Intelligence Brief (from deal_summary.md) -->
+    <h2>Stellation Intelligence Brief — Week of Apr 12, 2026</h2>
+<div class="key-point"><strong>Agentic AI isn't approaching a traction inflection — it already happened: Fleet went $1M to $63M ARR in six months, Hightouch has Spotify and Docusign in production, and the capital is now following reality, not narrative; the question for Peter is whether Mainframe is positioned to capture the same tailwind or get buried under it.</strong></div>
+<div class="section-break"></div>
+<div class="section-label">What&#x27;s Actually Happening</div>
+<div class="bullet">Kalshi closed a $1B growth round — the largest prediction markets raise ever — legitimizing event-driven financial instruments as a durable asset class, not a crypto curiosity. Two separate Kalshi entries in the deal feed (Crunchbase + AlleyWatch) confirm this wasn't a soft signal. <em>(AlleyWatch, Crunchbase Daily)</em></div>
+<div class="bullet">Fleet (sales ops automation) grew from $1M to $63M ARR in six months and is projecting $160M ARR next quarter — the most concrete agentic AI revenue data point seen this cycle, validating that agents plugged into core revenue workflows can compound faster than any prior SaaS curve. <em>(@ArfurRock)</em></div>
+<div class="bullet">26 LLM routers were compromised in a single incident pattern, with one attack draining $500k from a client wallet — agentic AI has moved fast enough that offensive security is now actively targeting production agent infrastructure, not just theorizing about it. <em>(@Fried_rice)</em></div>
+<div class="bullet">Crosby Legal raised $60M explicitly selling legal outcomes rather than legal software, and SiFive raised $400M for data center processors purpose-built for agentic workloads — infrastructure and business model layers are both being purpose-built around agents in the same week. <em>(@APompliano, @TradedVC)</em></div>
+<div class="bullet">Saronic raised $1.75B Series D for autonomous maritime vessels — defense/dual-use robotics is drawing growth-stage capital at a scale that signals institutional LP mandates have shifted, not just founder enthusiasm. <em>(Crunchbase)</em></div>
+<div class="section-break"></div>
+<div class="section-label">Signal vs Noise</div>
+<div class="key-point"><strong>SIGNAL</strong></div>
+<div class="key-point"><strong>Fleet's $1M<span class="arrow">→</span>$63M ARR in six months is a benchmark, not an outlier.</strong></div>
+<p>It's the first clean, public data point showing what agent-native revenue velocity looks like when you own a core business workflow — not a demo, not a pilot, a production number.</p>
+<div class="implication"><span class="arrow">→</span> <em>Mainframe is the Stellation company most exposed to this opportunity and this competitive threat simultaneously — if it isn't already showing compounding ARR curves, it needs to be asked why not.</em></div>
+<div class="key-point"><strong>LLM router exploit drained $500k in a single incident; 26 routers compromised across the ecosystem.</strong></div>
+<p>Agent infrastructure has moved from 'secure by obscurity' to actively targeted; this is the moment security becomes table-stakes, not a nice-to-have, for any company routing LLM calls through agents.</p>
+<div class="implication"><span class="arrow">→</span> <em>Mainframe and Vybe both likely touch LLM orchestration layers — Peter should ask founders directly about their tool-call security posture before this becomes a customer trust issue.</em></div>
+<div class="key-point"><strong>Kalshi's $1B round anchors prediction markets as legitimate financial infrastructure.</strong></div>
+<p>A $1B growth check from institutional investors means someone underwriting serious regulatory and reputational risk has conviction this is real — it's not a crypto-adjacent bet anymore.</p>
+<div class="implication"><span class="arrow">→</span> <em>Tapestry's consumer crypto wallet thesis gets a secondary validation: consumer appetite for non-traditional financial instruments is real and capitalized. The question is whether Tapestry's roadmap touches prediction or structured exposure products.</em></div>
+<div class="key-point"><strong>Crosby Legal's 'sell the work' model raised $60M — AI-enabled professional services commanding outcome-based pricing at scale.</strong></div>
+<p>This inverts the SaaS default: instead of charging per seat for a tool, charge for the outcome the tool delivers. The unit economics are fundamentally different and potentially far superior.</p>
+<div class="implication"><span class="arrow">→</span> <em>No Stellation company is currently positioned here, which may be a gap. Any portfolio company in a professional workflow (legal, financial, compliance) should be pressure-tested on whether they're leaving revenue on the table with SaaS pricing.</em></div>
+<div class="key-point"><strong>NOISE</strong></div>
+<div class="noise-item"><span class="strikethrough">Vestwell undisclosed round in digital savings.</span> — No disclosed amount, no disclosed lead, in a mature fintech vertical — this is a house-keeping round, not a thesis signal.</div>
+<div class="noise-item"><span class="strikethrough">Juno $12M seed for AI tax prep.</span> — Tax software is a crowded vertical with entrenched incumbents (TurboTax, H&R Block) and a narrow seasonal window; AI doesn't obviously change the distribution moat.</div>
+<div class="noise-item"><span class="strikethrough">Saronic $1.75B defense robotics.</span> — Impressive capital formation, but defense/maritime robotics is outside Stellation's thesis and LP base — notable for macro awareness, not portfolio action.</div>
+<div class="noise-item"><span class="strikethrough">Karpathy's observation that public AI perception lags reality by 6+ months.</span> — True and worth knowing, but it's been true for 18 months — this isn't new intelligence, it's a persistent condition that's already priced into how sophisticated operators think.</div>
+<div class="section-break"></div>
+<div class="section-label">Portfolio Implications</div>
+<div class="key-point"><strong>Agentic AI traction is now measured in ARR velocity, not user counts — and the bar is compressing fast</strong></div>
+<p>Companies: Mainframe</p>
+<p>Fleet's 63x ARR curve in six months sets a public benchmark that LPs and co-investors will now use to evaluate Mainframe; Peter should understand Mainframe's current ARR trajectory and whether the product is plugged into a revenue-critical workflow with the same stickiness that drove Fleet's numbers.</p>
+<div class="key-point"><strong>Consumer fintech is getting a structural bid — prediction markets, crypto wallets, and B2B payments are all seeing institutional capital re-engage</strong></div>
+<p>Companies: Tapestry, Hopscotch</p>
+<p>Both companies have 7 signals this week, which is abnormally high — worth asking whether that's organic deal flow confirming the thesis or just a hot sector moment; Kalshi's $1B round and the fintech clustering suggest the former, but Peter should verify neither company is in a sector micro-bubble.</p>
+<div class="key-point"><strong>Agent infrastructure security is now an existential product requirement, not a roadmap item</strong></div>
+<p>Companies: Mainframe, Vybe, PromptLayer</p>
+<p>The $500k wallet drain from LLM router exploits is a customer-trust event waiting to happen at any company routing LLM calls through untrusted tool call chains; Peter should ask each of these founders specifically what their security review process looks like for agent actions before a portfolio incident surfaces this.</p>
+<div class="key-point"><strong>The 'selling outcomes not software' model is becoming a legitimate alternative to SaaS at scale</strong></div>
+<p>Companies: Mainframe, Hopscotch</p>
+<p>Crosby Legal's $60M raise on outcome-based AI legal services isn't just a legal story — it's a pricing model story that applies anywhere AI can automate a billable professional task; Mainframe (productivity automation) and Hopscotch (B2B payments where time-to-payment is measurable) should both be tested on whether outcome pricing would improve their unit economics.</p>
+<div class="section-break"></div>
+<div class="section-label">Twitter Pulse</div>
+<div class="bullet"><strong>@ArfurRock:</strong> Fleet grew from $1M to $63M ARR in six months by automating sales ops with agents — projecting $160M ARR next quarter. This is what venture-scale agentic AI traction looks like when you own a core revenue workflow.</div>
+<div class="implication"><span class="arrow">→</span> <em>Sets a public benchmark for agentic ARR velocity that will define how LPs and co-investors evaluate Stellation's AI portfolio companies going forward.</em></div>
+<div class="bullet"><strong>@Fried_rice:</strong> 26 LLM routers compromised, one incident drained $500k from a client wallet — agent infrastructure is now an active attack surface with real financial stakes.</div>
+<div class="implication"><span class="arrow">→</span> <em>Any Stellation company routing LLM tool calls through agent orchestration layers needs an immediate security posture review before a portfolio incident surfaces this publicly.</em></div>
+<div class="bullet"><strong>@APompliano:</strong> Crosby Legal raised $60M selling legal outcomes rather than legal software — AI makes the professional services delivery cheap enough to price at the output, not the access.</div>
+<div class="implication"><span class="arrow">→</span> <em>This is the most underexplored repricing opportunity in AI: any company automating a professional task should be evaluated on whether outcome-based pricing would structurally improve their business.</em></div>
+<div class="bullet"><strong>@gustaf:</strong> Hightouch Series C as the 'first agentic marketer' with Spotify and Docusign in production — agents are moving from pilot to core infrastructure at enterprise scale.</div>
+<div class="implication"><span class="arrow">→</span> <em>Production enterprise customers at Spotify/Docusign scale signal that the sales cycle and security review bar for agentic AI tools has been cleared — the market is open, not still warming up.</em></div>
+<div class="bullet"><strong>@TradedVC:</strong> SiFive raised $400M specifically for agentic AI compute — infrastructure capital sees specialized processors for agent workloads as the next constrained layer.</div>
+<div class="implication"><span class="arrow">→</span> <em>If agentic workloads do require specialized compute, this is a platform shift signal — similar to how mobile required ARM over x86; Stellation's AI companies should understand their compute dependency before this becomes a bottleneck.</em></div>
+<div class="section-break"></div>
+<div class="section-label">Macro Context</div>
+<div class="bullet"><strong>Capital concentration at the extremes: $1B+ rounds (Kalshi, Saronic) and $12M seeds (Juno) in the same week, with very little in between — the middle of the venture stack is getting compressed.</strong> — Series A and B rounds are becoming harder to raise as capital flows to proven growth stories and very early optionality; seed companies in the Stellation portfolio need to show enough traction to cross to growth before the Series A window tightens further. <em>(AlleyWatch, Crunchbase Daily — deal distribution analysis)</em></div>
+<div class="bullet"><strong>Defense and dual-use technology is absorbing institutional capital at growth-stage scale — Saronic's $1.75B Series D is the latest data point in a multi-quarter trend of serious capital entering autonomous systems.</strong> — LP portfolios are shifting toward hard-tech and defense-adjacent theses; this may affect what co-investors are available and what narrative resonates in Stellation's next fund raise. <em>(Crunchbase)</em></div>
+<div class="bullet"><strong>AI perception gap: public understanding of AI capability is 6+ months behind current-generation models, creating asymmetric information between sophisticated operators and the broader market.</strong> — Founders and investors who understand current AI state have a durable advantage in product design, competitive positioning, and market timing — but this window closes as the perception gap narrows. <em>(@karpathy)</em></div>
+<div class="bullet"><strong>Founder age and capital-raise age compression: 25-year-old founders raising $140M+ rounds, with peer competitive anxiety driving faster hiring and burn decisions.</strong> — The competitive clock is accelerating — companies that felt like they had 18 months to build now face well-capitalized 25-year-olds moving at sprint pace; Stellation portfolio companies need to be honest about where they're moving fast enough and where they're rationalizing slow. <em>(@thesamparr)</em></div>
+<div class="section-break"></div>
+<div class="section-label">Where Consensus Might Be Wrong</div>
+<div class="bullet"><strong>Consensus:</strong> Agentic AI is the hottest sector and every AI company should be repositioning toward agents.</div>
+<div class="key-point"><strong>Counter:</strong> The Fleet ARR story and the $500k wallet drain are both true at the same time — exceptional revenue velocity and active exploitation of the same infrastructure. Companies racing to 'agentic' without clearing the security bar may be building customer trust liability faster than ARR.</div>
+<p>Evidence: 26 LLM routers compromised in the same week Fleet's numbers went viral — the attack surface scales with adoption, not behind it.</p>
+<div class="bullet"><strong>Consensus:</strong> Outcome-based AI pricing is a superior model that all AI companies should explore.</div>
+<div class="key-point"><strong>Counter:</strong> Outcome-based pricing is a services business with AI leverage, not a software business — it requires domain expertise, delivery risk management, and client relationship infrastructure that most AI startups don't have and VCs don't know how to evaluate.</div>
+<p>Evidence: Crosby Legal's $60M raise is compelling, but legal is a domain where outcomes are well-defined and billable hours are already the standard unit — the model may not port cleanly to less legible professional domains.</p>
+<div class="bullet"><strong>Consensus:</strong> Fintech is heating up again based on deal volume and capital flowing into the sector this week.</div>
+<div class="key-point"><strong>Counter:</strong> Most of this week's fintech signal is in prediction markets (Kalshi) and transaction data infrastructure (Spade) — niche, high-regulatory-risk categories that don't generalize to broader fintech conditions. Consumer fintech for mass-market products (like Tapestry and Hopscotch) may be operating in a different environment entirely.</div>
+<p>Evidence: Three of the seven deals this week are in highly specific fintech subcategories with distinct regulatory profiles; the headline 'fintech is back' narrative may be overfit to a few outlier raises.</p>
+<div class="section-break"></div>
+<div class="section-label">Patterns Tracking</div>
+<div class="pattern-line">◇ <strong>Agentic AI Revenue Inflection</strong> [emerging]</div>
+<p>Fleet $1M<span class="arrow">→</span>$63M ARR in six months; Hightouch Series C with Spotify/Docusign in production; Luminai $38M Series B for healthcare workflow automation — three independent data points in one week showing agents in production at scale.</p>
+<p><em>Why:</em> The gap between 'AI can do this' and 'AI is doing this in production' has closed faster than most investors modeled; companies that embedded agents into core revenue or care workflows in 2025 are now showing the compounding returns.</p>
+<p><em>Counter:</em> Fleet's numbers may be an outlier in a frictionless category (sales ops) that happens to be easy to automate; healthcare and productivity may face longer cycles due to compliance, change management, and workflow lock-in.</p>
+<div class="pattern-line">◇ <strong>Agent Infrastructure Security as Attack Surface</strong> [emerging]</div>
+<p>26 LLM routers compromised with one $500k wallet drain — offensive tooling is actively targeting agent orchestration layers in production.</p>
+<p><em>Why:</em> Agent infrastructure scaled into production faster than security tooling caught up; attackers are now exploiting the gap between 'agentic capability' and 'agentic security,' particularly in high-value financial workflows.</p>
+<p><em>Counter:</em> This may be concentrated in crypto/DeFi contexts where attack incentives are highest and security hygiene is lowest — enterprise agent deployments with SOC2 requirements may be structurally less exposed.</p>
+<div class="pattern-line">◇ <strong>Outcome-Based AI Pricing Model</strong> [emerging]</div>
+<p>Crosby Legal $60M raise explicitly on 'selling the work' thesis — AI makes professional services delivery cheap enough to price at outcomes rather than hourly rates or SaaS seats.</p>
+<p><em>Why:</em> When AI compresses the marginal cost of professional output toward zero, the SaaS model (charging for access to a tool) is structurally inferior to the services model (charging for the output); Crosby Legal is the first growth-stage validation of this in legal, but the thesis applies broadly.</p>
+<p><em>Counter:</em> Outcome-based pricing concentrates risk on the vendor side and requires deep domain expertise to scope accurately — most AI companies lack the services DNA to execute this without margin blowouts.</p>
+<div class="pattern-line">◇ <strong>Prediction Markets Legitimization</strong> [emerging]</div>
+<p>Kalshi $1B growth round — institutional capital at growth-stage scale committing to prediction markets as durable financial infrastructure.</p>
+<p><em>Why:</em> Post-election cycle, prediction markets proved their accuracy premium over polls; institutional investors are now funding the infrastructure layer before the regulatory framework fully settles, betting the framework follows the product.</p>
+<p><em>Counter:</em> Regulatory risk remains asymmetric — a single CFTC ruling or political shift could constrain the market significantly; the $1B may be price-insensitive capital chasing a narrative more than a proven unit economics model.</p>
+<div class="pattern-line">◇ <strong>Specialized Compute for Agentic AI</strong> [emerging]</div>
+<p>SiFive raised $400M Series G specifically for data center processors optimized for agentic workloads — not general LLM inference, but agent-specific compute.</p>
+<p><em>Why:</em> Infrastructure investors are betting that agentic workloads (parallel tool calls, stateful sessions, long-context reasoning) have a distinct compute profile from batch inference — specialized silicon will outperform general GPU for these patterns.</p>
+<p><em>Counter:</em> GPU vendors (NVIDIA, AMD) and hyperscalers have every incentive and resource to optimize for agentic workloads; specialized silicon historically struggles to survive once the general-purpose incumbents decide to compete.</p>
+<div class="section-break"></div>
+<div class="footnote"><em>Based on 7 deals from 8 newsletter sources and 8 Twitter signals. Publicly announced deals only. This is a curated intelligence feed, not a comprehensive market map.</em></div>
 
-<p class="brief-p"><strong>Sources scanned:</strong> AlleyWatch (5 editions), Crunchbase Daily (5), Axios Pro Rata (1). TLDR ran but had no deal content. StrictlyVC, Fortune Term Sheet, TechCrunch, CB Insights just subscribed — will start contributing next week.</p>
-
-<hr class="brief-hr">
-
-<h4 class="brief-h4">The Big Picture</h4>
-
-<p class="brief-p">Q1 2026 was a record quarter. North American startups raised $252B+ — more than 3x the prior quarter and the largest quarterly total ever. Nearly two-thirds of global VC went to just four companies. AI took the lion's share, but early/seed-stage funding stayed robust across robotics, semiconductors, and AI infrastructure. An unprecedented number of early-stage unicorns were minted in Q1 alone.</p>
-
-<p class="brief-p">Private credit is flashing warning signs — Carlyle's credit fund saw 15.7% redemption requests (3x the cap), and Blue Owl and BlackRock are getting more asks than they can fill. Dan Primack's take: PE rode the private credit wave. It may get hit by breakers.</p>
-
-<hr class="brief-hr">
-
-<h4 class="brief-h4">Portfolio-Relevant Deals</h4>
-
-<p class="brief-p"><strong>Spade</strong> — $40M | Fintech/data infrastructure</p>
-<p class="brief-p">Turns messy transaction data into a strategic asset for banks and fintechs. Stripe, PayPal, and Mercury now depend on it as core infrastructure. The problem: payment data hasn't meaningfully changed in 50 years, costing FIs billions in disputes, fraud, and missed AI opportunities.</p>
-<p class="brief-p">→ <em>Tapestry, Hopscotch overlap (fintech). Worth watching — Spade is becoming the pipes layer that consumer crypto/payments companies will sit on top of.</em></p>
-
-<p class="brief-p"><strong>Patlytics</strong> — $40M | AI/legal tech</p>
-<p class="brief-p">AI-driven patent filing analysis and IP litigation intelligence. Already used by 40%+ of Am Law 100 firms. Patent filings AND IP litigation are both surging because of AI — Patlytics benefits from both sides.</p>
-<p class="brief-p">→ <em>Vybe, Mainframe overlap (AI). Different application but same underlying thesis: AI tooling for domain experts.</em></p>
-
-<p class="brief-p"><strong>Kalshi</strong> — $1B late-stage (led NYC's $3.94B March) | Fintech/prediction markets</p>
-<p class="brief-p">NYC-based prediction market platform. This round led a historic March for NYC VC — $3.94B across 97 deals, 293.6% YoY surge. Kalshi alone was $1B of that. NYC captured 20.7% of all US venture capital, with Series A dominance (39.8% of national deals).</p>
-<p class="brief-p">→ <em>Tapestry, Hopscotch overlap (fintech). The NYC stat matters — Stellation's NYC thesis continues to have tailwinds.</em></p>
-
-<p class="brief-p"><strong>Juno</strong> — $12M Seed | Fintech/AI (San Francisco)</p>
-<p class="brief-p">AI-assisted tax prep. Founded by CPA Dave Haase, automates up to 90% of tax-prep grunt work. Already at hundreds of firms and mid-seven-figure ARR. Crunchbase exclusive.</p>
-<p class="brief-p">→ <em>Tapestry, Hopscotch (fintech); Vybe, Mainframe (AI). Classic "AI for domain experts" play — same thesis as PromptLayer.</em></p>
-
-<hr class="brief-hr">
-
-<h4 class="brief-h4">Other Notable Deals (from Axios Pro Rata, Apr 10)</h4>
-
-<table class="brief-table"><tbody>
-<tr><td>Company</td><td>Amount</td><td>Stage</td><td>Sector</td><td>Lead</td></tr>
-<tr><td><strong>ShengShu</strong></td><td>$293M</td><td>—</td><td>AI video (Beijing)</td><td>Alibaba, Baidu Ventures</td></tr>
-<tr><td><strong>Chapter</strong></td><td>$100M</td><td>Series E</td><td>Medicare navigation</td><td>Generation Investment Mgmt</td></tr>
-<tr><td><strong>Elorian</strong></td><td>$55M</td><td>Seed ($300M val)</td><td>AI visual reasoning</td><td>Striker Ventures, Menlo, Altimeter, Nvidia</td></tr>
-<tr><td><strong>Luminai</strong></td><td>$38M</td><td>Series B</td><td>Healthcare automation</td><td>Peak XV Partners</td></tr>
-<tr><td><strong>Paysend</strong></td><td>$25M</td><td>—</td><td>Intl money transfer (UK)</td><td>Claret Capital</td></tr>
-<tr><td><strong>SiFive</strong></td><td>—</td><td>—</td><td>Semiconductor/RISC-V</td><td>—</td></tr>
-<tr><td><strong>Saronic</strong></td><td>$1.75B</td><td>Series D</td><td>Autonomous vessels</td><td>—</td></tr>
-</table>
-
-<p class="brief-p"><strong>Saronic</strong> ($1.75B Series D) was the biggest single round of the week — autonomous military vessels. Defense tech continues to attract massive capital.</p>
-
-<p class="brief-p"><strong>Elorian</strong> is interesting at $55M seed/$300M valuation for visual reasoning AI — Jeff Dean is in. Early signal that the AI funding wave is expanding beyond language models into perception.</p>
-
-<hr class="brief-hr">
-
-<h4 class="brief-h4">Market Signals</h4>
-
-<div class="brief-bullet"><strong>Fintech consolidating up:</strong> Funding rose in Q1 despite ~30% fewer deals. Investors are concentrating into "high-conviction" bets. Fewer companies, bigger checks.</div>
-<div class="brief-bullet"><strong>NYC having a moment:</strong> $3.94B in March alone. 20.7% of all US VC. Series A dominance nationally.</div>
-<div class="brief-bullet"><strong>LatAm shift:</strong> Mexico topped Brazil as LatAm's biggest VC market for only the second time since 2012.</div>
-<div class="brief-bullet"><strong>AI everywhere:</strong> Even "non-AI" categories (tax prep, patent law, ferries) are getting funded on AI theses.</div>
-<div class="brief-bullet"><strong>Private credit stress → PE risk:</strong> Watch this. If private credit contracts, PE dealmaking contracts with it.</div>
-
-<hr class="brief-hr">
-
-<h4 class="brief-h4">Portfolio Heat Map</h4>
-
-<table class="brief-table"><tbody>
-<tr><td>Company</td><td>Signals This Week</td></tr>
-<tr><td>Tapestry (fintech/crypto)</td><td>4 sector-adjacent deals</td></tr>
-<tr><td>Hopscotch (fintech/B2B payments)</td><td>4 sector-adjacent deals</td></tr>
-<tr><td>Vybe (AI/computer vision)</td><td>2 sector-adjacent deals</td></tr>
-<tr><td>Mainframe (AI/productivity)</td><td>2 sector-adjacent deals</td></tr>
-<tr><td>PromptLayer (AI infra/dev tools)</td><td>Juno validates "AI for domain experts" thesis</td></tr>
-<tr><td>Strobe (energy/climate)</td><td>Energy tech in Crunchbase "interesting deals" but no specific round</td></tr>
-<tr><td>swsh, Koodos, Diem (consumer social)</td><td>Quiet week. No deals in consumer social.</td></tr>
-<tr><td>Enigma Labs (data/aerospace)</td><td>Nothing adjacent</td></tr>
-</table>
-
-<hr class="brief-hr">
-
-<p class="brief-p"><em>7 deals tracked from 11 newsletter editions. 5 more newsletter sources come online next week. Data caveats: publicly announced deals only, amounts may include undrawn commitments, most seed rounds never get press.</em></p>
-
+    <!-- Pattern Tracker (from patterns.json) -->
+    
+    <div class="patterns-section">
+        <div class="section-label">Patterns Tracking</div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <span class="pattern-name">Agentic AI Revenue Inflection</span>
+                <span class="pattern-status status-emerging">EMERGING</span>
+            </div>
+            <div class="pattern-dots"><span class="week-dot filled"></span></div>
+            <div class="pattern-insight">The gap between &#x27;AI can do this&#x27; and &#x27;AI is doing this in production&#x27; has closed faster than most investors modeled; companies that embedded agents into core revenue or care workflows in 2025 are now showing the compounding returns.</div>
+            <div class="pattern-counter">Counter: Fleet&#x27;s numbers may be an outlier in a frictionless category (sales ops) that happens to be easy to automate; healthcare and productivity may face longer cycles due to compliance, change management, and workflow lock-in.</div>
+        </div>
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <span class="pattern-name">Agent Infrastructure Security as Attack Surface</span>
+                <span class="pattern-status status-emerging">EMERGING</span>
+            </div>
+            <div class="pattern-dots"><span class="week-dot filled"></span></div>
+            <div class="pattern-insight">Agent infrastructure scaled into production faster than security tooling caught up; attackers are now exploiting the gap between &#x27;agentic capability&#x27; and &#x27;agentic security,&#x27; particularly in high-value financial workflows.</div>
+            <div class="pattern-counter">Counter: This may be concentrated in crypto/DeFi contexts where attack incentives are highest and security hygiene is lowest — enterprise agent deployments with SOC2 requirements may be structurally less exposed.</div>
+        </div>
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <span class="pattern-name">Outcome-Based AI Pricing Model</span>
+                <span class="pattern-status status-emerging">EMERGING</span>
+            </div>
+            <div class="pattern-dots"><span class="week-dot filled"></span></div>
+            <div class="pattern-insight">When AI compresses the marginal cost of professional output toward zero, the SaaS model (charging for access to a tool) is structurally inferior to the services model (charging for the output); Crosby Legal is the first growth-stage validation of this in legal, but the thesis applies broadly.</div>
+            <div class="pattern-counter">Counter: Outcome-based pricing concentrates risk on the vendor side and requires deep domain expertise to scope accurately — most AI companies lack the services DNA to execute this without margin blowouts.</div>
+        </div>
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <span class="pattern-name">Prediction Markets Legitimization</span>
+                <span class="pattern-status status-emerging">EMERGING</span>
+            </div>
+            <div class="pattern-dots"><span class="week-dot filled"></span></div>
+            <div class="pattern-insight">Post-election cycle, prediction markets proved their accuracy premium over polls; institutional investors are now funding the infrastructure layer before the regulatory framework fully settles, betting the framework follows the product.</div>
+            <div class="pattern-counter">Counter: Regulatory risk remains asymmetric — a single CFTC ruling or political shift could constrain the market significantly; the $1B may be price-insensitive capital chasing a narrative more than a proven unit economics model.</div>
+        </div>
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <span class="pattern-name">Specialized Compute for Agentic AI</span>
+                <span class="pattern-status status-emerging">EMERGING</span>
+            </div>
+            <div class="pattern-dots"><span class="week-dot filled"></span></div>
+            <div class="pattern-insight">Infrastructure investors are betting that agentic workloads (parallel tool calls, stateful sessions, long-context reasoning) have a distinct compute profile from batch inference — specialized silicon will outperform general GPU for these patterns.</div>
+            <div class="pattern-counter">Counter: GPU vendors (NVIDIA, AMD) and hyperscalers have every incentive and resource to optimize for agentic workloads; specialized silicon historically struggles to survive once the general-purpose incumbents decide to compete.</div>
         </div>
     </div>
+    
 
-    <!-- TAB: Portfolio Heat -->
-    <div id="tab-portfolio" class="tab-content">
-        <div class="section">
-            <div class="section-header">Portfolio Relevance — This Week</div>
-            <table class="heat-table">
+    <!-- Raw Evidence -->
+    <div class="evidence-section">
+        <div class="evidence-toggle" onclick="toggleEvidence()">
+            <span id="toggle-arrow">▶</span> Raw Evidence (7 deals)
+        </div>
+        <div class="evidence-body" id="evidence-body">
+            <input type="text" class="search-input" id="search" placeholder="Search..." oninput="filterTable()">
+            <table class="data-table" id="deals-table">
                 <thead>
                     <tr>
-                        <th>Company</th>
-                        <th>Sectors</th>
-                        <th>Signal</th>
-                        <th>Adjacent Deals</th>
+                        <th onclick="sortTable(0)">Date</th>
+                        <th onclick="sortTable(1)">Company</th>
+                        <th onclick="sortTable(2)">Amount</th>
+                        <th onclick="sortTable(3)">Stage</th>
+                        <th onclick="sortTable(4)">Sector</th>
+                        <th onclick="sortTable(5)">Lead</th>
+                        <th onclick="sortTable(6)">Source</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
-        <tr>
-            <td><strong>Tapestry</strong></td>
-            <td class="sectors-cell">consumer, fintech, crypto</td>
-            <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
-            <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
-        </tr>
-        <tr>
-            <td><strong>Hopscotch</strong></td>
-            <td class="sectors-cell">b2b payments, fintech</td>
-            <td><span class="heat hot">HOT</span> <span class="heat-count">5</span></td>
-            <td class="deal-names">Spade, Kalshi, Vestwell, Juno +1 more</td>
-        </tr>
-        <tr>
-            <td><strong>Vybe</strong></td>
-            <td class="sectors-cell">ai, computer vision</td>
-            <td><span class="heat warm">WARM</span> <span class="heat-count">2</span></td>
-            <td class="deal-names">Patlytics, Juno</td>
-        </tr>
-        <tr>
-            <td><strong>Mainframe</strong></td>
-            <td class="sectors-cell">ai, productivity</td>
-            <td><span class="heat warm">WARM</span> <span class="heat-count">2</span></td>
-            <td class="deal-names">Patlytics, Juno</td>
-        </tr>
-        <tr>
-            <td><strong>Enigma Labs</strong></td>
-            <td class="sectors-cell">data, aerospace</td>
-            <td><span class="heat warm">WARM</span> <span class="heat-count">1</span></td>
-            <td class="deal-names">Spade</td>
-        </tr>
-        <tr>
-            <td><strong>Revin</strong></td>
-            <td class="sectors-cell">saas, home services</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Hearth Display</strong></td>
-            <td class="sectors-cell">consumer hardware, smart home</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Software Applications Inc</strong></td>
-            <td class="sectors-cell">personal computing, software</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Block Party</strong></td>
-            <td class="sectors-cell">social, safety</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>AddGlow</strong></td>
-            <td class="sectors-cell">e-commerce, community saas</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Diem</strong></td>
-            <td class="sectors-cell">search, consumer social</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Indify</strong></td>
-            <td class="sectors-cell">creator economy, music</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Koodos Labs</strong></td>
-            <td class="sectors-cell">media, consumer social</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>PromptLayer</strong></td>
-            <td class="sectors-cell">ai infrastructure, dev tools</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>Strobe</strong></td>
-            <td class="sectors-cell">climate tech, energy</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-        <tr>
-            <td><strong>swsh</strong></td>
-            <td class="sectors-cell">consumer social</td>
-            <td><span class="heat quiet">QUIET</span> <span class="heat-count">0</span></td>
-            <td class="deal-names">—</td>
-        </tr>
-                </tbody>
+            <tr class="">
+                <td>2026-04-10</td>
+                <td><strong>Spade</strong></td>
+                <td class="amt">$40M</td>
+                <td>Undisclosed</td>
+                <td>fintech, data</td>
+                <td>—</td>
+                <td class="src">AlleyWatch</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-10</td>
+                <td><strong>Patlytics</strong></td>
+                <td class="amt">$40M</td>
+                <td>Undisclosed</td>
+                <td>patents, IP litigation</td>
+                <td>—</td>
+                <td class="src">AlleyWatch</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-10</td>
+                <td><strong>Kalshi</strong></td>
+                <td class="amt">—</td>
+                <td>Undisclosed</td>
+                <td>fintech, predictions</td>
+                <td>—</td>
+                <td class="src">Crunchbase Daily</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-10</td>
+                <td><strong>Vestwell</strong></td>
+                <td class="amt">—</td>
+                <td>Undisclosed</td>
+                <td>fintech, savings</td>
+                <td>—</td>
+                <td class="src">Crunchbase Daily</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-10</td>
+                <td><strong>Juno</strong></td>
+                <td class="amt">$12M</td>
+                <td>Seed</td>
+                <td>fintech, tax software</td>
+                <td>—</td>
+                <td class="src">Crunchbase Daily</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-07</td>
+                <td><strong>Kalshi</strong></td>
+                <td class="amt">$1B</td>
+                <td>Growth</td>
+                <td>fintech, prediction markets</td>
+                <td>—</td>
+                <td class="src">AlleyWatch</td>
+            </tr>
+            <tr class="">
+                <td>2026-04-06</td>
+                <td><strong>Saronic</strong></td>
+                <td class="amt">$1.75B</td>
+                <td>Series D</td>
+                <td>robotics, autonomous vessels</td>
+                <td>—</td>
+                <td class="src">Crunchbase</td>
+            </tr></tbody>
             </table>
         </div>
     </div>
 
-    <!-- TAB: Deal Flow -->
-    <div id="tab-deals" class="tab-content">
-        <div class="section">
-            <div class="section-header">This Week's Deals</div>
-            <div class="deal-grid">
-                
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Spade</div>
-                <div class="card-amount">$40M <span class="card-stage">Undisclosed</span></div>
-            </div>
-            <div class="card-desc">Transforms messy transaction data into strategic assets for banks and fintechs</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">data</span></div>
-            <div class="card-meta">AlleyWatch · 2026-04-10</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Patlytics</div>
-                <div class="card-amount">$40M <span class="card-stage">Undisclosed</span></div>
-            </div>
-            <div class="card-desc">AI-driven platform for patent filings and IP litigation</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">patents</span><span class="tag sector-tag">IP litigation</span><span class="tag sector-tag">AI</span></div>
-            <div class="card-meta">AlleyWatch · 2026-04-10</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Kalshi</div>
-                <div class="card-amount">Undisclosed <span class="card-stage">Undisclosed</span></div>
-            </div>
-            <div class="card-desc">Predictions marketplace</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">predictions</span></div>
-            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Vestwell</div>
-                <div class="card-amount">Undisclosed <span class="card-stage">Undisclosed</span></div>
-            </div>
-            <div class="card-desc">Digital savings platform</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">savings</span></div>
-            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Juno</div>
-                <div class="card-amount">$12M <span class="card-stage">Seed</span></div>
-            </div>
-            <div class="card-desc">AI-assisted tax preparation software</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">tax software</span><span class="tag sector-tag">AI</span></div>
-            <div class="card-meta">Crunchbase Daily · 2026-04-10</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Kalshi</div>
-                <div class="card-amount">$1B <span class="card-stage">Growth</span></div>
-            </div>
-            <div class="card-desc">Prediction market platform</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">fintech</span><span class="tag sector-tag">prediction markets</span></div>
-            <div class="card-meta">AlleyWatch · 2026-04-07</div>
-        </div>
-
-        <div class="deal-card" style="border-left: 3px solid rgba(255,255,255,0.08);">
-            <div class="card-top">
-                <div class="card-company">Saronic</div>
-                <div class="card-amount">$1.75B <span class="card-stage">Series D</span></div>
-            </div>
-            <div class="card-desc">Developer of autonomous vessels</div>
-            
-            <div class="card-tags"><span class="tag sector-tag">robotics</span><span class="tag sector-tag">autonomous vessels</span></div>
-            <div class="card-meta">Crunchbase · 2026-04-06</div>
-        </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB: Market Signals -->
-    <div id="tab-signals" class="tab-content">
-        <div class="charts-grid">
-            <div class="chart-box">
-                <div class="chart-title">Sector Activity (This Week)</div>
-                
-            <div class="bar-row">
-                <span class="bar-label">fintech</span>
-                <div class="bar-fill" style="width: 100%"><span>5</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">ai</span>
-                <div class="bar-fill" style="width: 40%"><span>2</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">data</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">patents</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">ip litigation</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">predictions</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">savings</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">tax software</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">prediction markets</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">robotics</span>
-                <div class="bar-fill" style="width: 20%"><span>1</span></div>
-            </div>
-            </div>
-            <div class="chart-box">
-                <div class="chart-title">Stage Distribution</div>
-                
-            <div class="bar-row">
-                <span class="bar-label">Seed</span>
-                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">Series D</span>
-                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">Growth</span>
-                <div class="bar-fill stage-fill" style="width: 25%"><span>1</span></div>
-            </div>
-            <div class="bar-row">
-                <span class="bar-label">Undisclosed</span>
-                <div class="bar-fill stage-fill" style="width: 100%"><span>4</span></div>
-            </div>
-            </div>
-            <div class="chart-box">
-                <div class="chart-title">Most Active Investors</div>
-                <p class="muted">Not enough data yet — lead investors often undisclosed in email newsletters.</p>
-            </div>
-            <div class="chart-box">
-                <div class="chart-title">Newsletter Sources</div>
-                <div class="bar-row"><span class="bar-label">AlleyWatch</span><div class="bar-fill" style="width: 100%"><span>3</span></div></div><div class="bar-row"><span class="bar-label">Crunchbase Daily</span><div class="bar-fill" style="width: 100%"><span>3</span></div></div><div class="bar-row"><span class="bar-label">Crunchbase</span><div class="bar-fill" style="width: 33%"><span>1</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB: Full Database -->
-    <div id="tab-table" class="tab-content">
-        <div class="section">
-            <input type="text" class="search-bar" id="search" placeholder="Search company, sector, or investor..." oninput="filterTable()">
-            <div class="table-wrap">
-                <table class="deals-table" id="deals-table">
-                    <thead>
-                        <tr>
-                            <th onclick="sortTable(0)">Date</th>
-                            <th onclick="sortTable(1)">Company</th>
-                            <th onclick="sortTable(2)">Amount</th>
-                            <th onclick="sortTable(3)">Stage</th>
-                            <th onclick="sortTable(4)">Sector</th>
-                            <th onclick="sortTable(5)">Lead</th>
-                            <th onclick="sortTable(6)">Source</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Spade</strong></td>
-            <td class="amount-cell">$40M</td>
-            <td>Undisclosed</td>
-            <td>fintech, data</td>
-            <td>—</td>
-            <td class="source-cell">AlleyWatch</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Patlytics</strong></td>
-            <td class="amount-cell">$40M</td>
-            <td>Undisclosed</td>
-            <td>patents, IP litigation</td>
-            <td>—</td>
-            <td class="source-cell">AlleyWatch</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Kalshi</strong></td>
-            <td class="amount-cell">—</td>
-            <td>Undisclosed</td>
-            <td>fintech, predictions</td>
-            <td>—</td>
-            <td class="source-cell">Crunchbase Daily</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Vestwell</strong></td>
-            <td class="amount-cell">—</td>
-            <td>Undisclosed</td>
-            <td>fintech, savings</td>
-            <td>—</td>
-            <td class="source-cell">Crunchbase Daily</td>
-        </tr>
-        <tr>
-            <td>2026-04-10</td>
-            <td><strong>Juno</strong></td>
-            <td class="amount-cell">$12M</td>
-            <td>Seed</td>
-            <td>fintech, tax software</td>
-            <td>—</td>
-            <td class="source-cell">Crunchbase Daily</td>
-        </tr>
-        <tr>
-            <td>2026-04-07</td>
-            <td><strong>Kalshi</strong></td>
-            <td class="amount-cell">$1B</td>
-            <td>Growth</td>
-            <td>fintech, prediction markets</td>
-            <td>—</td>
-            <td class="source-cell">AlleyWatch</td>
-        </tr>
-        <tr>
-            <td>2026-04-06</td>
-            <td><strong>Saronic</strong></td>
-            <td class="amount-cell">$1.75B</td>
-            <td>Series D</td>
-            <td>robotics, autonomous vessels</td>
-            <td>—</td>
-            <td class="source-cell">Crunchbase</td>
-        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
     <div class="footer">
-        Stellation VC Deal Radar · Scans 8 newsletter sources daily<br>
-        Publicly announced deals only. Amounts approximate. Most seed rounds never reach press.<br>
-        This is a curated intelligence feed, not a comprehensive market map.
+        Stellation VC · Curated from 8 newsletter sources + tech Twitter<br>
+        Publicly announced deals only. This is intelligence, not data.
     </div>
 
 </div>
 
 <script>
-function switchTab(name, el) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    el.classList.add('active');
+function toggleEvidence() {
+    const body = document.getElementById('evidence-body');
+    const arrow = document.getElementById('toggle-arrow');
+    body.classList.toggle('open');
+    arrow.textContent = body.classList.contains('open') ? '▼' : '▶';
 }
 
 function filterTable() {
@@ -955,9 +619,8 @@ function sortTable(col) {
     table.dataset.sortDir = dir;
     table.dataset.sortCol = col;
     rows.sort((a, b) => {
-        let aVal = a.cells[col]?.textContent.trim() || '';
-        let bVal = b.cells[col]?.textContent.trim() || '';
-        // Try numeric sort for amount column
+        const aVal = a.cells[col]?.textContent.trim() || '';
+        const bVal = b.cells[col]?.textContent.trim() || '';
         if (col === 2) {
             const toNum = s => { const m = s.match(/[\d.]+/); return m ? parseFloat(m[0]) * (s.includes('B') ? 1000 : 1) : 0; };
             return dir === 'asc' ? toNum(aVal) - toNum(bVal) : toNum(bVal) - toNum(aVal);
