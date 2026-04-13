@@ -335,6 +335,33 @@
         .headline-title { font-size: 0.82rem; font-weight: 500; color: #fff; line-height: 1.5; }
         .headline-insight { font-size: 0.78rem; color: var(--dim); margin-top: 2px; line-height: 1.5; }
 
+        /* --- Portfolio Pulse --- */
+        .pulse-group { margin-bottom: 20px; }
+        .pulse-group-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .pulse-active { color: var(--green); }
+        .pulse-quiet { color: var(--gold); }
+        .pulse-dark { color: var(--red); }
+        .pulse-company {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .pulse-company.quiet { opacity: 0.6; display: flex; justify-content: space-between; align-items: baseline; }
+        .pulse-company.dark { opacity: 0.5; display: flex; justify-content: space-between; align-items: baseline; }
+        .pulse-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+        .pulse-last { font-size: 0.68rem; color: var(--muted); }
+        .pulse-signal { font-size: 0.78rem; color: var(--dim); padding: 2px 0 2px 12px; line-height: 1.5; }
+        .pulse-signal.dim { color: var(--muted); font-style: italic; }
+        .pulse-date { font-size: 0.68rem; color: var(--muted); margin-right: 4px; }
+        .pulse-handle { font-size: 0.68rem; color: var(--blue); }
+
         /* --- Stats bar --- */
         .stats-bar {
             display: flex;
@@ -383,6 +410,7 @@
         <a href="#markets" onclick="scrollTo_(event,'markets')">Markets</a>
         <a href="#companies" onclick="scrollTo_(event,'companies')">Companies</a>
         <a href="#portfolio" onclick="scrollTo_(event,'portfolio')">Portfolio</a>
+        <a href="#pulse" onclick="scrollTo_(event,'pulse')">Pulse</a>
         <a href="#synthesis" onclick="scrollTo_(event,'synthesis')">Synthesis</a>
         <a href="#patterns" onclick="scrollTo_(event,'patterns')">Patterns</a>
     </nav>
@@ -909,7 +937,7 @@
             <td>Growth</td>
             <td>agriculture, climate-tech, iot</td>
             <td>Founders Fund</td>
-            <td class="src-cell">TechCrunch Startups, TechCrunch</td>
+            <td class="src-cell">TechCrunch, TechCrunch Startups</td>
         </tr>
         <tr class=" portfolio-hit">
             <td><strong>Portal</strong><span class="port-badge">Enigma Labs</span></td>
@@ -917,7 +945,7 @@
             <td>Series B</td>
             <td>aerospace, defense, space</td>
             <td>—</td>
-            <td class="src-cell">TechCrunch Startups, TechCrunch</td>
+            <td class="src-cell">TechCrunch, TechCrunch Startups</td>
         </tr>
         <tr class=" portfolio-hit">
             <td><strong>Spade</strong><span class="port-badge">Tapestry, Enigma Labs</span></td>
@@ -1008,6 +1036,13 @@
         <div class="port-row quiet">
             <span class="port-quiet">No adjacent deals: Revin, Hearth Display, Block Party, AddGlow, Diem, Indify, Koodos Labs, PromptLayer, Strobe, swsh</span>
         </div>
+    </div>
+
+    <!-- PORTFOLIO PULSE -->
+    <div class="section" id="pulse">
+        <div class="section-title">Portfolio Pulse</div>
+        <div class="section-note">Activity across Stellation's 16 active portfolio companies. Green = signals this week. Yellow = quiet &gt;14 days. Red = dark &gt;30 days.</div>
+        <div class="empty-note">No portfolio scan data yet. Run scan_portfolio.py to populate.</div>
     </div>
 
     <!-- SYNTHESIS -->
@@ -1200,7 +1235,7 @@ function scrollTo_(e, id) {
 }
 
 // Update active nav on scroll
-const sections = ['sources','headlines','twitter','markets','companies','portfolio','synthesis','patterns'];
+const sections = ['sources','headlines','twitter','markets','companies','portfolio','pulse','synthesis','patterns'];
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY + 80;
     let current = sections[0];
