@@ -215,6 +215,48 @@
         .pattern-evidence { font-size: 0.78rem; color: var(--dim); line-height: 1.6; }
         .pattern-counter { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-style: italic; }
 
+        .nyc-badge {
+            display: inline-block;
+            background: rgba(96,165,250,0.15);
+            color: var(--blue);
+            font-size: 0.58rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 4px;
+            letter-spacing: 0.03em;
+        }
+        .deal-link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--muted);
+        }
+        .deal-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+        .source-link {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--faint);
+        }
+        .source-link:hover { color: var(--gold); }
+        .macro-group {
+            margin-bottom: 20px;
+        }
+        .macro-cat-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 8px 0 6px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4px;
+        }
+        .macro-cat-count {
+            color: var(--muted);
+            font-weight: 400;
+            font-size: 0.65rem;
+        }
+
         .empty-note { font-size: 0.78rem; color: var(--muted); font-style: italic; padding: 8px 0; }
 
         /* --- Footer --- */
@@ -231,7 +273,7 @@
 
     <div class="header">
         <div class="title">Stellation Intelligence Brief</div>
-        <div class="meta-line">Week of April 12, 2026 · 9 deals from 3 sources · 8 Twitter signals</div>
+        <div class="meta-line">Week of April 12, 2026 · 8 deals from 3 sources · 8 Twitter signals</div>
     </div>
 
     <nav class="nav" id="nav">
@@ -254,167 +296,180 @@
             
             <div class="deal-row portfolio-hit">
                 <div class="deal-top">
-                    <span class="deal-company">Juno</span>
+                    <span class="deal-company"><a href="https://news.crunchbase.com/fintech/cpa-founded-ai-tax-return-startup-juno-seed-funding" target="_blank" class="deal-link">Juno</a> </span>
                     <span class="deal-amt">$12M Seed</span>
                 </div>
-                <div class="deal-desc">AI-assisted tax preparation software founded by CPAs.</div>
-                <div class="deal-meta">Lead: — · fintech, tax, ai<span class="port-badge">Tapestry, Vybe</span></div>
+                <div class="deal-desc">AI-assisted tax-prep software founded by CPA.</div>
+                <div class="deal-meta">Lead: — · fintech, tax, software<span class="port-badge">Tapestry, Software Applications Inc</span></div>
             </div>
             <div class="deal-row portfolio-hit">
                 <div class="deal-top">
-                    <span class="deal-company">Kalshi</span>
+                    <span class="deal-company">Kalshi </span>
                     <span class="deal-amt">— Undisclosed</span>
                 </div>
-                <div class="deal-desc">Predictions marketplace raised a large round.</div>
-                <div class="deal-meta">Lead: — · fintech, predictions<span class="port-badge">Tapestry, Hopscotch</span></div>
+                <div class="deal-desc">Predictions marketplace with recent large round.</div>
+                <div class="deal-meta">Lead: — · fintech, predictions, derivatives<span class="port-badge">Tapestry, Hopscotch</span></div>
             </div>
             <div class="deal-row portfolio-hit">
                 <div class="deal-top">
-                    <span class="deal-company">Vestwell</span>
+                    <span class="deal-company">Vestwell </span>
                     <span class="deal-amt">— Undisclosed</span>
                 </div>
-                <div class="deal-desc">Digital savings platform raised a large round.</div>
-                <div class="deal-meta">Lead: — · fintech, savings<span class="port-badge">Tapestry, Hopscotch</span></div>
+                <div class="deal-desc">Digital savings platform with recent large round.</div>
+                <div class="deal-meta">Lead: — · fintech, savings, wealth-management<span class="port-badge">Tapestry, Hopscotch</span></div>
             </div>
             <div class="deal-row">
                 <div class="deal-top">
-                    <span class="deal-company">Saronic</span>
+                    <span class="deal-company">Saronic </span>
                     <span class="deal-amt">$1.75B Series D</span>
                 </div>
-                <div class="deal-desc">Developer of autonomous vessels for maritime operations</div>
-                <div class="deal-meta">Lead: — · robotics, autonomous-vehicles, maritime-tech</div>
+                <div class="deal-desc">Developer of autonomous vessels for maritime operations.</div>
+                <div class="deal-meta">Lead: — · robotics, maritime, autonomous-vehicles</div>
             </div>
         </div>
         <div class="source-card">
             <div class="source-name">AlleyWatch</div>
-            <div class="source-count">3 deals</div>
+            <div class="source-count">2 deals</div>
             
             <div class="deal-row portfolio-hit">
                 <div class="deal-top">
-                    <span class="deal-company">Spade</span>
+                    <span class="deal-company"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=2b1071d5f7&amp;e=f9acc89823" target="_blank" class="deal-link">Spade</a> </span>
                     <span class="deal-amt">$40M Undisclosed</span>
                 </div>
-                <div class="deal-desc">Turns messy transaction data into strategic asset for banks and fintechs.</div>
-                <div class="deal-meta">Lead: — · fintech, data infrastructure, banking<span class="port-badge">Tapestry, Hopscotch</span></div>
+                <div class="deal-desc">Spade turns messy transaction data into a strategic asset for banks and fintechs.</div>
+                <div class="deal-meta">Lead: — · fintech, payments, data<span class="port-badge">Tapestry, Enigma Labs</span></div>
             </div>
             <div class="deal-row portfolio-hit">
                 <div class="deal-top">
-                    <span class="deal-company">Patlytics</span>
+                    <span class="deal-company"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=5fb4393697&amp;e=f9acc89823" target="_blank" class="deal-link">Patlytics</a> </span>
                     <span class="deal-amt">$40M Undisclosed</span>
                 </div>
-                <div class="deal-desc">AI-powered platform addressing simultaneous surge in patent filings and IP litigation.</div>
-                <div class="deal-meta">Lead: — · legal tech, AI, intellectual property<span class="port-badge">Vybe, Mainframe</span></div>
+                <div class="deal-desc">AI platform driving patent filing surge and IP litigation workflow optimization.</div>
+                <div class="deal-meta">Lead: — · ai, legal-tech, ip<span class="port-badge">Vybe, Mainframe</span></div>
+            </div>
+        </div>
+        <div class="source-card">
+            <div class="source-name">TechCrunch</div>
+            <div class="source-count">2 deals</div>
+            
+            <div class="deal-row">
+                <div class="deal-top">
+                    <span class="deal-company"><a href="https://link.techcrunch.com/click/69da451ee3e06864fa16beb1/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA0L3VucGFja2luZy1wZXRlci10aGllbHMtYmlnLWJldC1vbi1zb2xhci1wb3dlcmVkLWNvdy1jb2xsYXJzP3V0bV9jYW1wYWlnbj13ZWxjb21lMV9zdGFydHVwcw/69d8f3ce99c38c51f0080224Befd8fdb6" target="_blank" class="deal-link">Halter</a> </span>
+                    <span class="deal-amt">$220M Growth</span>
+                </div>
+                <div class="deal-desc">Cattle management startup developing solar-powered monitoring collars for livestock tracking.</div>
+                <div class="deal-meta">Lead: Founders Fund · agritech, livestock management, sustainability</div>
             </div>
             <div class="deal-row">
                 <div class="deal-top">
-                    <span class="deal-company">Yuzu Health</span>
-                    <span class="deal-amt">— Undisclosed</span>
+                    <span class="deal-company"><a href="https://link.techcrunch.com/click/69da451ee3e06864fa16beb1/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA5L3BvcnRhbC1yYWlzZXMtNTAtbWlsbGlvbi10by1idWlsZC1hLW5ldy1raW5kLW9mLWhpZ2gtcG93ZXItcm9ja2V0LWVuZ2luZT91dG1fY2FtcGFpZ249d2VsY29tZTFfc3RhcnR1cHM/69d8f3ce99c38c51f0080224Bbcb8be37" target="_blank" class="deal-link">Portal</a> </span>
+                    <span class="deal-amt">$50M Growth</span>
                 </div>
-                <div class="deal-desc">Healthcare company featured in AlleyWatch Startup Daily Funding Report for April 6, 2026.</div>
-                <div class="deal-meta">Lead: — · healthcare</div>
+                <div class="deal-desc">Aerospace company building a novel high-power rocket engine for military and commercial space applications, founded by ex-SpaceX engineer.</div>
+                <div class="deal-meta">Lead: — · space, defense, propulsion</div>
             </div>
         </div>
         <div class="source-card empty">
-            <div class="source-name">Axios Pro Rata, StrictlyVC, Fortune Term Sheet, TechCrunch, CB Insights, TLDR</div>
+            <div class="source-name">Axios Pro Rata, StrictlyVC, Fortune Term Sheet, CB Insights, TLDR</div>
             <div class="source-count">No deals this week</div>
         </div>
         
         <div class="source-card">
             <div class="source-name">Market Commentary</div>
-            <div class="source-count">23 macro signals extracted from newsletters</div>
-            
-            <div class="macro-item">
-                <div class="macro-signal">Walmart-owned Flipkart and Amazon are aggressively expanding and discounting in India, squeezing quick commerce startups in the segment.</div>
-                <div class="macro-source">TechCrunch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Q1 2026 saw record venture funding: U.S. and Canadian companies secured $252.6B in seed-to-growth stage funding, 3x the prior quarter and the largest quarterly total in history.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Ascend Elements, a battery recycler, filed for Chapter 11 bankruptcy following a canceled government grant and challenging lithium-ion battery market.</div>
-                <div class="macro-source">TechCrunch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Battery recycler Ascend Elements filed Chapter 11 bankruptcy after government grant cancellation and challenging lithium-ion market conditions.</div>
-                <div class="macro-source">TechCrunch Daily News · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">SpaceX contemplating insider equity sales ahead of potential IPO.</div>
-                <div class="macro-source">StrictlyVC · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Security incident: suspect arrested for attacking Sam Altman&#x27;s residence.</div>
-                <div class="macro-source">StrictlyVC · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Private equity&#x27;s growth has been enabled by private credit expansion, but near-zero interest rates are ending and major credit managers (Carlyle, Blue Owl, BlackRock) face elevated redemption requests, signaling contraction risk.</div>
-                <div class="macro-source">Axios Pro Rata · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">The 2026 FIFA World Cup in New York is deploying AI digital twins, 5G-powered ticketing, and an ecosystem of independent software builders at scale.</div>
-                <div class="macro-source">AlleyWatch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Fintech funding increased globally in Q1 2026 despite a 33% drop in deal count. Investors are concentrating capital on high-conviction startups riding the AI wave.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Mexico surpassed Brazil as Latin America&#x27;s largest VC market in Q1 2026, only the second time since Q2 2012 this has occurred.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Latin America startups raised just over $1B in Q1 2026 across seed and growth-stage deals, with Mexico topping Brazil as the region&#x27;s largest VC market for only the second time since Q2 2012.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Top U.S. investors deployed record-setting rounds and investment tallies in Q1 2026, with AI companies capturing a disproportionate lion&#x27;s share of funding.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Deep-pocketed backers traditionally less active in venture—corporations, family offices, sovereign funds—are entering startup funding in response to AI opportunity.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Most active U.S. investors of Q1 2026 were not necessarily the ones deploying the largest checks; prolific dealmakers and mega-round funders occupy separate market tiers.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Beyond AI, real-world tech startups in adjacent sectors (electric flying ferries, neurotechnology wearables) are successfully raising capital.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">NYC startups raised $3.94B across 97 deals in March 2026 with eight mega-rounds of $100M+ totaling $2B—one of the strongest months on record and a 293.6% year-over-year surge from March 2025.</div>
-                <div class="macro-source">AlleyWatch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">NYC captured 20.7% of all US venture capital in March 2026, with Series A dominance at 39.8% of national deals.</div>
-                <div class="macro-source">AlleyWatch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Nearly two-thirds of global venture capital in Q1 went to just four companies.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">North American funding in Q1 2026 was 3x higher than Q4 2025.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Q1 2026 North American venture funding hit $252M+ in seed-to-growth-stage rounds, representing 3x the prior quarter and the largest quarterly total on record.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Early and seed-stage funding remained robust despite AI mega-rounds dominating late-stage totals, with large check sizes flowing to robotics, semiconductor, and frontier lab startups.</div>
-                <div class="macro-source">Crunchbase · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">Defense, wearables, and energy sectors led the largest funding rounds in the week of 3/29–4/4/26, alongside AI infrastructure.</div>
-                <div class="macro-source">Crunchbase, AlleyWatch · 2026-04-12</div>
-            </div>
-            <div class="macro-item">
-                <div class="macro-signal">NYC startups secured $143M+ across 11 new deals in the week of 3/29–4/4/26; national weekly total exceeded $4.3B across 22 notable deals.</div>
-                <div class="macro-source">AlleyWatch · 2026-04-12</div>
-            </div>
+            <div class="source-count">24 macro signals extracted from newsletters</div>
+            <div class="macro-group"><div class="macro-cat-label">🗽 New York City <span class="macro-cat-count">3</span></div>
+                <div class="macro-item">
+                    <div class="macro-signal">NYC startups raised $3.94B across 97 deals in March 2026, representing a 293.6% year-over-year surge from March 2025&#x27;s $1B.</div>
+                    <div class="macro-source"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=ab24975fe2&amp;e=f9acc89823" target="_blank" class="source-link">AlleyWatch</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">NYC captured 20.7% of all US venture capital in March 2026, with Series A deals representing 39.8% of national VC deal volume.</div>
+                    <div class="macro-source"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=ab24975fe2&amp;e=f9acc89823" target="_blank" class="source-link">AlleyWatch</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">NYC tech ecosystem saw 11 new deals with $143M+ in funding for the week of March 29 – April 4, 2026.</div>
+                    <div class="macro-source">AlleyWatch · 2026-04-12</div>
+                </div></div><div class="macro-group"><div class="macro-cat-label">VC &amp; Startup Funding <span class="macro-cat-count">13</span></div>
+                <div class="macro-item">
+                    <div class="macro-signal">U.S. and Canadian companies raised $252.6B in seed-through-growth funding in Q1 2026—more than 3x the prior quarter and the largest quarterly total on record. <span class="nyc-badge">NYC</span></div>
+                    <div class="macro-source"><a href="https://links.email.crunchbase.com/s/c/uhTLyhwxBVfunlGnkQgqcxRnO4pQLy4eDGgNO1OPkJKHyu8MD_FSm7zJaFobaErC7SmyTZOd5GmKXfK1T1K4kCwrR9QoxVAABFg1gBZ93La8GBPu-OJnD2PGa03fDb37kOoUwVCBHsFf_VoDLlhr03dNp3_1ZmmZqmJJtMbO32ZHXz320SAaywgjhWPnv466r8hPsoeM1MxcICvComv8Wsfk-kGDKVXO6Wn2ltD6PQ77TrR2et5pHWW24QTKO_F_ilbFjlCIzrhAeWEkfiK9Q1goaXR5wSCP8r2-jABBPd5lbOvmsWQ7j_wUUjEMKJaN0E9-XiQ2ddUKcJr7Hp-_p1rLkKYx7ArGuRSidq_fXEkqxSHs-wVw3TRy96-IfC5qg25mDYOgmkx2dFEyS-teBNjTKuH-msLNx_F2xxGaVfGcf5k2sAPoViZLMq4_MiR8HB-CzNyOKXPANUgC_chVxfpkvUBgiWRMvRGikZdNhmcLAtF_vMPnrJ_SxlmEsccajB1-eK2RZY_somH1dGcKIaNQZssrV08G1BjE-CmAjz0hCaClU6ZSrOx1-cP8_y8PvcXwwNodiwg74taF9XbJXS1hr8uCcnQ/_qpb960uZztvZJhWJ-8m304Vp_oqHT_P/19" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Private credit contraction would trigger private equity contraction, as PE assets have grown 3x since 2008 primarily through private credit availability and near-zero rates.</div>
+                    <div class="macro-source">Axios Pro Rata · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Carlyle&#x27;s private credit fund hit with 15.7% redemption requests (vs. 5% limit); Blue Owl and BlackRock also facing redemption pressure.</div>
+                    <div class="macro-source"><a href="https://link.axios.com/click/45151395.242069/aHR0cHM6Ly93d3cud3NqLmNvbS9wcm8vcHJpdmF0ZS1lcXVpdHkvY2FybHlsZS1wcml2YXRlLWNyZWRpdC1mdW5kLWhpdC13aXRoLTE1LTctaW4tcmVkZW1wdGlvbi1yZXF1ZXN0cy05YjVlNWNhND91dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9heGlvc3Byb3JhdGEmc3RyZWFtPXRvcA/69d32bb08bdcbe1d4106f79cBeaeefc63" target="_blank" class="source-link">Axios Pro Rata</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Global fintech funding increased in Q1 2026 despite nearly one-third fewer deals, indicating capital consolidation toward higher-conviction startups.</div>
+                    <div class="macro-source"><a href="https://news.crunchbase.com/fintech/global-startup-venture-funding-up-deals-down-q1-2026" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Mexico surpassed Brazil as Latin America&#x27;s largest VC market in Q1 2026—only the second time since Q2 2012.</div>
+                    <div class="macro-source"><a href="https://news.crunchbase.com/venture/global-vcs-boost-late-stage-boom-latin-america-q1-2026" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Latin America saw a funding bump last quarter driven by a handful of outsized deals.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Latin America raised over $1B in seed- and growth-stage deals in Q1 2026. Mexico overtook Brazil as the region&#x27;s largest VC market—only the second time since Q2 2012.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Eight mega-rounds ($100M+) totaled $2B in capital raised in March 2026, indicating a trend in large institutional funding.</div>
+                    <div class="macro-source">AlleyWatch · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Nearly two-thirds of global venture capital in Q1 2026 concentrated in just four companies.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">North American venture funding in Q1 2026 was 3x higher than Q4 2025.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Q1 2026 set North American venture capital records with $252M+ in seed-through-growth-stage funding, over 3x the prior quarter total, and an unprecedented number of newly minted early-stage unicorns.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Defense, wearables, and energy sectors led late-stage and growth-stage funding rounds in early April 2026, with AI infrastructure, robotics, and semiconductor startups also capturing significant capital.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Weekly notable funding roundup included 20+ deals totaling $4.3B in new funding announced in the week ending April 4, 2026.</div>
+                    <div class="macro-source">AlleyWatch · 2026-04-12</div>
+                </div></div><div class="macro-group"><div class="macro-cat-label">AI &amp; Machine Learning <span class="macro-cat-count">3</span></div>
+                <div class="macro-item">
+                    <div class="macro-signal">Japan is deploying physical AI robots into real-world operations driven by acute labor shortages, moving beyond pilot projects into production.</div>
+                    <div class="macro-source"><a href="https://link.techcrunch.com/click/45158075.34780/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA1L2phcGFuLWlzLXByb3ZpbmctZXhwZXJpbWVudGFsLXBoeXNpY2FsLWFpLWlzLXJlYWR5LWZvci10aGUtcmVhbC13b3JsZD91dG1fY2FtcGFpZ249V0lS/69d8f3ce99c38c51f0080224B1d950735" target="_blank" class="source-link">TechCrunch</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Fintech investors remain bullish and are actively seeking &#x27;high-conviction&#x27; startups riding the AI wave.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Q1 2026 saw record-setting VC rounds and investment tallies, with most active investors writing unusually large checks driven by the capital-intensive AI race.</div>
+                    <div class="macro-source">Crunchbase · 2026-04-12</div>
+                </div></div><div class="macro-group"><div class="macro-cat-label">Climate &amp; Sustainability <span class="macro-cat-count">1</span></div>
+                <div class="macro-item">
+                    <div class="macro-signal">Battery recycler Ascend Elements files Chapter 11 bankruptcy following cancellation of government grant and weak lithium-ion recycling market.</div>
+                    <div class="macro-source">TechCrunch · 2026-04-12</div>
+                </div></div><div class="macro-group"><div class="macro-cat-label">Other <span class="macro-cat-count">3</span></div>
+                <div class="macro-item">
+                    <div class="macro-signal">Walmart-owned Flipkart is expanding beyond major Indian cities with heavy discounting, intensifying competition with Amazon in India&#x27;s quick commerce segment.</div>
+                    <div class="macro-source"><a href="https://techcrunch.com/2026/04/11/walmart-owned-flipkart-amazon-are-squeezing-indias-quick-commerce-startups" target="_blank" class="source-link">TechCrunch</a> · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">SpaceX contemplating secondary market sales for company insiders at IPO pricing, signaling potential near-term IPO preparation.</div>
+                    <div class="macro-source">StrictlyVC · 2026-04-12</div>
+                </div>
+                <div class="macro-item">
+                    <div class="macro-signal">Simultaneous surge in patent filings and IP litigation is reshaping the legal tech market as AI proliferation creates complexity.</div>
+                    <div class="macro-source">AlleyWatch · 2026-04-12</div>
+                </div></div>
         </div>
     </div>
 
@@ -499,25 +554,25 @@
             <tbody>
         <tr class="">
             <td><strong>Halter</strong></td>
-            <td class="amt-cell">$220 million</td>
-            <td>Undisclosed</td>
-            <td>agtech, livestock-management</td>
+            <td class="amt-cell">$220M</td>
+            <td>Growth</td>
+            <td>agritech, livestock management, sustainability</td>
             <td>Founders Fund</td>
-            <td class="src-cell">TechCrunch Startups</td>
+            <td class="src-cell">TechCrunch</td>
         </tr>
-        <tr class=" portfolio-hit">
-            <td><strong>Portal</strong><span class="port-badge">Enigma Labs</span></td>
-            <td class="amt-cell">$50 million</td>
-            <td>Undisclosed</td>
-            <td>aerospace, defense</td>
+        <tr class="">
+            <td><strong>Portal</strong></td>
+            <td class="amt-cell">$50M</td>
+            <td>Growth</td>
+            <td>space, defense, propulsion</td>
             <td>—</td>
-            <td class="src-cell">TechCrunch Startups</td>
+            <td class="src-cell">TechCrunch</td>
         </tr>
         <tr class=" portfolio-hit">
-            <td><strong>Spade</strong><span class="port-badge">Tapestry, Hopscotch</span></td>
+            <td><strong>Spade</strong><span class="port-badge">Tapestry, Enigma Labs</span></td>
             <td class="amt-cell">$40M</td>
             <td>Undisclosed</td>
-            <td>fintech, data infrastructure, banking</td>
+            <td>fintech, payments, data</td>
             <td>—</td>
             <td class="src-cell">AlleyWatch</td>
         </tr>
@@ -525,15 +580,15 @@
             <td><strong>Patlytics</strong><span class="port-badge">Vybe, Mainframe</span></td>
             <td class="amt-cell">$40M</td>
             <td>Undisclosed</td>
-            <td>legal tech, AI, intellectual property</td>
+            <td>ai, legal-tech, ip</td>
             <td>—</td>
             <td class="src-cell">AlleyWatch</td>
         </tr>
         <tr class=" portfolio-hit">
-            <td><strong>Juno</strong><span class="port-badge">Tapestry, Vybe</span></td>
+            <td><strong>Juno</strong><span class="port-badge">Tapestry, Software Applications Inc</span></td>
             <td class="amt-cell">$12M</td>
             <td>Seed</td>
-            <td>fintech, tax, ai</td>
+            <td>fintech, tax, software</td>
             <td>—</td>
             <td class="src-cell">Crunchbase</td>
         </tr>
@@ -541,7 +596,7 @@
             <td><strong>Saronic</strong></td>
             <td class="amt-cell">$1.75B</td>
             <td>Series D</td>
-            <td>robotics, autonomous-vehicles, maritime-tech</td>
+            <td>robotics, maritime, autonomous-vehicles</td>
             <td>—</td>
             <td class="src-cell">Crunchbase</td>
         </tr>
@@ -549,7 +604,7 @@
             <td><strong>Kalshi</strong><span class="port-badge">Tapestry, Hopscotch</span></td>
             <td class="amt-cell">—</td>
             <td>Undisclosed</td>
-            <td>fintech, predictions</td>
+            <td>fintech, predictions, derivatives</td>
             <td>—</td>
             <td class="src-cell">Crunchbase</td>
         </tr>
@@ -557,17 +612,9 @@
             <td><strong>Vestwell</strong><span class="port-badge">Tapestry, Hopscotch</span></td>
             <td class="amt-cell">—</td>
             <td>Undisclosed</td>
-            <td>fintech, savings</td>
+            <td>fintech, savings, wealth-management</td>
             <td>—</td>
             <td class="src-cell">Crunchbase</td>
-        </tr>
-        <tr class="">
-            <td><strong>Yuzu Health</strong></td>
-            <td class="amt-cell">—</td>
-            <td>Undisclosed</td>
-            <td>healthcare</td>
-            <td>—</td>
-            <td class="src-cell">AlleyWatch</td>
         </tr></tbody>
         </table>
     </div>
@@ -583,14 +630,19 @@
                 <span class="port-adjacent">Spade ($40M), Juno ($12M), Kalshi (?), Vestwell (?)</span>
             </div>
             <div class="port-row active">
+                <span class="port-name">Software Applications Inc</span>
+                <span class="port-sectors">Software, Personal Computing</span>
+                <span class="port-adjacent">Juno ($12M)</span>
+            </div>
+            <div class="port-row active">
                 <span class="port-name">Vybe</span>
                 <span class="port-sectors">AI, Computer Vision</span>
-                <span class="port-adjacent">Patlytics ($40M), Juno ($12M)</span>
+                <span class="port-adjacent">Patlytics ($40M)</span>
             </div>
             <div class="port-row active">
                 <span class="port-name">Enigma Labs</span>
                 <span class="port-sectors">Data, Aerospace</span>
-                <span class="port-adjacent">Portal ($50 million)</span>
+                <span class="port-adjacent">Spade ($40M)</span>
             </div>
             <div class="port-row active">
                 <span class="port-name">Hopscotch</span>
@@ -600,10 +652,10 @@
             <div class="port-row active">
                 <span class="port-name">Mainframe</span>
                 <span class="port-sectors">AI, Productivity</span>
-                <span class="port-adjacent">Patlytics ($40M), Juno ($12M)</span>
+                <span class="port-adjacent">Patlytics ($40M)</span>
             </div>
         <div class="port-row quiet">
-            <span class="port-quiet">No adjacent deals: Revin, Hearth Display, Software Applications Inc, Block Party, AddGlow, Diem, Indify, Koodos Labs, PromptLayer, Strobe, swsh</span>
+            <span class="port-quiet">No adjacent deals: Revin, Hearth Display, Block Party, AddGlow, Diem, Indify, Koodos Labs, PromptLayer, Strobe, swsh</span>
         </div>
     </div>
 
@@ -612,104 +664,109 @@
         <div class="section-title">Synthesis</div>
         <div class="section-note">Analysis generated by Claude based on the sources above. This is interpretation, not fact. Verify claims against the source sections.</div>
         <div class="synthesis-box"><div class="synthesis-label">Claude's take — week of April 12, 2026</div>
-        <div class="syn-point" style="font-family: Newsreader, Georgia, serif; font-size: 0.95rem; margin-bottom: 20px;"><strong>Fleet&#x27;s 63x ARR growth in 6 months and Hightouch&#x27;s production-scale agentic marketer aren&#x27;t outliers — they&#x27;re the proof point that agentic AI has crossed from demo to revenue engine, which means Mainframe is either in the right place at exactly the right moment or will get outrun by vertically-focused agents before it can establish its horizontal moat.</strong></div>
+        <div class="syn-point" style="font-family: Newsreader, Georgia, serif; font-size: 0.95rem; margin-bottom: 20px;"><strong>Agentic AI just crossed from proof-of-concept to production revenue: Fleet went $1M to $63M ARR in six months and Hightouch is running agents in production at Spotify and DocuSign — the benchmark for what &#x27;working&#x27; looks like in 2026 just reset, and every AI company in the portfolio needs to be measured against it now.</strong></div>
         <hr class="syn-hr">
 <h4 class="syn-heading">What&#x27;s Actually Happening</h4>
-<div class="syn-bullet">Fleet (sales ops automation) grew from $1M to $63M ARR in 6 months and is projecting $160M ARR next quarter. Hightouch announced Series C positioning as the 'first agentic marketer' with Spotify and Docusign as production customers. <em>(ArfurRock, gustaf (Twitter))</em></div>
-<div class="syn-bullet">26 LLM routers were compromised to inject malicious tool calls — one incident drained a client wallet of $500k. This is a live, active attack vector in production agentic systems, not a theoretical risk. <em>(Fried_rice (Twitter))</em></div>
-<div class="syn-bullet">Saronic closed $1.75B Series D for autonomous maritime vessels, and Portal raised $50M for high-power military rocket engines. Defense and dual-use autonomy are absorbing institutional capital at scale. <em>(Crunchbase, TechCrunch Startups)</em></div>
-<div class="syn-bullet">Crosby Legal raised $60M on an 'outcomes over software' thesis — AI makes it economically viable to sell legal work as a service rather than licensing SaaS. Same model is emerging across professional services. <em>(APompliano (Twitter))</em></div>
-<div class="syn-bullet">SiFive raised $400M Series G specifically for data center processors optimized for agentic AI workloads, while Halter raised $220M from Founders Fund for solar-powered cattle management. Capital is finding both ends of the AI stack — specialized compute and deep-vertical applications. <em>(TradedVC (Twitter), TechCrunch Startups)</em></div>
+<div class="syn-bullet">Fleet (sales ops automation) grew from $1M to $63M ARR in 6 months and is projecting $160M ARR next quarter. Hightouch closed a Series C positioning itself as the 'first agentic marketer' with production deployments at Spotify and DocuSign. <em>(ArfurRock, gustaf (Twitter))</em></div>
+<div class="syn-bullet">26 LLM routers were exploited via malicious tool call injection, with at least one incident draining a client wallet of $500k. This is not theoretical — it's an active attack class targeting production AI agent infrastructure. <em>(Fried_rice (Twitter))</em></div>
+<div class="syn-bullet">Saronic raised $1.75B Series D for autonomous maritime vessels, while Portal raised $50M for high-power military rocket propulsion. Defense autonomy is now attracting growth-equity scale capital, not just seed bets. <em>(Crunchbase, TechCrunch)</em></div>
+<div class="syn-bullet">SiFive raised $400M Series G specifically to build data center processors optimized for agentic AI workloads — the first major infrastructure bet explicitly targeting agents as the primary compute workload. <em>(TradedVC (Twitter))</em></div>
+<div class="syn-bullet">Spade raised $40M to turn messy bank transaction data into structured intelligence for fintechs. Patlytics raised $40M for AI-driven patent filing and IP litigation workflow. Both are 'picks and shovels' plays in AI-assisted professional workflows. <em>(AlleyWatch)</em></div>
 <hr class="syn-hr">
 <h4 class="syn-heading">Signal vs Noise</h4>
 <div class="syn-point"><strong>SIGNAL</strong></div>
-<div class="syn-point"><strong>Fleet's 63x ARR in 6 months is not a growth hack — it's what happens when an agent sits directly on top of a revenue-generating workflow with measurable output.</strong></div>
-<p class="syn-p">It establishes what venture-scale agentic traction looks like: not user counts or engagement, but direct ARR attribution to agent actions.</p>
-<div class="syn-arrow">→ <em>Mainframe's value proposition needs to be audited against this benchmark — is it positioned to own a specific high-value workflow (like sales ops) or is it a general assistant that will lose to focused vertical agents as the category matures?</em></div>
-<div class="syn-point"><strong>LLM router compromise draining $500k from a live client wallet — 26 incidents reported in one disclosure.</strong></div>
-<p class="syn-p">This is the first concrete, financially-quantified security incident tied specifically to agentic AI infrastructure, not AI hallucination or bias.</p>
-<div class="syn-arrow">→ <em>Any portfolio company (Mainframe, Tapestry, PromptLayer) using agentic architecture with financial or credential-handling workflows needs an immediate threat model review — this is reputational risk, not just technical debt.</em></div>
-<div class="syn-point"><strong>Outcome-based pricing validated by Crosby Legal's $60M raise — selling the work, not the software.</strong></div>
-<p class="syn-p">This model unlocks higher per-customer revenue and lower churn than SaaS but requires operational delivery capability, which becomes the moat.</p>
-<div class="syn-arrow">→ <em>Hopscotch and PromptLayer both operate in spaces (B2B payments, AI app dev) where outcome pricing could be applied — worth a direct conversation about whether their pricing model is leaving money on the table.</em></div>
-<div class="syn-point"><strong>Karpathy's observation that public AI perception lags reality by 6+ months, anchored to free-tier ChatGPT.</strong></div>
-<p class="syn-p">Enterprise buyers and incumbents are underestimating what current-gen AI can do, creating a window for startups to deploy capabilities that look like magic to under-informed buyers.</p>
-<div class="syn-arrow">→ <em>Portfolio companies selling into traditional enterprise buyers (Hopscotch, Revin, Strobe) have a narrow window to establish AI credibility before buyers catch up and demand it as table stakes.</em></div>
+<div class="syn-point"><strong>Fleet's 63x ARR in 6 months and Hightouch's production agentic deployments at enterprise logos.</strong></div>
+<p class="syn-p">This isn't a demo — it's evidence that agentic AI can compound revenue at a rate that breaks traditional SaaS benchmarks. The clock on 'when does this category inflect' just moved from future to now.</p>
+<div class="syn-arrow">→ <em>Mainframe is the most direct portfolio bet here — Peter needs to know their ARR trajectory right now. If Mainframe isn't showing comparable early velocity signals, that's a founder conversation to have in the next two weeks, not at the next board.</em></div>
+<div class="syn-point"><strong>Active LLM router exploits draining production wallets via malicious tool call injection.</strong></div>
+<p class="syn-p">This attack vector targets the exact architecture — LLM + tools + financial accounts — that multiple AI-native companies are building on. The threat is live and already causing material losses.</p>
+<div class="syn-arrow">→ <em>Tapestry (crypto wallet + AI features), Mainframe (agent automation), and PromptLayer (AI app infrastructure) all have potential exposure. Peter should send a one-line note to those founders this week asking if they've reviewed their tool-call security model — it signals partnership and surfaces any blind spots before they become incidents.</em></div>
+<div class="syn-point"><strong>Crosby Legal raised $60M on 'selling the work' — outcome-based pricing where AI delivers services, not software licenses.</strong></div>
+<p class="syn-p">This validates a pricing model that could apply across professional services verticals and sidesteps the commoditization pressure hitting pure SaaS AI tools.</p>
+<div class="syn-arrow">→ <em>Patlytics ($40M, IP workflow) is a direct market comp to Crosby Legal — worth watching whether this pricing model spreads into patent/legal adjacent categories where Stellation doesn't yet have a position.</em></div>
+<div class="syn-point"><strong>Spade's $40M round for transaction data enrichment sits directly on top of the B2B payments stack.</strong></div>
+<p class="syn-p">Hopscotch (15 signals this week) is building B2B invoicing and payments infrastructure — Spade's raise signals that the data intelligence layer above payments is a venture-scale wedge.</p>
+<div class="syn-arrow">→ <em>This is either a threat to Hopscotch's moat (if data enrichment becomes table stakes) or a partnership/acquisition signal. Peter should ask the Hopscotch team how they're thinking about data differentiation.</em></div>
 <div class="syn-point"><strong>NOISE</strong></div>
-<div class="syn-bullet"><s>Kalshi and Vestwell raised undisclosed rounds.</s> — No amount, no lead, no terms — interesting companies but zero actionable signal until deal details surface.</div>
-<div class="syn-bullet"><s>Halter's $220M Founders Fund raise for solar-powered cattle management.</s> — Impressive capital and a real business, but agtech/livestock is fully outside Stellation's thesis and portfolio adjacencies — Founders Fund conviction here is interesting as a macro capital allocation signal, not a competitive or portfolio-relevant one.</div>
-<div class="syn-bullet"><s>Yuzu Health undisclosed round via AlleyWatch.</s> — Healthcare without amount, thesis, or relevance to any Stellation position.</div>
+<div class="syn-bullet"><s>Halter's $220M growth round (Founders Fund, livestock monitoring collars)</s> — Impressive capital and an interesting physical-world AI deployment, but agritech is well outside Stellation's thesis — no portfolio read-through.</div>
+<div class="syn-bullet"><s>Kalshi and Vestwell undisclosed rounds</s> — No disclosed amounts or terms make these unanalyzable — they confirm sector activity but add nothing to pattern recognition.</div>
+<div class="syn-bullet"><s>Portal's $50M defense propulsion round</s> — Defense hardware is capital-intensive and government-procurement-gated — interesting macro signal for defense autonomy concentration but no actionable seed-stage implication.</div>
+<div class="syn-bullet"><s>Juno's $12M seed for AI tax-prep software</s> — Tax prep is a recurring seasonal market with entrenched incumbents (Intuit) and no obvious platform unlock — AI-assisted doesn't change the distribution problem.</div>
 <hr class="syn-hr">
 <h4 class="syn-heading">Portfolio Implications</h4>
-<div class="syn-point"><strong>Agentic AI has hit revenue inflection — the question is whether Stellation's AI bets own a workflow or are one layer too horizontal</strong></div>
-<p class="syn-p">Companies: Mainframe, Vybe, PromptLayer</p>
-<p class="syn-p">Fleet and Hightouch demonstrate that the winners in agentic AI are workflow-specific, not general-purpose. Peter should pressure-test Mainframe's go-to-market: is there a single workflow category where they're fastest-growing, or are they spreading across use cases without owning any? Vybe's multimodal AI is infrastructure-adjacent — clarify whether they're building a model or a product.</p>
-<div class="syn-point"><strong>Fintech infrastructure is attracting serious capital, directly validating Hopscotch and Tapestry's categories</strong></div>
-<p class="syn-p">Companies: Hopscotch, Tapestry</p>
-<p class="syn-p">Spade ($40M, transaction data infrastructure for banks), Juno ($12M, AI-assisted tax prep), and Vestwell (savings) all signal that financial data plumbing and embedded fintech tooling are VC-fundable at meaningful scale. Hopscotch's B2B payments category has 11 signals this week — this is an active, competitive space, so question is whether they're extending lead or ceding ground to better-funded entrants.</p>
-<div class="syn-point"><strong>Defense and dual-use autonomy are attracting Series-D-scale capital — Enigma Labs' aerospace/UAP thesis may have a tailwind no one is pricing in</strong></div>
+<div class="syn-point"><strong>The agentic AI revenue clock is running, and Mainframe is either in the race or falling behind it</strong></div>
+<p class="syn-p">Companies: Mainframe</p>
+<p class="syn-p">Fleet's 6-month 63x ARR is now the benchmark every investor will cite when evaluating proactive AI productivity tools. Peter should get a metrics update from Mainframe this week — not as a pressure check, but to understand whether the wind is at their back or whether they need to sharpen the go-to-market before this window peaks.</p>
+<div class="syn-point"><strong>Fintech infrastructure companies face a new data intelligence competitive layer and a live security threat vector simultaneously</strong></div>
+<p class="syn-p">Companies: Tapestry, Hopscotch</p>
+<p class="syn-p">Spade's $40M signals that transaction data enrichment is becoming a standalone wedge — Hopscotch needs to have a view on whether they own this layer or cede it. Tapestry's 15 signals this week plus the LLM router exploit news means Peter should understand what AI/automation features Tapestry is building and whether they've stress-tested their wallet security model.</p>
+<div class="syn-point"><strong>AI infrastructure and tooling companies are now a direct target for sophisticated security attacks, not a future risk</strong></div>
+<p class="syn-p">Companies: PromptLayer, Mainframe, Vybe</p>
+<p class="syn-p">PromptLayer sits in the exact layer (prompt management, AI app infrastructure) where tool-call injection attacks are most likely to occur. This is a product differentiation opportunity if they move fast — 'secure-by-default AI app infrastructure' is a real value prop right now, not a feature checkbox.</p>
+<div class="syn-point"><strong>Defense autonomy is concentrating capital at growth stage, creating a potential moat problem for seed-stage entrants</strong></div>
 <p class="syn-p">Companies: Enigma Labs</p>
-<p class="syn-p">Saronic's $1.75B and Portal's $50M signal that defense-adjacent autonomy is no longer a niche — institutional capital is betting on it at scale. Enigma Labs operates at the data and research layer of the same space; worth a check-in on whether the defense/government procurement tailwind is accelerating their data licensing pipeline.</p>
-<div class="syn-point"><strong>Agent infrastructure security is now a portfolio-level risk, not a product feature</strong></div>
-<p class="syn-p">Companies: Mainframe, Tapestry, PromptLayer</p>
-<p class="syn-p">The $500k LLM router exploit is the first public, financially-quantified agentic AI attack. Any portfolio company with agents handling financial transactions or credentials (Tapestry's crypto wallet, Mainframe's automation, PromptLayer's production AI apps) should be asked directly: what is your threat model for malicious tool call injection?</p>
+<p class="syn-p">Saronic's $1.75B and the broader defense autonomy capital concentration suggests the window for seed-stage defense/aerospace bets is compressing as incumbents get funded to scale. Enigma's differentiation (UAP data and community) keeps them in a unique lane, but Peter should understand if their roadmap brushes up against defense-adjacent use cases that are getting crowded out.</p>
 <hr class="syn-hr">
 <h4 class="syn-heading">Twitter Pulse</h4>
-<div class="syn-bullet"><strong>ArfurRock:</strong> Fleet grew from $1M to $63M ARR in 6 months by automating sales operations with agents — projecting $160M ARR next quarter. This is what venture-scale agentic traction looks like.</div>
-<div class="syn-arrow">→ <em>Sets the benchmark for what 'working' means in agentic AI — direct, attributable ARR on a revenue workflow, not engagement or retention metrics.</em></div>
-<div class="syn-bullet"><strong>Fried_rice:</strong> 26 LLM routers were compromised to inject malicious tool calls, draining a $500k client wallet. Agentic AI systems handling money or credentials are a live attack surface.</div>
-<div class="syn-arrow">→ <em>First publicly-quantified financial loss from an agentic AI exploit — this will trigger enterprise security reviews and could become a regulatory flashpoint for any portfolio company deploying agents with financial permissions.</em></div>
-<div class="syn-bullet"><strong>APompliano:</strong> Crosby Legal raised $60M by selling legal outcomes rather than software licenses — AI makes professional service delivery cheap enough to absorb delivery cost and still margin on results.</div>
-<div class="syn-arrow">→ <em>This pricing model, if it generalizes beyond legal, restructures how AI-enabled B2B companies should be priced, sold, and valued — directly relevant to Hopscotch, PromptLayer, and any portfolio company with measurable output.</em></div>
-<div class="syn-bullet"><strong>TradedVC:</strong> SiFive raised $400M Series G specifically for processors optimized for agentic AI workloads — distinct from general LLM inference compute.</div>
-<div class="syn-arrow">→ <em>Infrastructure capital is segmenting agentic compute as its own market; wherever smart infrastructure money goes, application-layer demand follows within 18 months.</em></div>
-<div class="syn-bullet"><strong>karpathy:</strong> Public AI perception is 6+ months behind reality, anchored to free-tier ChatGPT — most enterprise buyers are making decisions based on outdated capability assumptions.</div>
-<div class="syn-arrow">→ <em>This gap is a distribution advantage for startups that can demonstrate current-gen capabilities to buyers still benchmarking against GPT-3.5 — the window to establish AI credibility before buyers catch up is open now.</em></div>
+<div class="syn-bullet"><strong>ArfurRock:</strong> Fleet went from $1M to $63M ARR in 6 months in sales ops automation, projecting $160M ARR next quarter — agentic AI hitting hypergrowth in a core revenue function.</div>
+<div class="syn-arrow">→ <em>This is the new velocity benchmark for AI-native companies, directly relevant to evaluating Mainframe's trajectory and any new AI productivity deals Peter is considering.</em></div>
+<div class="syn-bullet"><strong>Fried_rice:</strong> 26 LLM routers compromised via malicious tool call injection; one incident drained $500k from a client wallet — agent infrastructure security is an active, not theoretical, attack surface.</div>
+<div class="syn-arrow">→ <em>Any Stellation portfolio company with AI agents connected to financial accounts or sensitive data (Tapestry, Mainframe, PromptLayer) needs to be audited against this attack class now.</em></div>
+<div class="syn-bullet"><strong>APompliano:</strong> Crosby Legal raised $60M on 'selling the work' — AI makes delivering legal services so cheap that the premium shifts from software licensing to outcome accountability.</div>
+<div class="syn-arrow">→ <em>This pricing model will spread beyond legal — founders across professional services verticals should be thinking about whether they're leaving margin on the table with SaaS pricing.</em></div>
+<div class="syn-bullet"><strong>gustaf:</strong> Hightouch closed Series C as the 'first agentic marketer' with production deployments at Spotify and DocuSign — agents are running at enterprise scale in core business functions.</div>
+<div class="syn-arrow">→ <em>Moves agentic AI from 'interesting' to 'production-proven' in a way that changes the enterprise sales conversation for every AI company in the portfolio.</em></div>
+<div class="syn-bullet"><strong>thesamparr:</strong> Founders as young as 25 are raising $140M+, and they're already feeling threatened by 16-year-olds — capital intensity and complexity are dropping, compressing competitive timelines.</div>
+<div class="syn-arrow">→ <em>The clock on defensibility is shorter than it used to be — Stellation's seed bets need to be building moats (data, distribution, network effects) faster than the entry barrier compresses.</em></div>
 <hr class="syn-hr">
 <h4 class="syn-heading">Macro Context</h4>
-<div class="syn-bullet"><strong>Agentic AI is entering the production revenue phase — multiple companies across unrelated verticals (sales ops, marketing, legal) are demonstrating direct ARR attribution to agent actions, not just cost savings.</strong> — The evaluation framework for AI startups is shifting from 'do customers use it?' to 'do customers make money because of it?' Investors and boards will start demanding revenue-attributed metrics from AI-native companies, not just engagement data. <em>(ArfurRock, gustaf, APompliano (Twitter))</em></div>
-<div class="syn-bullet"><strong>Defense and dual-use autonomy absorbed over $1.8B this week across two deals (Saronic, Portal) — these are not defense primes, they are VC-backed startups attracting Series D capital.</strong> — The defense autonomy sector is maturing out of 'interesting thesis' into 'institutional capital conviction.' For VCs not already in the space, this is a signal that the entry window at reasonable valuations may be closing. <em>(Crunchbase, TechCrunch Startups)</em></div>
-<div class="syn-bullet"><strong>AI-enabled professional services (legal, tax, financial) are attracting meaningful early capital: Crosby Legal $60M, Juno $12M seed, Patlytics $40M. The thesis is that AI makes delivery cheap enough to monetize on outcomes.</strong> — If outcome-based pricing scales in professional services, it rewrites the unit economics for the entire category — higher ACV, lower churn, but requires operational execution as the core competency, not software development. <em>(AlleyWatch, Crunchbase, APompliano (Twitter))</em></div>
-<div class="syn-bullet"><strong>The founder age-capital compression noted by thesamparr — 25-year-olds raising $140M+ — is correlated with a broader acceleration: the time from idea to fundable company is collapsing as AI tooling reduces headcount requirements.</strong> — Competitive moats built on team size, operational complexity, or time-to-build are eroding. Seed-stage companies in Stellation's portfolio may face faster-than-expected competition from younger, leaner teams who can replicate features in weeks. <em>(thesamparr (Twitter))</em></div>
+<div class="syn-bullet"><strong>Agentic AI workloads are becoming the dominant inference pattern — SiFive's $400M Series G explicitly targets this as the primary compute workload, the first major capital allocation to name it.</strong> — Infrastructure layer is bifurcating: general GPU for training/inference versus specialized silicon for agentic multi-step workloads. Seed-stage AI companies should be monitoring latency and compute cost as agents get more complex. <em>(TradedVC (Twitter))</em></div>
+<div class="syn-bullet"><strong>Defense autonomy is attracting growth-equity scale capital in a single week: Saronic $1.75B (maritime), Portal $50M (propulsion), plus a year of prior defense tech momentum.</strong> — Defense is no longer a niche VC category — it's attracting crossover capital at growth stage, which will eventually compress the seed-stage return profile as valuations reprice upward across the stack. <em>(Crunchbase, TechCrunch)</em></div>
+<div class="syn-bullet"><strong>Physical-world AI deployments are now reaching growth equity scale: Halter's $220M from Founders Fund for solar-powered livestock monitoring collars represents AI embedded in non-digital infrastructure.</strong> — The AI hardware/physical deployment category is maturing past proof-of-concept — this is a data point for founders building at the intersection of AI and physical systems that the category can support large rounds. <em>(TechCrunch)</em></div>
+<div class="syn-bullet"><strong>The fintech data intelligence layer is getting funded independently: Spade ($40M) turns messy transaction data into structured intelligence for banks and fintechs, sitting above the payments infrastructure layer.</strong> — Financial data enrichment is becoming a standalone wedge rather than a feature — B2B payments companies that don't own their data layer may find themselves commoditized from above. <em>(AlleyWatch)</em></div>
 <hr class="syn-hr">
 <h4 class="syn-heading">Where Consensus Might Be Wrong</h4>
-<div class="syn-bullet"><strong>Consensus:</strong> Agentic AI is the dominant venture theme and every startup should be repositioning as an 'agent' company.</div>
-<div class="syn-point"><strong>Counter:</strong> Fleet and Hightouch are exceptional precisely because they found workflows where agent output is directly measurable as revenue. Most agentic deployments are on ambiguous knowledge work where attribution is murky and ROI is asserted, not demonstrated.</div>
-<p class="syn-p">Evidence: The same week that shows Fleet's 63x ARR also shows Patlytics ($40M) and Juno ($12M) with no reported traction metrics — capital is being allocated on thesis, not proof, across most of the agentic AI space.</p>
-<div class="syn-bullet"><strong>Consensus:</strong> Specialized compute (SiFive, $400M) is the right infrastructure bet for agentic AI.</div>
-<div class="syn-point"><strong>Counter:</strong> Nvidia's CUDA ecosystem and GPU generality have beaten specialized chips at every previous inflection point in AI; there's no structural reason agentic workloads are different enough to break that pattern before general-purpose chips catch up.</div>
-<p class="syn-p">Evidence: SiFive is raising at Series G — this is late enough that if specialized agentic compute were clearly winning, it would already be obvious in their revenue trajectory. The $400M raise may be the top of a cycle, not the start of one.</p>
-<div class="syn-bullet"><strong>Consensus:</strong> The LLM router security vulnerability is a fixable engineering problem that security tooling will address.</div>
-<div class="syn-point"><strong>Counter:</strong> The attack surface in multi-agent systems is fundamentally different from classical software security — it requires semantic-level validation of tool calls, not perimeter defense. This is not a patch; it's an architectural problem that hasn't been solved yet.</div>
-<p class="syn-p">Evidence: 26 compromised routers in a single disclosure suggests this is already at scale in production systems, not a theoretical vulnerability. The $500k loss happened because no standard security tooling was designed to verify the intent of an LLM-generated tool call.</p>
+<div class="syn-bullet"><strong>Consensus:</strong> Agentic AI revenue is the defining opportunity of 2026 — Fleet's 63x ARR proves the category is inflecting and every AI-native company should be accelerating.</div>
+<div class="syn-point"><strong>Counter:</strong> Fleet and Hightouch may represent the 10% of use cases where agents hit a genuinely self-contained, measurable workflow (sales ops, marketing automation) — most agent applications are still in search of a workflow where they can own the outcome, not just assist it.</div>
+<p class="syn-p">Evidence: Of all the agentic AI companies generating buzz this week, only two (Fleet, Hightouch) have disclosed revenue numbers. The rest are funded on narrative. The distribution of outcomes is almost certainly more bimodal than the signal suggests.</p>
+<div class="syn-bullet"><strong>Consensus:</strong> The LLM router security exploits are a solvable engineering problem — better sandboxing and tool validation will contain the risk.</div>
+<div class="syn-point"><strong>Counter:</strong> The attack surface is architectural, not just implementational — as long as agents have permission to take financial actions, the incentive to find new injection vectors compounds with agent adoption. Security will be a cat-and-mouse game at the infrastructure layer, not a one-time fix.</div>
+<p class="syn-p">Evidence: 26 compromised routers in a single reporting period suggests this is already scaling as an attack class, not isolated incidents. The $500k wallet drain confirms attackers are investing in sophistication proportional to the financial upside.</p>
+<div class="syn-bullet"><strong>Consensus:</strong> Defense tech is a new generational opportunity — Saronic's $1.75B Series D validates that autonomous systems for defense is venture-scale.</div>
+<div class="syn-point"><strong>Counter:</strong> Defense hardware companies are essentially single-customer businesses dependent on DoD procurement cycles — the capital concentration may be creating a generation of companies whose entire outcome depends on one buyer that can slow, redirect, or cancel programs for non-commercial reasons.</div>
+<p class="syn-p">Evidence: Saronic and Portal are both undisclosed in terms of contract status — large rounds in defense don't indicate revenue the way they do in commercial software. The capital is a bet on procurement, which is a different risk profile than most Stellation LPs are priced for.</p>
 <hr class="syn-hr">
 <h4 class="syn-heading">Patterns Tracking</h4>
-<p class="syn-p">◆ <strong>Agentic AI Revenue Inflection</strong> [building]</p>
-<p class="syn-p">Fleet 63x ARR in 6 months; Hightouch Series C with Spotify/Docusign as production agentic marketing customers; SiFive $400M specifically for agentic compute infrastructure.</p>
-<p class="syn-p"><em>Why:</em> Agents are crossing the chasm from experimental to production because they're being deployed on top of existing, measurable revenue workflows — not greenfield apps. The constraint was always 'what does the agent actually do?' — that question is being answered at scale.</p>
-<p class="syn-p"><em>Counter:</em> These are outliers in categories (sales ops, marketing automation) with pre-existing high-intent buyers and measurable ROI. Most agentic deployments outside these categories will struggle to demonstrate equivalent ARR attribution.</p>
-<p class="syn-p">◆ <strong>Agent Infrastructure Security as Attack Surface</strong> [building]</p>
-<p class="syn-p">26 LLM routers compromised, $500k wallet drained in one incident — first reported large-scale, financially-quantified agentic AI exploit.</p>
-<p class="syn-p"><em>Why:</em> As agents gain permission to execute financial transactions and access credentials, the attack surface shifts from data theft (classical) to action manipulation (novel). LLM routers are a single-point-of-failure in multi-agent pipelines that security tooling hasn't caught up to.</p>
-<p class="syn-p"><em>Counter:</em> Early-stage incidents get outsized press coverage; this may not indicate a systemic vulnerability so much as a few poorly-architected deployments at companies that moved too fast without security review.</p>
+<p class="syn-p">■ <strong>Agentic AI Revenue Inflection</strong> [established]</p>
+<p class="syn-p">Fleet $1M→$63M ARR in 6 months. Hightouch Series C with production customers at Spotify and DocuSign. Both are agent-native products hitting revenue velocity that breaks SaaS benchmarks.</p>
+<p class="syn-p"><em>Why:</em> Agentic AI is compounding faster than prior software waves because it automates the highest-leverage revenue operations (sales, marketing) where willingness to pay is highest and ROI is measurable in weeks, not quarters.</p>
+<p class="syn-p"><em>Counter:</em> Fleet may be an outlier — sales ops is uniquely agentic-native and may have hit a compressed demand moment. Most agent products are still burning on efficiency narratives that don't translate to enterprise contracts at speed.</p>
+<p class="syn-p">■ <strong>Agent Infrastructure Security as Attack Surface</strong> [established]</p>
+<p class="syn-p">26 confirmed LLM router exploits with malicious tool call injection; at least one $500k wallet drain confirmed. This moved from theoretical to active exploit class in a single reporting period.</p>
+<p class="syn-p"><em>Why:</em> The attack surface expanded precisely because agents are now connected to financial systems and production data — attackers follow the money, and the money is now flowing through AI agent pipelines.</p>
+<p class="syn-p"><em>Counter:</em> Most of these exploits target poorly-configured or rapidly-shipped agent systems — disciplined engineering practices and mature frameworks may contain the risk faster than the threat compounds.</p>
 <p class="syn-p">◆ <strong>Outcome-Based AI Pricing Model</strong> [building]</p>
-<p class="syn-p">Crosby Legal raised $60M on an explicit 'sell the work, not the software' thesis; Fleet's ARR growth validates that agent-generated revenue is directly attributable and therefore priceable as outcomes.</p>
-<p class="syn-p"><em>Why:</em> AI is collapsing the cost of professional service delivery to near zero at the margin, making outcome-based pricing economically viable where it previously required too much labor overhead. The moat becomes operational excellence and delivery guarantees, not software differentiation.</p>
-<p class="syn-p"><em>Counter:</em> Outcome-based pricing works in legal because outputs (contracts, filings) are discrete and verifiable. It's much harder to define and audit outcomes in knowledge work, productivity, or research contexts — which covers most of the AI startup space.</p>
+<p class="syn-p">Crosby Legal raised $60M explicitly on 'selling the work' thesis — AI-enabled professional services commanding outcome-based fees rather than SaaS seat licenses.</p>
+<p class="syn-p"><em>Why:</em> When AI makes the marginal cost of delivering a service near zero, the premium shifts from software access to accountability for results — firms that own the outcome capture more margin than those selling the tool.</p>
+<p class="syn-p"><em>Counter:</em> Outcome pricing is hard to operationalize at scale — defining 'the work' for legal, tax, or consulting engagements creates contract complexity that slows sales cycles and creates chargeback risk.</p>
 <p class="syn-p">■ <strong>Prediction Markets Legitimization</strong> [established]</p>
-<p class="syn-p">Kalshi raised another round (undisclosed size, described as large); continues building institutional credibility as a regulated prediction market.</p>
-<p class="syn-p"><em>Why:</em> Regulatory legitimacy plus demonstrated liquidity is creating a flywheel — more capital enables more market coverage, which attracts more sophisticated participants. Polymarket's crypto success showed retail appetite; Kalshi is capturing the institutional and regulatory-compliant segment.</p>
-<p class="syn-p"><em>Counter:</em> Without amount or terms, 'large round' is unverifiable. The category is nascent and dependent on regulatory continuity — one adverse ruling changes the whole picture.</p>
+<p class="syn-p">Kalshi raised an undisclosed large round — no terms, but the activity confirms continued institutional interest in the category post-regulatory clarification.</p>
+<p class="syn-p"><em>Why:</em> Prediction markets are moving from niche/regulatory-gray to institutional-grade instruments as derivatives frameworks expand to cover event contracts.</p>
+<p class="syn-p"><em>Counter:</em> Without disclosed terms, the Kalshi signal is weak — the category may be plateauing as the initial regulatory tailwind gets priced in.</p>
 <p class="syn-p">◆ <strong>Specialized Compute for Agentic AI</strong> [building]</p>
-<p class="syn-p">SiFive raised $400M Series G specifically for data center processors optimized for agentic AI workloads — not general LLM inference, specifically agentic.</p>
-<p class="syn-p"><em>Why:</em> Agentic workloads have a fundamentally different compute profile than inference: they require persistent state, low-latency tool call execution, and orchestration overhead. Smart infrastructure capital is recognizing this as a distinct market before the rest of the industry.</p>
-<p class="syn-p"><em>Counter:</em> General-purpose GPU compute (Nvidia) has consistently beaten specialized chips on TCO once at scale; SiFive may be solving for a problem that gets absorbed by next-gen GPUs before their silicon ships in volume.</p>
-<p class="syn-p">◇ <strong>Defense Autonomy Capital Concentration</strong> [emerging]</p>
-<p class="syn-p">Saronic $1.75B Series D (autonomous maritime), Portal $50M (high-power rocket engines for military applications) — two defense-adjacent autonomy raises in one week.</p>
-<p class="syn-p"><em>Why:</em> Post-Ukraine geopolitical reorientation and the Pentagon's autonomous systems push are creating a funding environment where defense autonomy can raise at consumer tech valuations. This isn't just defense spending — it's venture-scale returns becoming realistic in a historically government-contract-dependent sector.</p>
-<p class="syn-p"><em>Counter:</em> Defense is still a 7-10 year procurement cycle with ITAR complexity, political risk, and customer concentration. Saronic's $1.75B is exceptional; most defense autonomy startups won't see Series D capital or timelines.</p>
+<p class="syn-p">SiFive raised $400M Series G for data center processors explicitly optimized for agentic AI workloads — the first major infrastructure capital allocation naming agents as the primary compute workload.</p>
+<p class="syn-p"><em>Why:</em> As agent workloads become the dominant inference pattern (multi-step, tool-calling, stateful), general-purpose GPU infrastructure underperforms on latency and cost — specialized silicon is the next infrastructure bet.</p>
+<p class="syn-p"><em>Counter:</em> Specialized silicon has a long track record of losing to NVIDIA's software ecosystem — SiFive may be optimizing for a workload that CUDA-based hardware solves through software optimization before specialized chips reach market.</p>
+<p class="syn-p">◆ <strong>Defense Autonomy Capital Concentration</strong> [building]</p>
+<p class="syn-p">Saronic closed $1.75B Series D (autonomous maritime); Portal raised $50M for military propulsion. Two defense autonomy rounds in a single week, totaling $1.8B in disclosed capital.</p>
+<p class="syn-p"><em>Why:</em> Defense procurement timelines are compressing as geopolitical urgency overrides normal acquisition cycles — this is pulling growth-equity capital into defense tech faster than the seed ecosystem anticipated.</p>
+<p class="syn-p"><em>Counter:</em> Government contract risk is asymmetric — one administration change or procurement freeze can strand a $1.75B bet. The capital concentration may be creating fragile dependency on a single customer class.</p>
+<p class="syn-p">◇ <strong>AI Perception Gap as Builder Advantage</strong> [emerging]</p>
+<p class="syn-p">Karpathy noted public perception of AI capability is 6+ months behind reality, anchored to free-tier ChatGPT rather than current frontier models.</p>
+<p class="syn-p"><em>Why:</em> Founders building with current-gen models have a compounding advantage: their products are 6+ months ahead of what most enterprise buyers, competitors, and investors believe is possible — creating a window to establish category leadership before the market catches up.</p>
+<p class="syn-p"><em>Counter:</em> Perception gaps close fast when demos go viral — the window may be shorter than it appears, and companies that take too long to ship will find the gap closed when they finally launch.</p>
 <hr class="syn-hr">
-<p class="syn-p"><em>Based on 9 deals from 8 newsletter sources and 8 Twitter signals. Publicly announced deals only. This is a curated intelligence feed, not a comprehensive market map.</em></p>
+<p class="syn-p"><em>Based on 8 deals from 8 newsletter sources and 8 Twitter signals. Publicly announced deals only. This is a curated intelligence feed, not a comprehensive market map.</em></p>
         </div>
     </div>
 
@@ -721,50 +778,58 @@
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Agentic AI Revenue Inflection</span>
-                <span class="pattern-badge pst-building">BUILDING</span>
+                <span class="pattern-badge pst-established">ESTABLISHED</span>
             </div>
-            <div class="pattern-evidence">Fleet 63x ARR in 6 months; Hightouch Series C with Spotify/Docusign as production agentic marketing customers; SiFive $400M specifically for agentic compute infrastructure.</div>
-            <div class="pattern-counter">Counter: These are outliers in categories (sales ops, marketing automation) with pre-existing high-intent buyers and measurable ROI. Most agentic deployments outside these categories will struggle to demonstrate equivalent ARR attribution.</div>
+            <div class="pattern-evidence">Fleet $1M→$63M ARR in 6 months. Hightouch Series C with production customers at Spotify and DocuSign. Both are agent-native products hitting revenue velocity that breaks SaaS benchmarks.</div>
+            <div class="pattern-counter">Counter: Fleet may be an outlier — sales ops is uniquely agentic-native and may have hit a compressed demand moment. Most agent products are still burning on efficiency narratives that don&#x27;t translate to enterprise contracts at speed.</div>
         </div>
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Agent Infrastructure Security as Attack Surface</span>
-                <span class="pattern-badge pst-building">BUILDING</span>
+                <span class="pattern-badge pst-established">ESTABLISHED</span>
             </div>
-            <div class="pattern-evidence">26 LLM routers compromised, $500k wallet drained in one incident — first reported large-scale, financially-quantified agentic AI exploit.</div>
-            <div class="pattern-counter">Counter: Early-stage incidents get outsized press coverage; this may not indicate a systemic vulnerability so much as a few poorly-architected deployments at companies that moved too fast without security review.</div>
+            <div class="pattern-evidence">26 confirmed LLM router exploits with malicious tool call injection; at least one $500k wallet drain confirmed. This moved from theoretical to active exploit class in a single reporting period.</div>
+            <div class="pattern-counter">Counter: Most of these exploits target poorly-configured or rapidly-shipped agent systems — disciplined engineering practices and mature frameworks may contain the risk faster than the threat compounds.</div>
         </div>
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Outcome-Based AI Pricing Model</span>
                 <span class="pattern-badge pst-building">BUILDING</span>
             </div>
-            <div class="pattern-evidence">Crosby Legal raised $60M on an explicit &#x27;sell the work, not the software&#x27; thesis; Fleet&#x27;s ARR growth validates that agent-generated revenue is directly attributable and therefore priceable as outcomes.</div>
-            <div class="pattern-counter">Counter: Outcome-based pricing works in legal because outputs (contracts, filings) are discrete and verifiable. It&#x27;s much harder to define and audit outcomes in knowledge work, productivity, or research contexts — which covers most of the AI startup space.</div>
+            <div class="pattern-evidence">Crosby Legal raised $60M explicitly on &#x27;selling the work&#x27; thesis — AI-enabled professional services commanding outcome-based fees rather than SaaS seat licenses.</div>
+            <div class="pattern-counter">Counter: Outcome pricing is hard to operationalize at scale — defining &#x27;the work&#x27; for legal, tax, or consulting engagements creates contract complexity that slows sales cycles and creates chargeback risk.</div>
         </div>
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Prediction Markets Legitimization</span>
                 <span class="pattern-badge pst-established">ESTABLISHED</span>
             </div>
-            <div class="pattern-evidence">Kalshi raised another round (undisclosed size, described as large); continues building institutional credibility as a regulated prediction market.</div>
-            <div class="pattern-counter">Counter: Without amount or terms, &#x27;large round&#x27; is unverifiable. The category is nascent and dependent on regulatory continuity — one adverse ruling changes the whole picture.</div>
+            <div class="pattern-evidence">Kalshi raised an undisclosed large round — no terms, but the activity confirms continued institutional interest in the category post-regulatory clarification.</div>
+            <div class="pattern-counter">Counter: Without disclosed terms, the Kalshi signal is weak — the category may be plateauing as the initial regulatory tailwind gets priced in.</div>
         </div>
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Specialized Compute for Agentic AI</span>
                 <span class="pattern-badge pst-building">BUILDING</span>
             </div>
-            <div class="pattern-evidence">SiFive raised $400M Series G specifically for data center processors optimized for agentic AI workloads — not general LLM inference, specifically agentic.</div>
-            <div class="pattern-counter">Counter: General-purpose GPU compute (Nvidia) has consistently beaten specialized chips on TCO once at scale; SiFive may be solving for a problem that gets absorbed by next-gen GPUs before their silicon ships in volume.</div>
+            <div class="pattern-evidence">SiFive raised $400M Series G for data center processors explicitly optimized for agentic AI workloads — the first major infrastructure capital allocation naming agents as the primary compute workload.</div>
+            <div class="pattern-counter">Counter: Specialized silicon has a long track record of losing to NVIDIA&#x27;s software ecosystem — SiFive may be optimizing for a workload that CUDA-based hardware solves through software optimization before specialized chips reach market.</div>
         </div>
         <div class="pattern-row">
             <div class="pattern-top">
                 <span class="pattern-name">Defense Autonomy Capital Concentration</span>
+                <span class="pattern-badge pst-building">BUILDING</span>
+            </div>
+            <div class="pattern-evidence">Saronic closed $1.75B Series D (autonomous maritime); Portal raised $50M for military propulsion. Two defense autonomy rounds in a single week, totaling $1.8B in disclosed capital.</div>
+            <div class="pattern-counter">Counter: Government contract risk is asymmetric — one administration change or procurement freeze can strand a $1.75B bet. The capital concentration may be creating fragile dependency on a single customer class.</div>
+        </div>
+        <div class="pattern-row">
+            <div class="pattern-top">
+                <span class="pattern-name">AI Perception Gap as Builder Advantage</span>
                 <span class="pattern-badge pst-emerging">EMERGING</span>
             </div>
-            <div class="pattern-evidence">Saronic $1.75B Series D (autonomous maritime), Portal $50M (high-power rocket engines for military applications) — two defense-adjacent autonomy raises in one week.</div>
-            <div class="pattern-counter">Counter: Defense is still a 7-10 year procurement cycle with ITAR complexity, political risk, and customer concentration. Saronic&#x27;s $1.75B is exceptional; most defense autonomy startups won&#x27;t see Series D capital or timelines.</div>
+            <div class="pattern-evidence">Karpathy noted public perception of AI capability is 6+ months behind reality, anchored to free-tier ChatGPT rather than current frontier models.</div>
+            <div class="pattern-counter">Counter: Perception gaps close fast when demos go viral — the window may be shorter than it appears, and companies that take too long to ship will find the gap closed when they finally launch.</div>
         </div>
     </div>
 
