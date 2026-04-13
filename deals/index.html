@@ -259,6 +259,70 @@
 
         .empty-note { font-size: 0.78rem; color: var(--muted); font-style: italic; padding: 8px 0; }
 
+        /* --- Markets --- */
+        .markets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 600px) { .markets-grid { grid-template-columns: 1fr; } }
+        .market-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+        .market-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .market-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .market-row:last-child { border-bottom: none; }
+        .market-ticker {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--dim);
+            min-width: 80px;
+        }
+        .market-price {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .market-sub {
+            font-size: 0.68rem;
+            color: var(--muted);
+        }
+        .chg-up { font-size: 0.72rem; color: var(--green); }
+        .chg-down { font-size: 0.72rem; color: var(--red); }
+
+        /* --- Stats bar --- */
+        .stats-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+        .stats-bar .stat {
+            font-weight: 600;
+            color: var(--dim);
+        }
+        .stats-bar .stat strong {
+            color: #fff;
+        }
+
         /* --- Footer --- */
         .footer {
             text-align: center; color: var(--faint); font-size: 0.65rem;
@@ -273,12 +337,20 @@
 
     <div class="header">
         <div class="title">Stellation Intelligence Brief</div>
-        <div class="meta-line">Week of April 12, 2026 · 15 deals from 4 sources · 8 Twitter signals</div>
+        <div class="meta-line">Week of April 12, 2026</div>
+        <div class="stats-bar">
+            <span class="stat"><strong>15</strong> deals</span>
+            <span class="stat"><strong>4</strong> sources</span>
+            <span class="stat"><strong>8</strong> signals</span>
+            <span class="stat"><strong>11</strong> portfolio hits</span>
+            <span class="stat"><strong>7</strong> patterns</span>
+        </div>
     </div>
 
     <nav class="nav" id="nav">
         <a href="#sources" class="active" onclick="scrollTo_(event,'sources')">Sources</a>
         <a href="#twitter" onclick="scrollTo_(event,'twitter')">Twitter</a>
+        <a href="#markets" onclick="scrollTo_(event,'markets')">Markets</a>
         <a href="#companies" onclick="scrollTo_(event,'companies')">Companies</a>
         <a href="#portfolio" onclick="scrollTo_(event,'portfolio')">Portfolio</a>
         <a href="#synthesis" onclick="scrollTo_(event,'synthesis')">Synthesis</a>
@@ -640,6 +712,56 @@
             </div>
     </div>
 
+    <!-- MARKETS -->
+    <div class="section" id="markets">
+        <div class="section-title">Markets</div>
+        <div class="section-note">Live macro data from CoinGecko, DeFi Llama, Yahoo Finance. Updated daily at 6 AM ET.</div>
+        
+        <div class="markets-grid">
+            <div class="market-card">
+                <div class="market-label">CRYPTO</div>
+                <div class="market-row">
+                    <span class="market-ticker">BTC</span>
+                    <span class="market-price">$71,193</span>
+                    <span class="chg-up">▲ +0.2% 24h</span>
+                </div>
+                <div class="market-row">
+                    <span class="market-ticker">ETH</span>
+                    <span class="market-price">$2,197</span>
+                    <span class="chg-up">▲ +0.1% 24h</span>
+                </div>
+                <div class="market-row">
+                    <span class="market-ticker">DeFi TVL</span>
+                    <span class="market-price">$94.5B</span>
+                    <span class="chg-up">▲ +1.2% 7d</span>
+                </div>
+                <div class="market-row">
+                    <span class="market-ticker">Fear/Greed</span>
+                    <span class="market-price" style="color: var(--red)">12</span>
+                    <span class="market-sub" style="color: var(--red)">Extreme Fear</span>
+                </div>
+                <div class="market-row">
+                    <span class="market-ticker">Stablecoins</span>
+                    <span class="market-price">$263.0B</span>
+                    <span class="market-sub">USDT+USDC</span>
+                </div>
+            </div>
+            <div class="market-card">
+                <div class="market-label">ENERGY</div>
+                <div class="market-row">
+                    <span class="market-ticker">WTI Crude</span>
+                    <span class="market-price">$103.63</span>
+                    <span class="chg-down">▼ -7.8% 7d</span>
+                </div>
+                <div class="market-row">
+                    <span class="market-ticker">Nat Gas</span>
+                    <span class="market-price">$2.71</span>
+                    <span class="chg-down">▼ -3.6% 7d</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- COMPANIES -->
     <div class="section" id="companies">
         <div class="section-title">All Companies Mentioned This Week</div>
@@ -953,7 +1075,7 @@ function scrollTo_(e, id) {
 }
 
 // Update active nav on scroll
-const sections = ['sources','twitter','companies','portfolio','synthesis','patterns'];
+const sections = ['sources','twitter','markets','companies','portfolio','synthesis','patterns'];
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY + 80;
     let current = sections[0];
