@@ -155,13 +155,15 @@
     <div class="sidebar">
         <div class="sidebar-title">Portfolio Tracker</div>
         <div class="sidebar-stats">
-            <span style="color: var(--green)">● 5 active</span>
+            <span style="color: var(--green)">● 7 active</span>
             <span style="color: var(--gold)">● 0 quiet</span>
-            <span style="color: var(--red)">● 10 dark</span>
+            <span style="color: var(--red)">● 8 dark</span>
             <span>Updated Apr 13</span>
         </div>
         <button class="tab-btn-overview" onclick="showTab('overview')">All Companies</button>
         <button class="tab-btn" data-tab="enigma-labs" style="border-left: 3px solid #22c55e" onclick="showTab('enigma-labs')">Enigma Labs</button>
+<button class="tab-btn" data-tab="hearth-display" style="border-left: 3px solid #22c55e" onclick="showTab('hearth-display')">Hearth Display</button>
+<button class="tab-btn" data-tab="koodos-labs" style="border-left: 3px solid #22c55e" onclick="showTab('koodos-labs')">Koodos Labs</button>
 <button class="tab-btn" data-tab="mainframe" style="border-left: 3px solid #22c55e" onclick="showTab('mainframe')">Mainframe</button>
 <button class="tab-btn" data-tab="software-applications-inc" style="border-left: 3px solid #22c55e" onclick="showTab('software-applications-inc')">Software Applications Inc</button>
 <button class="tab-btn" data-tab="tapestry" style="border-left: 3px solid #22c55e" onclick="showTab('tapestry')">Tapestry</button>
@@ -169,9 +171,7 @@
 <button class="tab-btn" data-tab="addglow" style="border-left: 3px solid #ef4444" onclick="showTab('addglow')">AddGlow</button>
 <button class="tab-btn" data-tab="block-party" style="border-left: 3px solid #ef4444" onclick="showTab('block-party')">Block Party</button>
 <button class="tab-btn" data-tab="diem" style="border-left: 3px solid #ef4444" onclick="showTab('diem')">Diem</button>
-<button class="tab-btn" data-tab="hearth-display" style="border-left: 3px solid #ef4444" onclick="showTab('hearth-display')">Hearth Display</button>
 <button class="tab-btn" data-tab="indify" style="border-left: 3px solid #ef4444" onclick="showTab('indify')">Indify</button>
-<button class="tab-btn" data-tab="koodos-labs" style="border-left: 3px solid #ef4444" onclick="showTab('koodos-labs')">Koodos Labs</button>
 <button class="tab-btn" data-tab="promptlayer" style="border-left: 3px solid #ef4444" onclick="showTab('promptlayer')">PromptLayer</button>
 <button class="tab-btn" data-tab="revin" style="border-left: 3px solid #ef4444" onclick="showTab('revin')">Revin</button>
 <button class="tab-btn" data-tab="strobe" style="border-left: 3px solid #ef4444" onclick="showTab('strobe')">Strobe</button>
@@ -198,6 +198,22 @@
             </div>
             <div class="ov-meta">Data, Aerospace · Last signal: 2026-04-13</div>
             <div class="ov-stats">5 total signals · 5 this week</div>
+        </div>
+        <div class="overview-card" onclick="showTab('hearth-display')" style="border-left: 3px solid #22c55e; cursor: pointer;">
+            <div class="ov-top">
+                <span class="ov-name">Hearth Display</span>
+                <span class="ov-status" style="color: #22c55e">ACTIVE</span>
+            </div>
+            <div class="ov-meta">Consumer Hardware, Smart Home · Last signal: </div>
+            <div class="ov-stats">0 total signals · 0 this week</div>
+        </div>
+        <div class="overview-card" onclick="showTab('koodos-labs')" style="border-left: 3px solid #22c55e; cursor: pointer;">
+            <div class="ov-top">
+                <span class="ov-name">Koodos Labs</span>
+                <span class="ov-status" style="color: #22c55e">ACTIVE</span>
+            </div>
+            <div class="ov-meta">Consumer Social, Media · Last signal: </div>
+            <div class="ov-stats">0 total signals · 0 this week</div>
         </div>
         <div class="overview-card" onclick="showTab('mainframe')" style="border-left: 3px solid #22c55e; cursor: pointer;">
             <div class="ov-top">
@@ -255,28 +271,12 @@
             <div class="ov-meta">Consumer Social, Search · Last signal: </div>
             <div class="ov-stats">0 total signals · 0 this week</div>
         </div>
-        <div class="overview-card" onclick="showTab('hearth-display')" style="border-left: 3px solid #ef4444; cursor: pointer;">
-            <div class="ov-top">
-                <span class="ov-name">Hearth Display</span>
-                <span class="ov-status" style="color: #ef4444">DARK</span>
-            </div>
-            <div class="ov-meta">Consumer Hardware, Smart Home · Last signal: </div>
-            <div class="ov-stats">0 total signals · 0 this week</div>
-        </div>
         <div class="overview-card" onclick="showTab('indify')" style="border-left: 3px solid #ef4444; cursor: pointer;">
             <div class="ov-top">
                 <span class="ov-name">Indify</span>
                 <span class="ov-status" style="color: #ef4444">DARK</span>
             </div>
             <div class="ov-meta">Music, Creator Economy · Last signal: </div>
-            <div class="ov-stats">0 total signals · 0 this week</div>
-        </div>
-        <div class="overview-card" onclick="showTab('koodos-labs')" style="border-left: 3px solid #ef4444; cursor: pointer;">
-            <div class="ov-top">
-                <span class="ov-name">Koodos Labs</span>
-                <span class="ov-status" style="color: #ef4444">DARK</span>
-            </div>
-            <div class="ov-meta">Consumer Social, Media · Last signal: </div>
             <div class="ov-stats">0 total signals · 0 this week</div>
         </div>
         <div class="overview-card" onclick="showTab('promptlayer')" style="border-left: 3px solid #ef4444; cursor: pointer;">
@@ -400,6 +400,118 @@ Reid, "</div>
                     <span class="signal-type">same_sector</span>
                     <span class="signal-detail">Spade raised $40M — same sector: data</span>
                 </div>
+            </div>
+            <div class="last-checked">Activity last checked: 2026-04-13</div>
+        </div>
+        
+        <div class="company-page" id="page-hearth-display" style="display:none">
+            <div class="company-header-bar">
+                <div>
+                    <h2 class="company-title">Hearth Display </h2>
+                    <div class="company-meta">Consumer Hardware, Smart Home · Seed</div>
+                </div>
+                <span class="status-badge" style="background: #22c55e20; color: #22c55e">ACTIVE</span>
+            </div>
+
+            <div class="company-desc">Home operating system to make parents&#x27; lives easier. Founded by working moms.</div>
+            
+
+            <div class="links-bar">
+                <a href="https://hearthdisplay.com/" target="_blank" class="link-btn">Website</a>
+                <a href="https://hearthdisplay.com/blogs/hearth-at-home" target="_blank" class="link-btn">Blog</a>
+                <a href="https://x.com/HearthDisplay" target="_blank" class="link-btn twitter">𝕏 @HearthDisplay</a>
+                <a href="https://www.linkedin.com/company/hearth-display" target="_blank" class="link-btn linkedin">LinkedIn</a><span class="activity-date">last post: 7h • Edited •</span>
+            </div>
+            
+            <div class="founder-snippet">Latest LinkedIn: "Feed post number 1
+                
+                
+                  
+        "</div>
+
+            <div class="section-label">Funding</div>
+            <div class="funding-info">
+                <span class="funding-amt">Undisclosed</span>
+                 · Investors: Stellation
+                
+            </div>
+
+            <div class="section-label">Founding Team</div>
+            <div class="founders-grid">
+                
+            <div class="founder-card">
+                <div class="founder-name">Mei Lin Ng</div>
+                <div class="founder-bg"></div>
+                <div class="founder-links"><a href="https://x.com/meiiilin5" target="_blank" class="founder-link twitter">𝕏 @meiiilin5</a> <a href="https://linkedin.com/in/meilinng/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
+                
+            </div>
+            <div class="founder-card">
+                <div class="founder-name">Susie Harrison</div>
+                <div class="founder-bg"></div>
+                <div class="founder-links"><a href="https://linkedin.com/in/susietypherharrison/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
+                
+            </div>
+            <div class="founder-card">
+                <div class="founder-name">Nathalie Stratton</div>
+                <div class="founder-bg"></div>
+                <div class="founder-links"><a href="https://linkedin.com/in/nathalie-mansueti-stratton/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
+                
+            </div>
+            </div>
+
+            <div class="section-label">Signal Timeline (0 signals)</div>
+            <div class="signals-list">
+                <div class="no-data">No signals tracked yet</div>
+            </div>
+            <div class="last-checked">Activity last checked: 2026-04-13</div>
+        </div>
+        
+        <div class="company-page" id="page-koodos-labs" style="display:none">
+            <div class="company-header-bar">
+                <div>
+                    <h2 class="company-title">Koodos Labs </h2>
+                    <div class="company-meta">Consumer Social, Media · Seed</div>
+                </div>
+                <span class="status-badge" style="background: #22c55e20; color: #22c55e">ACTIVE</span>
+            </div>
+
+            <div class="company-desc">Social app (Shelf) where users curate and share media they consume and connect based on taste.</div>
+            <div class="company-notes">Angels include Pinterest co-founder Evan Sharp and Zynga founders.</div>
+
+            <div class="links-bar">
+                <a href="https://koodos.com/" target="_blank" class="link-btn">Website</a>
+                <a href="https://blog.koodos.com" target="_blank" class="link-btn">Blog</a>
+                <a href="https://x.com/koodos" target="_blank" class="link-btn twitter">𝕏 @koodos</a><span class="activity-date">last post: 2026-03-10</span>
+                <a href="https://www.linkedin.com/company/koodos-inc" target="_blank" class="link-btn linkedin">LinkedIn</a><span class="activity-date">last post: 2mo •</span>
+            </div>
+            <div class="founder-snippet">Latest tweet: "Shelf got a callout in Business Insider&#x27;s piece on how Gen Z is trying to log their way out of doomscrolling. The piece "</div>
+            <div class="founder-snippet">Latest LinkedIn: "Feed post number 1
+                
+                
+                  
+        "</div>
+
+            <div class="section-label">Funding</div>
+            <div class="funding-info">
+                <span class="funding-amt">$7M</span>
+                 · Investors: First Round Capital, M13, Blockchain Capital, IDEO
+                 · Co-investors: First Round Capital, M13, Blockchain Capital, IDEO
+            </div>
+
+            <div class="section-label">Founding Team</div>
+            <div class="founders-grid">
+                
+            <div class="founder-card">
+                <div class="founder-name">Jad Esber</div>
+                <div class="founder-bg">Harvard Berkman Klein Center affiliate, ex-YouTube/Google</div>
+                <div class="founder-links"><a href="https://x.com/Jad_AE" target="_blank" class="founder-link twitter">𝕏 @Jad_AE</a><span class="activity-date">last: 2026-04-13</span> <a href="https://linkedin.com/in/jadabiesber" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
+                <div class="founder-snippet">"Alumni Apurva Chitnis and Jad Esber first crossed paths through Headstart, a residential summer scho"</div>
+            </div>
+            </div>
+
+            <div class="section-label">Signal Timeline (0 signals)</div>
+            <div class="signals-list">
+                <div class="no-data">No signals tracked yet</div>
             </div>
             <div class="last-checked">Activity last checked: 2026-04-13</div>
         </div>
@@ -905,68 +1017,6 @@ IS NOW READY "</div>
             <div class="last-checked">Activity last checked: 2026-04-13</div>
         </div>
         
-        <div class="company-page" id="page-hearth-display" style="display:none">
-            <div class="company-header-bar">
-                <div>
-                    <h2 class="company-title">Hearth Display </h2>
-                    <div class="company-meta">Consumer Hardware, Smart Home · Seed</div>
-                </div>
-                <span class="status-badge" style="background: #ef444420; color: #ef4444">DARK</span>
-            </div>
-
-            <div class="company-desc">Home operating system to make parents&#x27; lives easier. Founded by working moms.</div>
-            
-
-            <div class="links-bar">
-                <a href="https://hearthdisplay.com/" target="_blank" class="link-btn">Website</a>
-                <a href="https://hearthdisplay.com/blogs/hearth-at-home" target="_blank" class="link-btn">Blog</a>
-                <a href="https://x.com/HearthDisplay" target="_blank" class="link-btn twitter">𝕏 @HearthDisplay</a>
-                <a href="https://www.linkedin.com/company/hearth-display" target="_blank" class="link-btn linkedin">LinkedIn</a><span class="activity-date">last post: 7h • Edited •</span>
-            </div>
-            
-            <div class="founder-snippet">Latest LinkedIn: "Feed post number 1
-                
-                
-                  
-        "</div>
-
-            <div class="section-label">Funding</div>
-            <div class="funding-info">
-                <span class="funding-amt">Undisclosed</span>
-                 · Investors: Stellation
-                
-            </div>
-
-            <div class="section-label">Founding Team</div>
-            <div class="founders-grid">
-                
-            <div class="founder-card">
-                <div class="founder-name">Mei Lin Ng</div>
-                <div class="founder-bg"></div>
-                <div class="founder-links"><a href="https://x.com/meiiilin5" target="_blank" class="founder-link twitter">𝕏 @meiiilin5</a> <a href="https://linkedin.com/in/meilinng/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
-                
-            </div>
-            <div class="founder-card">
-                <div class="founder-name">Susie Harrison</div>
-                <div class="founder-bg"></div>
-                <div class="founder-links"><a href="https://linkedin.com/in/susietypherharrison/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
-                
-            </div>
-            <div class="founder-card">
-                <div class="founder-name">Nathalie Stratton</div>
-                <div class="founder-bg"></div>
-                <div class="founder-links"><a href="https://linkedin.com/in/nathalie-mansueti-stratton/" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
-                
-            </div>
-            </div>
-
-            <div class="section-label">Signal Timeline (0 signals)</div>
-            <div class="signals-list">
-                <div class="no-data">No signals tracked yet</div>
-            </div>
-            <div class="last-checked">Activity last checked: 2026-04-13</div>
-        </div>
-        
         <div class="company-page" id="page-indify" style="display:none">
             <div class="company-header-bar">
                 <div>
@@ -1015,56 +1065,6 @@ IS NOW READY "</div>
                 <div class="founder-bg"></div>
                 <div class="founder-links"><a href="https://x.com/mattpavia" target="_blank" class="founder-link twitter">𝕏 @mattpavia</a> <a href="https://linkedin.com/in/mattpavia" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
                 
-            </div>
-            </div>
-
-            <div class="section-label">Signal Timeline (0 signals)</div>
-            <div class="signals-list">
-                <div class="no-data">No signals tracked yet</div>
-            </div>
-            <div class="last-checked">Activity last checked: 2026-04-13</div>
-        </div>
-        
-        <div class="company-page" id="page-koodos-labs" style="display:none">
-            <div class="company-header-bar">
-                <div>
-                    <h2 class="company-title">Koodos Labs </h2>
-                    <div class="company-meta">Consumer Social, Media · Seed</div>
-                </div>
-                <span class="status-badge" style="background: #ef444420; color: #ef4444">DARK</span>
-            </div>
-
-            <div class="company-desc">Social app (Shelf) where users curate and share media they consume and connect based on taste.</div>
-            <div class="company-notes">Angels include Pinterest co-founder Evan Sharp and Zynga founders.</div>
-
-            <div class="links-bar">
-                <a href="https://koodos.com/" target="_blank" class="link-btn">Website</a>
-                <a href="https://blog.koodos.com" target="_blank" class="link-btn">Blog</a>
-                <a href="https://x.com/koodos" target="_blank" class="link-btn twitter">𝕏 @koodos</a><span class="activity-date">last post: 2026-03-10</span>
-                <a href="https://www.linkedin.com/company/koodos-inc" target="_blank" class="link-btn linkedin">LinkedIn</a><span class="activity-date">last post: 2mo •</span>
-            </div>
-            <div class="founder-snippet">Latest tweet: "Shelf got a callout in Business Insider&#x27;s piece on how Gen Z is trying to log their way out of doomscrolling. The piece "</div>
-            <div class="founder-snippet">Latest LinkedIn: "Feed post number 1
-                
-                
-                  
-        "</div>
-
-            <div class="section-label">Funding</div>
-            <div class="funding-info">
-                <span class="funding-amt">$7M</span>
-                 · Investors: First Round Capital, M13, Blockchain Capital, IDEO
-                 · Co-investors: First Round Capital, M13, Blockchain Capital, IDEO
-            </div>
-
-            <div class="section-label">Founding Team</div>
-            <div class="founders-grid">
-                
-            <div class="founder-card">
-                <div class="founder-name">Jad Esber</div>
-                <div class="founder-bg">Harvard Berkman Klein Center affiliate, ex-YouTube/Google</div>
-                <div class="founder-links"><a href="https://x.com/Jad_AE" target="_blank" class="founder-link twitter">𝕏 @Jad_AE</a><span class="activity-date">last: 2026-04-13</span> <a href="https://linkedin.com/in/jadabiesber" target="_blank" class="founder-link linkedin">LinkedIn</a></div>
-                <div class="founder-snippet">"Alumni Apurva Chitnis and Jad Esber first crossed paths through Headstart, a residential summer scho"</div>
             </div>
             </div>
 
