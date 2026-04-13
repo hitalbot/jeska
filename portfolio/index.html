@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellation Portfolio Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f19; --surface: #111827; --border: rgba(255,255,255,0.06);
+            --gold: #e5a800; --gold-soft: rgba(229,168,0,0.10);
+            --text: #e2e8f0; --dim: #94a3b8; --muted: #64748b; --faint: #475569;
+            --blue: #60a5fa; --blue-soft: rgba(96,165,250,0.10);
+            --green: #22c55e; --red: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+        .page { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        .header { margin-bottom: 32px; }
+        .title { font-family: 'Newsreader', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: #fff; }
+        .meta-line { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+        .stats-bar { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.72rem; color: var(--muted); margin-top: 8px; }
+        .stats-bar .stat { font-weight: 600; color: var(--dim); }
+        .stats-bar .stat strong { color: #fff; }
+
+        .section { margin-bottom: 40px; }
+        .section-title {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; padding-bottom: 8px; margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-title.active { color: var(--green); }
+        .section-title.quiet { color: var(--gold); }
+        .section-title.dark { color: var(--red); }
+
+        .company-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 8px; padding: 16px 20px; margin-bottom: 12px;
+        }
+        .company-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+        .company-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
+        .company-sectors { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+        .company-founders { font-size: 0.72rem; color: var(--dim); margin-bottom: 10px; }
+        .co-link { color: #fff; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+        .co-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+        .twitter-tag { color: var(--blue); text-decoration: none; font-size: 0.68rem; }
+        .twitter-tag:hover { text-decoration: underline; }
+        .li-tag { color: var(--muted); text-decoration: none; font-size: 0.65rem; border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+        .li-tag:hover { color: var(--blue); }
+
+        .company-signals { border-top: 1px solid var(--border); padding-top: 8px; }
+        .signal-row { display: flex; gap: 8px; align-items: baseline; padding: 3px 0; font-size: 0.75rem; }
+        .signal-row.dim { color: var(--muted); font-style: italic; }
+        .signal-date { color: var(--muted); font-size: 0.68rem; min-width: 70px; }
+        .signal-type { color: var(--gold); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; min-width: 80px; }
+        .signal-text { color: var(--dim); flex: 1; }
+        .signal-handle { color: var(--blue); font-size: 0.65rem; }
+
+        .nyc-badge { display: inline-block; background: rgba(96,165,250,0.15); color: var(--blue); font-size: 0.58rem; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+
+        .footer { text-align: center; color: var(--faint); font-size: 0.65rem; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); }
+        @media (max-width: 600px) { .page { padding: 24px 16px 60px; } .signal-row { flex-wrap: wrap; } }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <div class="title">Stellation Portfolio Tracker</div>
+        <div class="meta-line">Updated April 13, 2026</div>
+        <div class="stats-bar">
+            <span class="stat"><strong>6</strong> active</span>
+            <span class="stat"><strong>0</strong> quiet</span>
+            <span class="stat"><strong>10</strong> dark</span>
+            <span class="stat"><strong>41</strong> signals this week</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title active">Active — signals this week (6)</div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://www.usetapestry.dev/" target="_blank" class="co-link">Tapestry</a> <a href="https://x.com/usetapestry" target="_blank" class="twitter-tag">@usetapestry</a></div>
+                <div class="company-sectors">Fintech, Crypto, Consumer</div>
+            </div>
+            <div class="company-founders">David Gabeau <a href="https://x.com/dgabeau" target="_blank" class="twitter-tag">@dgabeau</a> <a href="https://linkedin.com/in/dgabeau/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Kalshi raised None — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Vestwell raised None — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://gohopscotch.com/" target="_blank" class="co-link">Hopscotch</a> <a href="https://x.com/tryhopscotch" target="_blank" class="twitter-tag">@tryhopscotch</a></div>
+                <div class="company-sectors">Fintech, B2B Payments</div>
+            </div>
+            <div class="company-founders">Reed Switzer <a href="https://x.com/itsreedswitzer" target="_blank" class="twitter-tag">@itsreedswitzer</a> <a href="https://linkedin.com/in/reedswitzer" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Kalshi raised None — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Vestwell raised None — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: fintech</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://thevybeapp.com/" target="_blank" class="co-link">Vybe</a> <a href="https://x.com/vybeappp" target="_blank" class="twitter-tag">@vybeappp</a></div>
+                <div class="company-sectors">AI, Computer Vision</div>
+            </div>
+            <div class="company-founders">Mandela Patrick <a href="https://x.com/mandelapatrick_" target="_blank" class="twitter-tag">@mandelapatrick_</a> <a href="https://linkedin.com/in/mandelapatrick/" target="_blank" class="li-tag">LinkedIn</a> · Arnab Ghosh <a href="https://x.com/arnab_iitk" target="_blank" class="twitter-tag">@arnab_iitk</a> <a href="https://linkedin.com/in/arnabgho/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-10</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-10</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://mainfra.me/" target="_blank" class="co-link">Mainframe</a> <a href="https://x.com/mainframe" target="_blank" class="twitter-tag">@mainframe</a></div>
+                <div class="company-sectors">AI, Productivity</div>
+            </div>
+            <div class="company-founders">Lou Mata <a href="https://x.com/loumata_" target="_blank" class="twitter-tag">@loumata_</a> <a href="https://linkedin.com/in/loumata" target="_blank" class="li-tag">LinkedIn</a> · Jordan Singer <a href="https://x.com/jsngr" target="_blank" class="twitter-tag">@jsngr</a> <a href="https://linkedin.com/in/jordansinger" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-10</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-10</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Patlytics raised $40M — same sector: ai</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://enigmalabs.io/" target="_blank" class="co-link">Enigma Labs</a> <span class="nyc-badge">NYC</span> <a href="https://x.com/enigmalabs" target="_blank" class="twitter-tag">@enigmalabs</a></div>
+                <div class="company-sectors">Data, Aerospace</div>
+            </div>
+            <div class="company-founders">Alex Smith <a href="https://linkedin.com/in/alex-smith-1465a5203" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Portal raised $50M — same sector: aerospace</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-13</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: data</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Portal raised $50 million — same sector: aerospace</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div>
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Spade raised $40M — same sector: data</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://software.inc/" target="_blank" class="co-link">Software Applications Inc</a> <a href="https://x.com/SoftwareAppsInc" target="_blank" class="twitter-tag">@SoftwareAppsInc</a></div>
+                <div class="company-sectors">Software, Personal Computing</div>
+            </div>
+            <div class="company-founders">Ari Weinstein <a href="https://x.com/AriX" target="_blank" class="twitter-tag">@AriX</a> <a href="https://linkedin.com/in/weinsteinari/" target="_blank" class="li-tag">LinkedIn</a> · Conrad Kramer <a href="https://x.com/conradev" target="_blank" class="twitter-tag">@conradev</a> · Kim Beverett <a href="https://linkedin.com/in/kimberly-beverett/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals">
+                <div class="signal-row">
+                    <span class="signal-date">2026-04-12</span>
+                    <span class="signal-type">same_sector</span>
+                    <span class="signal-text">Juno raised $12M — same sector: software</span>
+                    <span class="signal-handle">deal-radar</span>
+                </div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title quiet">Quiet — no signals 14+ days (0)</div>
+        <div style="color: var(--muted); font-size: 0.78rem;">None.</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title dark">Dark — no signals 30+ days (10)</div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://revin.ai/" target="_blank" class="co-link">Revin</a> <a href="https://x.com/revin_ai" target="_blank" class="twitter-tag">@revin_ai</a></div>
+                <div class="company-sectors">Home Services, SaaS</div>
+            </div>
+            <div class="company-founders">Quinn Litherland <a href="https://x.com/LitherlandQuinn" target="_blank" class="twitter-tag">@LitherlandQuinn</a> <a href="https://linkedin.com/in/quinnlitherland/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://hearthdisplay.com/" target="_blank" class="co-link">Hearth Display</a> <a href="https://x.com/HearthDisplay" target="_blank" class="twitter-tag">@HearthDisplay</a></div>
+                <div class="company-sectors">Consumer Hardware, Smart Home</div>
+            </div>
+            <div class="company-founders">Mei Lin Ng <a href="https://x.com/meiiilin5" target="_blank" class="twitter-tag">@meiiilin5</a> <a href="https://linkedin.com/in/meilinng/" target="_blank" class="li-tag">LinkedIn</a> · Susie Harrison <a href="https://linkedin.com/in/susietypherharrison/" target="_blank" class="li-tag">LinkedIn</a> · Nathalie Stratton <a href="https://linkedin.com/in/nathalie-mansueti-stratton/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://www.blockpartyapp.com/" target="_blank" class="co-link">Block Party</a> <a href="https://x.com/blockpartyapp_" target="_blank" class="twitter-tag">@blockpartyapp_</a></div>
+                <div class="company-sectors">Safety, Social</div>
+            </div>
+            <div class="company-founders">Tracy Chou <a href="https://x.com/triketora" target="_blank" class="twitter-tag">@triketora</a> <a href="https://linkedin.com/in/triketora/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://www.addglow.com/" target="_blank" class="co-link">AddGlow</a></div>
+                <div class="company-sectors">E-commerce, Community SaaS</div>
+            </div>
+            <div class="company-founders">Ina Herlihy <a href="https://x.com/inaherlihy" target="_blank" class="twitter-tag">@inaherlihy</a> <a href="https://linkedin.com/in/inaherlihy/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://www.askdiem.com/" target="_blank" class="co-link">Diem</a> <a href="https://x.com/askDiem" target="_blank" class="twitter-tag">@askDiem</a></div>
+                <div class="company-sectors">Consumer Social, Search</div>
+            </div>
+            <div class="company-founders">Emma Bates <a href="https://x.com/EmmaSHBates" target="_blank" class="twitter-tag">@EmmaSHBates</a> <a href="https://linkedin.com/in/emma-bates-288a89a0/" target="_blank" class="li-tag">LinkedIn</a> · Divia Singh <a href="https://linkedin.com/in/divia-singh/" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://indify.io/" target="_blank" class="co-link">Indify</a> <a href="https://x.com/indify" target="_blank" class="twitter-tag">@indify</a></div>
+                <div class="company-sectors">Music, Creator Economy</div>
+            </div>
+            <div class="company-founders">Shav Garg <a href="https://x.com/prettyboyshav" target="_blank" class="twitter-tag">@prettyboyshav</a> · Connor Lawrence <a href="https://x.com/itsconlaw" target="_blank" class="twitter-tag">@itsconlaw</a> <a href="https://linkedin.com/in/conlaw" target="_blank" class="li-tag">LinkedIn</a> · Matt Pavia <a href="https://x.com/mattpavia" target="_blank" class="twitter-tag">@mattpavia</a> <a href="https://linkedin.com/in/mattpavia" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://koodos.com/" target="_blank" class="co-link">Koodos Labs</a> <a href="https://x.com/koodos" target="_blank" class="twitter-tag">@koodos</a></div>
+                <div class="company-sectors">Consumer Social, Media</div>
+            </div>
+            <div class="company-founders">Jad Esber <a href="https://x.com/Jad_AE" target="_blank" class="twitter-tag">@Jad_AE</a> <a href="https://linkedin.com/in/jadabiesber" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://promptlayer.com/" target="_blank" class="co-link">PromptLayer</a> <span class="nyc-badge">NYC</span> <a href="https://x.com/promptlayer" target="_blank" class="twitter-tag">@promptlayer</a></div>
+                <div class="company-sectors">AI Infrastructure, Dev Tools</div>
+            </div>
+            <div class="company-founders">Jared Zoneraich <a href="https://x.com/imjaredz" target="_blank" class="twitter-tag">@imjaredz</a> <a href="https://linkedin.com/in/imjaredz" target="_blank" class="li-tag">LinkedIn</a> · Jonathan Pedoeem <a href="https://x.com/Jonpon101" target="_blank" class="twitter-tag">@Jonpon101</a> <a href="https://linkedin.com/in/jonathan-pedoeem" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://strobepower.com/" target="_blank" class="co-link">Strobe</a> <span class="nyc-badge">NYC</span></div>
+                <div class="company-sectors">Energy, Climate Tech</div>
+            </div>
+            <div class="company-founders">Will Fisher <a href="https://linkedin.com/in/william-s-fisher" target="_blank" class="li-tag">LinkedIn</a> · Keeley Erhardt <a href="https://x.com/KeeleyErhardt" target="_blank" class="twitter-tag">@KeeleyErhardt</a> <a href="https://linkedin.com/in/keeleyerhardt" target="_blank" class="li-tag">LinkedIn</a> · Eric Schoonover</div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name"><a href="https://www.joinswsh.com/" target="_blank" class="co-link">swsh</a> <a href="https://x.com/joinswsh" target="_blank" class="twitter-tag">@joinswsh</a></div>
+                <div class="company-sectors">Consumer Social</div>
+            </div>
+            <div class="company-founders">Ali Debow <a href="https://x.com/ali_debow" target="_blank" class="twitter-tag">@ali_debow</a> <a href="https://linkedin.com/in/alexandradebow" target="_blank" class="li-tag">LinkedIn</a> · Weilyn Chong <a href="https://x.com/WeilynChong" target="_blank" class="twitter-tag">@WeilynChong</a> <a href="https://linkedin.com/in/weilynchong" target="_blank" class="li-tag">LinkedIn</a> · Nathan Ahn <a href="https://linkedin.com/in/nathan-ahn" target="_blank" class="li-tag">LinkedIn</a></div>
+            <div class="company-signals"><div class="signal-row dim">No signals yet</div></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Stellation VC Portfolio Tracker · 16 companies tracked<br>
+        Monitoring Twitter, Google Alerts, founder activity
+    </div>
+</div>
+</body>
+</html>
