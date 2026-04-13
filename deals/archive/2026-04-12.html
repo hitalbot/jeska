@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Brief — 2026-04-12</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #0b0f19;
+    --surface: #111827;
+    --border: rgba(255,255,255,0.06);
+    --gold: #e5a800;
+    --gold-soft: rgba(229,168,0,0.10);
+    --text: #e2e8f0;
+    --dim: #94a3b8;
+    --muted: #64748b;
+    --faint: #475569;
+    --blue: #60a5fa;
+    --blue-soft: rgba(96,165,250,0.10);
+    --green: #22c55e;
+    --red: #ef4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* --- Header --- */
+.header { margin-bottom: 32px; }
+.title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+}
+.meta-line { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+/* --- Nav --- */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    padding: 8px 0;
+    flex-wrap: wrap;
+}
+.nav a {
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav a.archive-link { margin-left: auto; color: var(--blue); }
+.nav a.archive-link:hover { color: var(--gold); }
+
+/* --- Sections --- */
+.section { margin-bottom: 48px; }
+.section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+.section-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+/* --- Source cards --- */
+.source-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+.source-card.empty { opacity: 0.5; padding: 12px 20px; }
+.source-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.source-count { font-size: 0.7rem; color: var(--muted); margin-bottom: 10px; }
+.deal-row { padding: 8px 0; border-top: 1px solid var(--border); }
+.deal-row.portfolio-hit { border-left: 3px solid var(--gold); padding-left: 12px; }
+.deal-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.deal-company { font-size: 0.85rem; font-weight: 500; color: #fff; }
+.deal-amt { font-size: 0.82rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+.deal-desc { font-size: 0.78rem; color: var(--dim); margin-top: 2px; }
+.deal-meta { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+.port-badge {
+    display: inline-block;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+/* --- Tweet cards --- */
+.tweet-card { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.tweet-top { display: flex; justify-content: space-between; align-items: baseline; }
+.tweet-handle { font-size: 0.82rem; font-weight: 600; color: var(--blue); }
+.tweet-link { color: var(--blue); text-decoration: none; }
+.tweet-link:hover { text-decoration: underline; }
+.tweet-meta { font-size: 0.68rem; color: var(--muted); }
+.tweet-idea { font-size: 0.8rem; color: var(--dim); margin-top: 4px; line-height: 1.6; }
+.tweet-why { font-size: 0.75rem; color: var(--muted); margin-top: 2px; font-style: italic; }
+.conf-high {
+    display: inline-block;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* --- Macro signals --- */
+.macro-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.macro-signal { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+.macro-source { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+/* --- Companies table --- */
+.co-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.co-table th {
+    text-align: left; font-size: 0.65rem; font-weight: 600;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 8px 6px; border-bottom: 1px solid var(--border);
+}
+.co-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); color: var(--dim); }
+.co-table td strong { color: #fff; font-weight: 500; }
+.co-table .portfolio-hit td { background: var(--gold-soft); }
+.amt-cell { font-weight: 600; color: #fff !important; white-space: nowrap; }
+.src-cell { color: var(--muted); font-size: 0.72rem; }
+
+/* --- Portfolio map --- */
+.port-row {
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
+}
+.port-name { font-size: 0.85rem; font-weight: 600; color: #fff; min-width: 120px; }
+.port-sectors { font-size: 0.72rem; color: var(--muted); min-width: 140px; }
+.port-adjacent { font-size: 0.78rem; color: var(--dim); }
+.port-row.quiet { opacity: 0.5; }
+.port-quiet { font-size: 0.78rem; color: var(--muted); }
+
+/* --- Synthesis --- */
+.synthesis-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+}
+.synthesis-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px;
+}
+.syn-heading { font-size: 0.85rem; font-weight: 600; color: var(--gold); margin: 20px 0 8px; }
+.syn-heading:first-child { margin-top: 0; }
+.syn-p { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-bottom: 8px; }
+.syn-p strong { color: #fff; font-weight: 500; }
+.syn-bullet { font-size: 0.82rem; color: var(--dim); line-height: 1.7; padding-left: 14px; margin-bottom: 6px; position: relative; }
+.syn-bullet::before { content: "·"; position: absolute; left: 2px; color: var(--gold); font-weight: 700; }
+.syn-bullet strong { color: #fff; }
+.syn-arrow { font-size: 0.78rem; color: var(--gold); padding-left: 14px; margin-bottom: 12px; opacity: 0.8; }
+.syn-point { font-size: 0.85rem; color: var(--dim); line-height: 1.7; margin-bottom: 4px; }
+.syn-point strong { color: #fff; font-weight: 600; }
+.syn-hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* --- Patterns --- */
+.pattern-row { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.pattern-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.pattern-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.pattern-badge {
+    font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 2px 8px; border-radius: 3px;
+}
+.pst-emerging { background: var(--blue-soft); color: var(--blue); }
+.pst-building { background: var(--gold-soft); color: var(--gold); }
+.pst-established { background: rgba(34,197,94,0.12); color: var(--green); }
+.pst-fading { background: rgba(100,116,139,0.12); color: var(--muted); }
+.pattern-evidence { font-size: 0.78rem; color: var(--dim); line-height: 1.6; }
+.pattern-counter { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.nyc-badge {
+    display: inline-block; background: rgba(96,165,250,0.15); color: var(--blue);
+    font-size: 0.58rem; font-weight: 700; padding: 1px 6px; border-radius: 3px;
+    margin-left: 4px; letter-spacing: 0.03em;
+}
+.deal-link { color: #fff; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+.deal-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.source-link { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
+.source-link:hover { color: var(--gold); }
+.macro-group { margin-bottom: 20px; }
+.macro-cat-label {
+    font-size: 0.72rem; font-weight: 700; color: var(--dim);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 8px 0 6px; border-bottom: 1px solid var(--border); margin-bottom: 4px;
+}
+.macro-cat-count { color: var(--muted); font-weight: 400; font-size: 0.65rem; }
+.empty-note { font-size: 0.78rem; color: var(--muted); font-style: italic; padding: 8px 0; }
+
+/* --- Markets --- */
+.markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .markets-grid { grid-template-columns: 1fr; } }
+.market-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 20px;
+}
+.market-label {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px;
+}
+.market-row {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 4px 0; border-bottom: 1px solid var(--border);
+}
+.market-row:last-child { border-bottom: none; }
+.market-ticker { font-size: 0.72rem; font-weight: 600; color: var(--dim); min-width: 80px; }
+.market-price { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.market-sub { font-size: 0.68rem; color: var(--muted); }
+.chg-up { font-size: 0.72rem; color: var(--green); }
+.chg-down { font-size: 0.72rem; color: var(--red); }
+
+/* --- Headlines --- */
+.headline-row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.headline-row.must-read { border-left: 3px solid var(--gold); padding-left: 12px; }
+.headline-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.headline-badge {
+    font-size: 0.55rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 1px 6px; border-radius: 3px;
+}
+.headline-badge.mr { background: var(--gold-soft); color: var(--gold); }
+.headline-badge.wn { background: rgba(100,116,139,0.12); color: var(--muted); }
+.headline-source { font-size: 0.68rem; color: var(--muted); }
+.headline-title { font-size: 0.82rem; font-weight: 500; color: #fff; line-height: 1.5; }
+.headline-insight { font-size: 0.78rem; color: var(--dim); margin-top: 2px; line-height: 1.5; }
+
+/* --- Portfolio Pulse --- */
+.pulse-group { margin-bottom: 20px; }
+.pulse-group-label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 6px 0;
+    border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.pulse-active { color: var(--green); }
+.pulse-quiet { color: var(--gold); }
+.pulse-dark { color: var(--red); }
+.pulse-company { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.pulse-company.quiet { opacity: 0.6; display: flex; justify-content: space-between; align-items: baseline; }
+.pulse-company.dark { opacity: 0.5; display: flex; justify-content: space-between; align-items: baseline; }
+.pulse-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.pulse-last { font-size: 0.68rem; color: var(--muted); }
+.pulse-signal { font-size: 0.78rem; color: var(--dim); padding: 2px 0 2px 12px; line-height: 1.5; }
+.pulse-signal.dim { color: var(--muted); font-style: italic; }
+.pulse-date { font-size: 0.68rem; color: var(--muted); margin-right: 4px; }
+.pulse-handle { font-size: 0.68rem; color: var(--blue); }
+
+/* --- Stats bar --- */
+.stats-bar {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 0.72rem; color: var(--muted); margin-top: 8px;
+}
+.stats-bar .stat { font-weight: 600; color: var(--dim); }
+.stats-bar .stat strong { color: #fff; }
+
+/* --- Archive --- */
+.archive-list { list-style: none; }
+.archive-item {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+}
+.archive-item a {
+    color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+}
+.archive-item a:hover { color: var(--gold); }
+.archive-item .archive-stats { font-size: 0.72rem; color: var(--muted); }
+.back-link {
+    display: inline-block; font-size: 0.78rem; color: var(--blue);
+    text-decoration: none; margin-bottom: 24px;
+}
+.back-link:hover { color: var(--gold); }
+
+/* --- Footer --- */
+.footer {
+    text-align: center; color: var(--faint); font-size: 0.65rem;
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); line-height: 1.8;
+}
+
+@media (max-width: 600px) { .page { padding: 24px 16px 60px; } .nav a { padding: 8px 10px; font-size: 0.65rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+    <a href="../" class="back-link">← Back to today</a>
+    <div class="header">
+        <div class="title">Stellation Intelligence Brief</div>
+        <div class="meta-line">Sunday, April 12, 2026</div>
+        <div class="stats-bar">
+            <span class="stat"><strong>8</strong> deals</span>
+            <span class="stat"><strong>0</strong> headlines</span>
+            <span class="stat"><strong>0</strong> signals</span>
+            <span class="stat"><strong>24</strong> macro</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Deals</div>
+        
+        <div class="source-card">
+            <div class="source-name">Crunchbase</div>
+            <div class="source-count">4 deals</div>
+            
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company"><a href="https://news.crunchbase.com/fintech/cpa-founded-ai-tax-return-startup-juno-seed-funding" target="_blank" class="deal-link">Juno</a> </span>
+            <span class="deal-amt">$12M Seed</span>
+        </div>
+        <div class="deal-desc">AI-assisted tax-prep software founded by CPA.</div>
+        <div class="deal-meta">Lead: — · fintech, tax, software<span class="port-badge">Tapestry, Software Applications Inc</span></div>
+    </div>
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company">Kalshi </span>
+            <span class="deal-amt">— Undisclosed</span>
+        </div>
+        <div class="deal-desc">Predictions marketplace with recent large round.</div>
+        <div class="deal-meta">Lead: — · fintech, predictions, derivatives<span class="port-badge">Tapestry, Hopscotch</span></div>
+    </div>
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company">Vestwell </span>
+            <span class="deal-amt">— Undisclosed</span>
+        </div>
+        <div class="deal-desc">Digital savings platform with recent large round.</div>
+        <div class="deal-meta">Lead: — · fintech, savings, wealth-management<span class="port-badge">Tapestry, Hopscotch</span></div>
+    </div>
+    <div class="deal-row">
+        <div class="deal-top">
+            <span class="deal-company">Saronic </span>
+            <span class="deal-amt">$1.75B Series D</span>
+        </div>
+        <div class="deal-desc">Developer of autonomous vessels for maritime operations.</div>
+        <div class="deal-meta">Lead: — · robotics, maritime, autonomous-vehicles</div>
+    </div>
+        </div>
+        <div class="source-card">
+            <div class="source-name">AlleyWatch</div>
+            <div class="source-count">2 deals</div>
+            
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=2b1071d5f7&amp;e=f9acc89823" target="_blank" class="deal-link">Spade</a> </span>
+            <span class="deal-amt">$40M Undisclosed</span>
+        </div>
+        <div class="deal-desc">Spade turns messy transaction data into a strategic asset for banks and fintechs.</div>
+        <div class="deal-meta">Lead: — · fintech, payments, data<span class="port-badge">Tapestry, Enigma Labs</span></div>
+    </div>
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=5fb4393697&amp;e=f9acc89823" target="_blank" class="deal-link">Patlytics</a> </span>
+            <span class="deal-amt">$40M Undisclosed</span>
+        </div>
+        <div class="deal-desc">AI platform driving patent filing surge and IP litigation workflow optimization.</div>
+        <div class="deal-meta">Lead: — · ai, legal-tech, ip<span class="port-badge">Vybe, Mainframe</span></div>
+    </div>
+        </div>
+        <div class="source-card">
+            <div class="source-name">TechCrunch</div>
+            <div class="source-count">2 deals</div>
+            
+    <div class="deal-row">
+        <div class="deal-top">
+            <span class="deal-company"><a href="https://link.techcrunch.com/click/69da451ee3e06864fa16beb1/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA0L3VucGFja2luZy1wZXRlci10aGllbHMtYmlnLWJldC1vbi1zb2xhci1wb3dlcmVkLWNvdy1jb2xsYXJzP3V0bV9jYW1wYWlnbj13ZWxjb21lMV9zdGFydHVwcw/69d8f3ce99c38c51f0080224Befd8fdb6" target="_blank" class="deal-link">Halter</a> </span>
+            <span class="deal-amt">$220M Growth</span>
+        </div>
+        <div class="deal-desc">Cattle management startup developing solar-powered monitoring collars for livestock tracking.</div>
+        <div class="deal-meta">Lead: Founders Fund · agritech, livestock management, sustainability</div>
+    </div>
+    <div class="deal-row">
+        <div class="deal-top">
+            <span class="deal-company"><a href="https://link.techcrunch.com/click/69da451ee3e06864fa16beb1/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA5L3BvcnRhbC1yYWlzZXMtNTAtbWlsbGlvbi10by1idWlsZC1hLW5ldy1raW5kLW9mLWhpZ2gtcG93ZXItcm9ja2V0LWVuZ2luZT91dG1fY2FtcGFpZ249d2VsY29tZTFfc3RhcnR1cHM/69d8f3ce99c38c51f0080224Bbcb8be37" target="_blank" class="deal-link">Portal</a> </span>
+            <span class="deal-amt">$50M Growth</span>
+        </div>
+        <div class="deal-desc">Aerospace company building a novel high-power rocket engine for military and commercial space applications, founded by ex-SpaceX engineer.</div>
+        <div class="deal-meta">Lead: — · space, defense, propulsion</div>
+    </div>
+        </div>
+        <div class="source-card empty">
+            <div class="source-name">Axios Pro Rata, StrictlyVC, Fortune Term Sheet, CB Insights, TLDR</div>
+            <div class="source-count">No deals</div>
+        </div>
+        <div class="source-card">
+            <div class="source-name">Market Commentary</div>
+            <div class="source-count">24 signals</div>
+            <div class="macro-group"><div class="macro-cat-label">🗽 New York City <span class="macro-cat-count">3</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">NYC startups raised $3.94B across 97 deals in March 2026, representing a 293.6% year-over-year surge from March 2025&#x27;s $1B.</div>
+                <div class="macro-source"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=ab24975fe2&amp;e=f9acc89823" target="_blank" class="source-link">AlleyWatch</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">NYC captured 20.7% of all US venture capital in March 2026, with Series A deals representing 39.8% of national VC deal volume.</div>
+                <div class="macro-source"><a href="https://alleywatch.us6.list-manage.com/track/click?u=610a6abfccd16d8bc8981621f&amp;id=ab24975fe2&amp;e=f9acc89823" target="_blank" class="source-link">AlleyWatch</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">NYC tech ecosystem saw 11 new deals with $143M+ in funding for the week of March 29 – April 4, 2026.</div>
+                <div class="macro-source">AlleyWatch · 2026-04-12</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">VC &amp; Startup Funding <span class="macro-cat-count">13</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">U.S. and Canadian companies raised $252.6B in seed-through-growth funding in Q1 2026—more than 3x the prior quarter and the largest quarterly total on record. <span class="nyc-badge">NYC</span></div>
+                <div class="macro-source"><a href="https://links.email.crunchbase.com/s/c/uhTLyhwxBVfunlGnkQgqcxRnO4pQLy4eDGgNO1OPkJKHyu8MD_FSm7zJaFobaErC7SmyTZOd5GmKXfK1T1K4kCwrR9QoxVAABFg1gBZ93La8GBPu-OJnD2PGa03fDb37kOoUwVCBHsFf_VoDLlhr03dNp3_1ZmmZqmJJtMbO32ZHXz320SAaywgjhWPnv466r8hPsoeM1MxcICvComv8Wsfk-kGDKVXO6Wn2ltD6PQ77TrR2et5pHWW24QTKO_F_ilbFjlCIzrhAeWEkfiK9Q1goaXR5wSCP8r2-jABBPd5lbOvmsWQ7j_wUUjEMKJaN0E9-XiQ2ddUKcJr7Hp-_p1rLkKYx7ArGuRSidq_fXEkqxSHs-wVw3TRy96-IfC5qg25mDYOgmkx2dFEyS-teBNjTKuH-msLNx_F2xxGaVfGcf5k2sAPoViZLMq4_MiR8HB-CzNyOKXPANUgC_chVxfpkvUBgiWRMvRGikZdNhmcLAtF_vMPnrJ_SxlmEsccajB1-eK2RZY_somH1dGcKIaNQZssrV08G1BjE-CmAjz0hCaClU6ZSrOx1-cP8_y8PvcXwwNodiwg74taF9XbJXS1hr8uCcnQ/_qpb960uZztvZJhWJ-8m304Vp_oqHT_P/19" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Private credit contraction would trigger private equity contraction, as PE assets have grown 3x since 2008 primarily through private credit availability and near-zero rates.</div>
+                <div class="macro-source">Axios Pro Rata · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Carlyle&#x27;s private credit fund hit with 15.7% redemption requests (vs. 5% limit); Blue Owl and BlackRock also facing redemption pressure.</div>
+                <div class="macro-source"><a href="https://link.axios.com/click/45151395.242069/aHR0cHM6Ly93d3cud3NqLmNvbS9wcm8vcHJpdmF0ZS1lcXVpdHkvY2FybHlsZS1wcml2YXRlLWNyZWRpdC1mdW5kLWhpdC13aXRoLTE1LTctaW4tcmVkZW1wdGlvbi1yZXF1ZXN0cy05YjVlNWNhND91dG1fc291cmNlPW5ld3NsZXR0ZXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9heGlvc3Byb3JhdGEmc3RyZWFtPXRvcA/69d32bb08bdcbe1d4106f79cBeaeefc63" target="_blank" class="source-link">Axios Pro Rata</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Global fintech funding increased in Q1 2026 despite nearly one-third fewer deals, indicating capital consolidation toward higher-conviction startups.</div>
+                <div class="macro-source"><a href="https://news.crunchbase.com/fintech/global-startup-venture-funding-up-deals-down-q1-2026" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Mexico surpassed Brazil as Latin America&#x27;s largest VC market in Q1 2026—only the second time since Q2 2012.</div>
+                <div class="macro-source"><a href="https://news.crunchbase.com/venture/global-vcs-boost-late-stage-boom-latin-america-q1-2026" target="_blank" class="source-link">Crunchbase</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Latin America saw a funding bump last quarter driven by a handful of outsized deals.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Latin America raised over $1B in seed- and growth-stage deals in Q1 2026. Mexico overtook Brazil as the region&#x27;s largest VC market—only the second time since Q2 2012.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Eight mega-rounds ($100M+) totaled $2B in capital raised in March 2026, indicating a trend in large institutional funding.</div>
+                <div class="macro-source">AlleyWatch · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Nearly two-thirds of global venture capital in Q1 2026 concentrated in just four companies.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">North American venture funding in Q1 2026 was 3x higher than Q4 2025.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Q1 2026 set North American venture capital records with $252M+ in seed-through-growth-stage funding, over 3x the prior quarter total, and an unprecedented number of newly minted early-stage unicorns.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Defense, wearables, and energy sectors led late-stage and growth-stage funding rounds in early April 2026, with AI infrastructure, robotics, and semiconductor startups also capturing significant capital.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Weekly notable funding roundup included 20+ deals totaling $4.3B in new funding announced in the week ending April 4, 2026.</div>
+                <div class="macro-source">AlleyWatch · 2026-04-12</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">AI &amp; Machine Learning <span class="macro-cat-count">3</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Japan is deploying physical AI robots into real-world operations driven by acute labor shortages, moving beyond pilot projects into production.</div>
+                <div class="macro-source"><a href="https://link.techcrunch.com/click/45158075.34780/aHR0cHM6Ly90ZWNoY3J1bmNoLmNvbS8yMDI2LzA0LzA1L2phcGFuLWlzLXByb3ZpbmctZXhwZXJpbWVudGFsLXBoeXNpY2FsLWFpLWlzLXJlYWR5LWZvci10aGUtcmVhbC13b3JsZD91dG1fY2FtcGFpZ249V0lS/69d8f3ce99c38c51f0080224B1d950735" target="_blank" class="source-link">TechCrunch</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Fintech investors remain bullish and are actively seeking &#x27;high-conviction&#x27; startups riding the AI wave.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Q1 2026 saw record-setting VC rounds and investment tallies, with most active investors writing unusually large checks driven by the capital-intensive AI race.</div>
+                <div class="macro-source">Crunchbase · 2026-04-12</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">Climate &amp; Sustainability <span class="macro-cat-count">1</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Battery recycler Ascend Elements files Chapter 11 bankruptcy following cancellation of government grant and weak lithium-ion recycling market.</div>
+                <div class="macro-source">TechCrunch · 2026-04-12</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">Other <span class="macro-cat-count">3</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Walmart-owned Flipkart is expanding beyond major Indian cities with heavy discounting, intensifying competition with Amazon in India&#x27;s quick commerce segment.</div>
+                <div class="macro-source"><a href="https://techcrunch.com/2026/04/11/walmart-owned-flipkart-amazon-are-squeezing-indias-quick-commerce-startups" target="_blank" class="source-link">TechCrunch</a> · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">SpaceX contemplating secondary market sales for company insiders at IPO pricing, signaling potential near-term IPO preparation.</div>
+                <div class="macro-source">StrictlyVC · 2026-04-12</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Simultaneous surge in patent filings and IP litigation is reshaping the legal tech market as AI proliferation creates complexity.</div>
+                <div class="macro-source">AlleyWatch · 2026-04-12</div>
+            </div></div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    <div class="footer">
+        <a href="./" style="color: var(--blue);">← Archive index</a> ·
+        <a href="../" style="color: var(--blue);">Today's brief →</a>
+    </div>
+</div>
+</body>
+</html>
