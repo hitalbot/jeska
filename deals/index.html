@@ -306,6 +306,35 @@
         .chg-up { font-size: 0.72rem; color: var(--green); }
         .chg-down { font-size: 0.72rem; color: var(--red); }
 
+        /* --- Headlines --- */
+        .headline-row {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .headline-row.must-read {
+            border-left: 3px solid var(--gold);
+            padding-left: 12px;
+        }
+        .headline-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .headline-badge {
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .headline-badge.mr { background: var(--gold-soft); color: var(--gold); }
+        .headline-badge.wn { background: rgba(100,116,139,0.12); color: var(--muted); }
+        .headline-source { font-size: 0.68rem; color: var(--muted); }
+        .headline-title { font-size: 0.82rem; font-weight: 500; color: #fff; line-height: 1.5; }
+        .headline-insight { font-size: 0.78rem; color: var(--dim); margin-top: 2px; line-height: 1.5; }
+
         /* --- Stats bar --- */
         .stats-bar {
             display: flex;
@@ -349,6 +378,7 @@
 
     <nav class="nav" id="nav">
         <a href="#sources" class="active" onclick="scrollTo_(event,'sources')">Sources</a>
+        <a href="#headlines" onclick="scrollTo_(event,'headlines')">Headlines</a>
         <a href="#twitter" onclick="scrollTo_(event,'twitter')">Twitter</a>
         <a href="#markets" onclick="scrollTo_(event,'markets')">Markets</a>
         <a href="#companies" onclick="scrollTo_(event,'companies')">Companies</a>
@@ -647,6 +677,101 @@
                     <div class="macro-source"><a href="https://techcrunch.com/2026/04/11/walmart-owned-flipkart-amazon-are-squeezing-indias-quick-commerce-startups/" target="_blank" class="source-link">TechCrunch</a> · 2026-04-13</div>
                 </div></div>
         </div>
+    </div>
+
+    <!-- HEADLINES -->
+    <div class="section" id="headlines">
+        <div class="section-title">Headlines Intelligence</div>
+        <div class="section-note">Actively scanned from TechCrunch, Bloomberg, Ars Technica, HN, a16z, and more. Classified by Claude.</div>
+        
+            <div class="headline-row must-read">
+                <div class="headline-top">
+                    <span class="headline-badge mr">MUST READ</span>
+                    <span class="headline-source">The Information</span>
+                </div>
+                <div class="headline-title"><a href="https://www.theinformation.com/articles/openai-stargate-leaders-depart-latest-shakeup-data-center-strategy" target="_blank" class="deal-link">OpenAI Stargate Leaders Depart in Latest Shakeup to Data Center Strategy</a> <span class="port-badge">PromptLayer</span></div>
+                <div class="headline-insight">Leadership instability in OpenAI&#x27;s data center strategy signals execution risk in AI infrastructure build-out and could reshape compute availability/pricing.</div>
+            </div>
+            <div class="headline-row must-read">
+                <div class="headline-top">
+                    <span class="headline-badge mr">MUST READ</span>
+                    <span class="headline-source">The Information</span>
+                </div>
+                <div class="headline-title"><a href="https://www.theinformation.com/articles/cisco-talks-buy-ai-security-startup-astrix-least-250-million" target="_blank" class="deal-link">Cisco in Talks to Buy AI Security Startup Astrix for at Least $250 Million</a> <span class="port-badge">Block Party</span><span class="port-badge">Vybe</span></div>
+                <div class="headline-insight">Enterprise consolidation of AI security validates agent infrastructure security as critical attack surface; incumbent players moving to in-source solutions.</div>
+            </div>
+            <div class="headline-row must-read">
+                <div class="headline-top">
+                    <span class="headline-badge mr">MUST READ</span>
+                    <span class="headline-source">Hacker News Top</span>
+                </div>
+                <div class="headline-title"><a href="https://www.eetimes.com/taking-on-cuda-with-rocm-one-step-after-another/" target="_blank" class="deal-link">Taking on CUDA with ROCm: &#x27;One Step After Another&#x27;</a> <span class="port-badge">PromptLayer</span><span class="port-badge">Vybe</span></div>
+                <div class="headline-insight">AMD&#x27;s ROCm gaining viability breaks NVIDIA&#x27;s compute monopoly; directly impacts AI infrastructure cost structure and specialized compute competition.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">The Information</span>
+                </div>
+                <div class="headline-title"><a href="https://www.theinformation.com/articles/spacex-posted-nearly-5-billion-loss-last-year-ai-spending" target="_blank" class="deal-link">xAI Spending Pushed SpaceX to a Nearly $5 Billion Loss</a></div>
+                <div class="headline-insight">Musk&#x27;s $5B+ AI infrastructure bet at SpaceX demonstrates capital intensity and long ROI timelines for proprietary compute.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">The Information</span>
+                </div>
+                <div class="headline-title"><a href="https://www.theinformation.com/articles/sk-hynix-overlooked-memory-chip-maker" target="_blank" class="deal-link">SK Hynix Is the Overlooked Memory Chip Maker</a></div>
+                <div class="headline-insight">Memory becomes critical bottleneck in AI infrastructure; SK Hynix offers supply diversification alternative to mainstream vendors.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">Ars Technica</span>
+                </div>
+                <div class="headline-title"><a href="https://arstechnica.com/ai/2026/04/ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok/" target="_blank" class="deal-link">AI models are terrible at betting on soccer—especially xAI Grok</a></div>
+                <div class="headline-insight">Real-world prediction failures validate skepticism on near-term agentic AI revenue inflection; gap between hype and actual capabilities persists.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">Ars Technica</span>
+                </div>
+                <div class="headline-title"><a href="https://arstechnica.com/gaming/2026/04/what-is-steamgpt-leaked-files-point-to-ai-powered-valve-security-review-system/" target="_blank" class="deal-link">What leaked &#x27;SteamGPT&#x27; files could mean for the PC gaming platform&#x27;s use of AI</a></div>
+                <div class="headline-insight">Valve integrating AI into platform core workflows signals mainstream tooling adoption; validates actual builder usage diverging from hype cycle.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">The Information</span>
+                </div>
+                <div class="headline-title"><a href="https://www.theinformation.com/articles/tokenmaxxing-ai-margin-squeeze" target="_blank" class="deal-link">&#x27;Tokenmaxxing&#x27; and the AI Margin Squeeze</a></div>
+                <div class="headline-insight">Token-heavy monetization models face margin compression as AI commoditizes; viability of token-based fintech/SaaS models now questioned.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">Ars Technica</span>
+                </div>
+                <div class="headline-title"><a href="https://arstechnica.com/tech-policy/2026/04/californians-sue-over-ai-tool-that-records-doctor-visits/" target="_blank" class="deal-link">Californians sue over AI tool that records doctor visits</a></div>
+                <div class="headline-insight">Liability and compliance costs for AI-powered monitoring tools crystallizing; deployment-ready AI products now face rising regulatory friction.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">Ars Technica</span>
+                </div>
+                <div class="headline-title"><a href="https://arstechnica.com/science/2026/04/shock-from-iran-war-has-trumps-vision-for-us-energy-dominance-flailing/" target="_blank" class="deal-link">Shock from Iran war has Trump&#x27;s vision for US energy dominance flailing</a></div>
+                <div class="headline-insight">Geopolitical shocks undermine US energy policy stability; regulatory tailwinds for climate/green tech less certain than assumed.</div>
+            </div>
+            <div class="headline-row">
+                <div class="headline-top">
+                    <span class="headline-badge wn">WORTH NOTING</span>
+                    <span class="headline-source">Hacker News Top</span>
+                </div>
+                <div class="headline-title"><a href="https://www.viktorcessan.com/the-economics-of-software-teams/" target="_blank" class="deal-link">The economics of software teams: Why most engineering orgs are flying blind</a></div>
+                <div class="headline-insight">Engineering productivity visibility gap validates demand for management/observability tooling in software orgs.</div>
+            </div>
     </div>
 
     <!-- TWITTER -->
@@ -1075,7 +1200,7 @@ function scrollTo_(e, id) {
 }
 
 // Update active nav on scroll
-const sections = ['sources','twitter','markets','companies','portfolio','synthesis','patterns'];
+const sections = ['sources','headlines','twitter','markets','companies','portfolio','synthesis','patterns'];
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY + 80;
     let current = sections[0];
