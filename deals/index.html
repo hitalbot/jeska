@@ -134,8 +134,22 @@
         }
         .tweet-top { display: flex; justify-content: space-between; align-items: baseline; }
         .tweet-handle { font-size: 0.82rem; font-weight: 600; color: var(--blue); }
+        .tweet-link { color: var(--blue); text-decoration: none; }
+        .tweet-link:hover { text-decoration: underline; }
         .tweet-meta { font-size: 0.68rem; color: var(--muted); }
         .tweet-idea { font-size: 0.8rem; color: var(--dim); margin-top: 4px; line-height: 1.6; }
+        .tweet-why { font-size: 0.75rem; color: var(--muted); margin-top: 2px; font-style: italic; }
+        .conf-high {
+            display: inline-block;
+            background: var(--gold-soft);
+            color: var(--gold);
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
 
         /* --- Macro signals --- */
         .macro-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
@@ -397,7 +411,7 @@
         <div class="stats-bar">
             <span class="stat"><strong>8</strong> deals</span>
             <span class="stat"><strong>3</strong> sources</span>
-            <span class="stat"><strong>12</strong> signals</span>
+            <span class="stat"><strong>13</strong> signals</span>
             <span class="stat"><strong>5</strong> portfolio hits</span>
             <span class="stat"><strong>7</strong> patterns</span>
         </div>
@@ -410,7 +424,6 @@
         <a href="#markets" onclick="scrollTo_(event,'markets')">Markets</a>
         <a href="#companies" onclick="scrollTo_(event,'companies')">Companies</a>
         <a href="#portfolio" onclick="scrollTo_(event,'portfolio')">Portfolio</a>
-        <a href="#pulse" onclick="scrollTo_(event,'pulse')">Pulse</a>
         <a href="#synthesis" onclick="scrollTo_(event,'synthesis')">Synthesis</a>
         <a href="#patterns" onclick="scrollTo_(event,'patterns')">Patterns</a>
     </nav>
@@ -769,87 +782,107 @@
         
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">Fried_rice</span>
+                    <span class="tweet-handle"><a href="https://x.com/Fried_rice" target="_blank" class="tweet-link">Fried_rice</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">technology_shift · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">26 LLM routers are compromised to inject malicious tool calls and steal credentials/funds—one incident drained a client wallet of $500k. This exposes a critical vulnerability in the AI infrastructure stack.</div>
+                <div class="tweet-why">Any Stellation company using LLM routers for agent automation is exposed to this attack vector. This is a major emerging security risk that will shape infrastructure choices.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">TradedVC</span>
+                    <span class="tweet-handle"><a href="https://x.com/TradedVC" target="_blank" class="tweet-link">TradedVC</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">macro_shift · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">SiFive raised $400M Series G specifically for data center processors optimized for agentic AI workloads. Capital is flowing into specialized compute for agents.</div>
+                <div class="tweet-why">This is where smart infrastructure capital sees the constraint. Agentic AI compute is becoming a bottleneck and standalone opportunity.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">APompliano</span>
+                    <span class="tweet-handle"><a href="https://x.com/APompliano" target="_blank" class="tweet-link">APompliano</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">thesis_signal · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Crosby Legal raised $60M on a thesis of &#x27;selling the work&#x27; (outcomes/services) rather than &#x27;selling software&#x27; (SaaS licensing). AI makes the service itself the product.</div>
+                <div class="tweet-why">Validates an underexplored business model: AI-enabled professional services can command outcome-based pricing with higher margins than traditional SaaS.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">ArfurRock</span>
+                    <span class="tweet-handle"><a href="https://x.com/ArfurRock" target="_blank" class="tweet-link">ArfurRock</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">deal_signal · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Fleet (sales ops automation) grew from $1M to $63M ARR in 6 months, projecting $160M ARR in the next quarter. Exceptional hypergrowth in an agentic AI company.</div>
+                <div class="tweet-why">Shows what venture-scale traction looks like when agents hit a core revenue operation. Market hunger for automation in this space is validated.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">gustaf</span>
+                    <span class="tweet-handle"><a href="https://x.com/gustaf" target="_blank" class="tweet-link">gustaf</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">thesis_signal · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Hightouch announced Series C positioning itself as the &#x27;first agentic marketer&#x27; with production customers at scale (Spotify, Docusign). Agents are moving into marketing/ops workflows.</div>
+                <div class="tweet-why">Agentic AI is transitioning from proof-of-concept to production systems with measurable customer traction. Enterprise validation matters.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">karpathy</span>
+                    <span class="tweet-handle"><a href="https://x.com/karpathy" target="_blank" class="tweet-link">karpathy</a> </span>
                     <span class="tweet-meta">contrarian_take · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Public perception of AI capability is 6+ months behind reality; most people&#x27;s views are anchored to free-tier ChatGPT, not current-gen models. Market underestimates what&#x27;s possible.</div>
+                <div class="tweet-why">This perception gap creates opportunity for builders who understand current AI state. Affects how founders can pitch and what users will adopt.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">ycombinator</span>
+                    <span class="tweet-handle"><a href="https://x.com/ycombinator" target="_blank" class="tweet-link">ycombinator</a> </span>
                     <span class="tweet-meta">deal_signal · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Luminai raised $38M Series B for healthcare workflow automation—converting unstructured data (faxes, PDFs) to structured and running AI agents on critical hospital processes.</div>
+                <div class="tweet-why">$38M Series B signals substantial traction in a large, fragmented market. Healthcare automation is underserved and capital is moving in.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">thesamparr</span>
+                    <span class="tweet-handle"><a href="https://x.com/thesamparr" target="_blank" class="tweet-link">thesamparr</a> </span>
                     <span class="tweet-meta">founder_insight · 2026-04-10</span>
                 </div>
                 <div class="tweet-idea">Founder cohort is extremely compressed by age and capital: founders as young as 25 are already raising $140M+, and they report feeling threatened by 13-year-olds building better products.</div>
+                <div class="tweet-why">Building complexity and capital intensity is dropping rapidly. This compresses competitive timelines and raises questions about durability of current-gen startups.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">@patrickc</span>
+                    <span class="tweet-handle"><a href="https://x.com/patrickc" target="_blank" class="tweet-link">@patrickc</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">technology_shift · 2026-04-13</span>
                 </div>
                 <div class="tweet-idea">Machine-to-machine payments are moving from theoretical to production. Stripe sees consistent daily usage across multiple businesses, signaling a new payment category is emerging.</div>
+                <div class="tweet-why">Machine payments could reshape B2B payment infrastructure; Hopscotch must determine if this is a threat or integration opportunity.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">@garrytan</span>
+                    <span class="tweet-handle"><a href="https://x.com/garrytan" target="_blank" class="tweet-link">@garrytan</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">technology_shift · 2026-04-13</span>
                 </div>
                 <div class="tweet-idea">Agentic engineering is crystallizing into a three-layer architecture: fat skills (markdown operations), fat code (deterministic logic), thin harness (orchestration). This pattern separates fuzz from certainty.</div>
+                <div class="tweet-why">Architectural standard for AI agents is forming at YC level; defines how Mainframe and PromptLayer should structure products and what developers expect.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">@paulg</span>
+                    <span class="tweet-handle"><a href="https://x.com/paulg" target="_blank" class="tweet-link">@paulg</a> <span class="conf-high">HIGH</span></span>
                     <span class="tweet-meta">technology_shift · 2026-04-13</span>
                 </div>
                 <div class="tweet-idea">Claude Mythos Preview is the first model to complete AISI cyber range end-to-end, marking a capability frontier advancement in reasoning-intensive security tasks.</div>
+                <div class="tweet-why">Claude&#x27;s capability advancement affects competitive positioning of Claude-dependent tools and signals Anthropic pulling ahead on reasoning-heavy tasks.</div>
             </div>
             <div class="tweet-card">
                 <div class="tweet-top">
-                    <span class="tweet-handle">@akshay_pachaar</span>
+                    <span class="tweet-handle"><a href="https://x.com/akshay_pachaar" target="_blank" class="tweet-link">@akshay_pachaar</a> </span>
                     <span class="tweet-meta">technology_shift · 2026-04-13</span>
                 </div>
                 <div class="tweet-idea">CLAUDE.md (derived from Karpathy&#x27;s coding rules) has hit 15K GitHub stars, indicating widespread adoption of explicit behavioral design for AI agents.</div>
+                <div class="tweet-why">Industry converging on structured agent design; signals agentic engineering is maturing and developers expect tools to support formal agent specification.</div>
+            </div>
+            <div class="tweet-card">
+                <div class="tweet-top">
+                    <span class="tweet-handle"><a href="https://x.com/addyosmani/status/2043399706634805682" target="_blank" class="tweet-link">addyosmani</a> </span>
+                    <span class="tweet-meta">competitive_intel · 2026-04-13</span>
+                </div>
+                <div class="tweet-idea">Chrome DevTools is integrating MCP and expanding AI-focused capabilities (performance checks, memory leak detection, accessibility, LCP optimization). Major browser platform building AI-native developer infrastructure.</div>
+                <div class="tweet-why">Signals platform consolidation of AI dev tooling — standalone dev tool startups face competitive pressure when browsers ship these capabilities natively.</div>
             </div>
     </div>
 
@@ -1024,13 +1057,6 @@
         <div class="port-row quiet">
             <span class="port-quiet">No adjacent deals: Revin, Hearth Display, Block Party, AddGlow, Diem, Indify, Koodos Labs, PromptLayer, Strobe, swsh</span>
         </div>
-    </div>
-
-    <!-- PORTFOLIO PULSE -->
-    <div class="section" id="pulse">
-        <div class="section-title">Portfolio Pulse</div>
-        <div class="section-note">Activity across Stellation's 16 active portfolio companies. Green = signals this week. Yellow = quiet &gt;14 days. Red = dark &gt;30 days.</div>
-        <div class="empty-note">No portfolio scan data yet. Run scan_portfolio.py to populate.</div>
     </div>
 
     <!-- SYNTHESIS -->
@@ -1223,7 +1249,7 @@ function scrollTo_(e, id) {
 }
 
 // Update active nav on scroll
-const sections = ['sources','headlines','twitter','markets','companies','portfolio','pulse','synthesis','patterns'];
+const sections = ['sources','headlines','twitter','markets','companies','portfolio','synthesis','patterns'];
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY + 80;
     let current = sections[0];
