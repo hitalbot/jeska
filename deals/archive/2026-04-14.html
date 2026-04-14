@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Brief — 2026-04-14</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #0b0f19;
+    --surface: #111827;
+    --border: rgba(255,255,255,0.06);
+    --gold: #e5a800;
+    --gold-soft: rgba(229,168,0,0.10);
+    --text: #e2e8f0;
+    --dim: #94a3b8;
+    --muted: #64748b;
+    --faint: #475569;
+    --blue: #60a5fa;
+    --blue-soft: rgba(96,165,250,0.10);
+    --green: #22c55e;
+    --red: #ef4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* --- Header --- */
+.header { margin-bottom: 32px; }
+.title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+}
+.meta-line { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+/* --- Nav --- */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    padding: 8px 0;
+    flex-wrap: wrap;
+}
+.nav a {
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav a.archive-link { margin-left: auto; color: var(--blue); }
+.nav a.archive-link:hover { color: var(--gold); }
+
+/* --- Sections --- */
+.section { margin-bottom: 48px; }
+.section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+.section-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+/* --- Source cards --- */
+.source-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+.source-card.empty { opacity: 0.5; padding: 12px 20px; }
+.source-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.source-count { font-size: 0.7rem; color: var(--muted); margin-bottom: 10px; }
+.deal-row { padding: 8px 0; border-top: 1px solid var(--border); }
+.deal-row.portfolio-hit { border-left: 3px solid var(--gold); padding-left: 12px; }
+.deal-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.deal-company { font-size: 0.85rem; font-weight: 500; color: #fff; }
+.deal-amt { font-size: 0.82rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+.deal-desc { font-size: 0.78rem; color: var(--dim); margin-top: 2px; }
+.deal-meta { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+.port-badge {
+    display: inline-block;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+/* --- Tweet cards --- */
+.tweet-card { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.tweet-top { display: flex; justify-content: space-between; align-items: baseline; }
+.tweet-handle { font-size: 0.82rem; font-weight: 600; color: var(--blue); }
+.tweet-link { color: var(--blue); text-decoration: none; }
+.tweet-link:hover { text-decoration: underline; }
+.tweet-meta { font-size: 0.68rem; color: var(--muted); }
+.tweet-idea { font-size: 0.8rem; color: var(--dim); margin-top: 4px; line-height: 1.6; }
+.tweet-why { font-size: 0.75rem; color: var(--muted); margin-top: 2px; font-style: italic; }
+.conf-high {
+    display: inline-block;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* --- Macro signals --- */
+.macro-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.macro-signal { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+.macro-source { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+/* --- Companies table --- */
+.co-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.co-table th {
+    text-align: left; font-size: 0.65rem; font-weight: 600;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 8px 6px; border-bottom: 1px solid var(--border);
+}
+.co-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); color: var(--dim); }
+.co-table td strong { color: #fff; font-weight: 500; }
+.co-table .portfolio-hit td { background: var(--gold-soft); }
+.amt-cell { font-weight: 600; color: #fff !important; white-space: nowrap; }
+.src-cell { color: var(--muted); font-size: 0.72rem; }
+
+/* --- Portfolio map --- */
+.port-row {
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
+}
+.port-name { font-size: 0.85rem; font-weight: 600; color: #fff; min-width: 120px; }
+.port-sectors { font-size: 0.72rem; color: var(--muted); min-width: 140px; }
+.port-adjacent { font-size: 0.78rem; color: var(--dim); }
+.port-row.quiet { opacity: 0.5; }
+.port-quiet { font-size: 0.78rem; color: var(--muted); }
+
+/* --- Synthesis --- */
+.synthesis-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+}
+.synthesis-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px;
+}
+.syn-heading { font-size: 0.85rem; font-weight: 600; color: var(--gold); margin: 20px 0 8px; }
+.syn-heading:first-child { margin-top: 0; }
+.syn-p { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-bottom: 8px; }
+.syn-p strong { color: #fff; font-weight: 500; }
+.syn-bullet { font-size: 0.82rem; color: var(--dim); line-height: 1.7; padding-left: 14px; margin-bottom: 6px; position: relative; }
+.syn-bullet::before { content: "·"; position: absolute; left: 2px; color: var(--gold); font-weight: 700; }
+.syn-bullet strong { color: #fff; }
+.syn-arrow { font-size: 0.78rem; color: var(--gold); padding-left: 14px; margin-bottom: 12px; opacity: 0.8; }
+.syn-point { font-size: 0.85rem; color: var(--dim); line-height: 1.7; margin-bottom: 4px; }
+.syn-point strong { color: #fff; font-weight: 600; }
+.syn-hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* --- Patterns --- */
+.pattern-row { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.pattern-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.pattern-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.pattern-badge {
+    font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 2px 8px; border-radius: 3px;
+}
+.pst-emerging { background: var(--blue-soft); color: var(--blue); }
+.pst-building { background: var(--gold-soft); color: var(--gold); }
+.pst-established { background: rgba(34,197,94,0.12); color: var(--green); }
+.pst-fading { background: rgba(100,116,139,0.12); color: var(--muted); }
+.pattern-evidence { font-size: 0.78rem; color: var(--dim); line-height: 1.6; }
+.pattern-counter { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.nyc-badge {
+    display: inline-block; background: rgba(96,165,250,0.15); color: var(--blue);
+    font-size: 0.58rem; font-weight: 700; padding: 1px 6px; border-radius: 3px;
+    margin-left: 4px; letter-spacing: 0.03em;
+}
+.deal-link { color: #fff; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+.deal-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.source-link { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
+.source-link:hover { color: var(--gold); }
+.macro-group { margin-bottom: 20px; }
+.macro-cat-label {
+    font-size: 0.72rem; font-weight: 700; color: var(--dim);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 8px 0 6px; border-bottom: 1px solid var(--border); margin-bottom: 4px;
+}
+.macro-cat-count { color: var(--muted); font-weight: 400; font-size: 0.65rem; }
+.empty-note { font-size: 0.78rem; color: var(--muted); font-style: italic; padding: 8px 0; }
+
+/* --- Markets --- */
+.markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .markets-grid { grid-template-columns: 1fr; } }
+.market-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 20px;
+}
+.market-label {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px;
+}
+.market-row {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 4px 0; border-bottom: 1px solid var(--border);
+}
+.market-row:last-child { border-bottom: none; }
+.market-ticker { font-size: 0.72rem; font-weight: 600; color: var(--dim); min-width: 80px; }
+.market-price { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.market-sub { font-size: 0.68rem; color: var(--muted); }
+.chg-up { font-size: 0.72rem; color: var(--green); }
+.chg-down { font-size: 0.72rem; color: var(--red); }
+
+/* --- Headlines --- */
+.headline-row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.headline-row.must-read { border-left: 3px solid var(--gold); padding-left: 12px; }
+.headline-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.headline-badge {
+    font-size: 0.55rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 1px 6px; border-radius: 3px;
+}
+.headline-badge.mr { background: var(--gold-soft); color: var(--gold); }
+.headline-badge.wn { background: rgba(100,116,139,0.12); color: var(--muted); }
+.headline-source { font-size: 0.68rem; color: var(--muted); }
+.headline-title { font-size: 0.82rem; font-weight: 500; color: #fff; line-height: 1.5; }
+.headline-insight { font-size: 0.78rem; color: var(--dim); margin-top: 2px; line-height: 1.5; }
+
+/* --- Portfolio Pulse --- */
+.pulse-group { margin-bottom: 20px; }
+.pulse-group-label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 6px 0;
+    border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.pulse-active { color: var(--green); }
+.pulse-quiet { color: var(--gold); }
+.pulse-dark { color: var(--red); }
+.pulse-company { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.pulse-company.quiet { opacity: 0.6; display: flex; justify-content: space-between; align-items: baseline; }
+.pulse-company.dark { opacity: 0.5; display: flex; justify-content: space-between; align-items: baseline; }
+.pulse-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+.pulse-last { font-size: 0.68rem; color: var(--muted); }
+.pulse-signal { font-size: 0.78rem; color: var(--dim); padding: 2px 0 2px 12px; line-height: 1.5; }
+.pulse-signal.dim { color: var(--muted); font-style: italic; }
+.pulse-date { font-size: 0.68rem; color: var(--muted); margin-right: 4px; }
+.pulse-handle { font-size: 0.68rem; color: var(--blue); }
+
+/* --- Stats bar --- */
+.stats-bar {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 0.72rem; color: var(--muted); margin-top: 8px;
+}
+.stats-bar .stat { font-weight: 600; color: var(--dim); }
+.stats-bar .stat strong { color: #fff; }
+
+/* --- Archive --- */
+.archive-list { list-style: none; }
+.archive-item {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+}
+.archive-item a {
+    color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+}
+.archive-item a:hover { color: var(--gold); }
+.archive-item .archive-stats { font-size: 0.72rem; color: var(--muted); }
+.back-link {
+    display: inline-block; font-size: 0.78rem; color: var(--blue);
+    text-decoration: none; margin-bottom: 24px;
+}
+.back-link:hover { color: var(--gold); }
+
+/* --- Footer --- */
+.footer {
+    text-align: center; color: var(--faint); font-size: 0.65rem;
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); line-height: 1.8;
+}
+
+@media (max-width: 600px) { .page { padding: 24px 16px 60px; } .nav a { padding: 8px 10px; font-size: 0.65rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+    <a href="../" class="back-link">← Back to today</a>
+    <div class="header">
+        <div class="title">Stellation Intelligence Brief</div>
+        <div class="meta-line">Tuesday, April 14, 2026</div>
+        <div class="stats-bar">
+            <span class="stat"><strong>1</strong> deals</span>
+            <span class="stat"><strong>8</strong> headlines</span>
+            <span class="stat"><strong>0</strong> signals</span>
+            <span class="stat"><strong>12</strong> macro</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Deals</div>
+        
+        <div class="source-card">
+            <div class="source-name">Crunchbase</div>
+            <div class="source-count">1 deal</div>
+            
+    <div class="deal-row portfolio-hit">
+        <div class="deal-top">
+            <span class="deal-company">Undisclosed autonomous military plane startup </span>
+            <span class="deal-amt">$200M Growth</span>
+        </div>
+        <div class="deal-desc">Developing autonomous military plane positioned as the fastest in its class.</div>
+        <div class="deal-meta">Lead: — · aerospace, defense, autonomous-vehicles<span class="port-badge">Enigma Labs</span></div>
+    </div>
+        </div>
+        <div class="source-card empty">
+            <div class="source-name">Axios Pro Rata, StrictlyVC, Fortune Term Sheet, AlleyWatch, TechCrunch, CB Insights, TLDR</div>
+            <div class="source-count">No deals</div>
+        </div>
+        <div class="source-card">
+            <div class="source-name">Market Commentary</div>
+            <div class="source-count">12 signals</div>
+            <div class="macro-group"><div class="macro-cat-label">VC &amp; Startup Funding <span class="macro-cat-count">4</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">NYC startups received $100.6M+ in funding across 4 new deals (week of 4/5–4/11); weekly funding roundup featured Modus, Hermeus, Rork, and 19 others totaling $1.5B. <span class="nyc-badge">NYC</span></div>
+                <div class="macro-source"><a href="https://alleywatch.com/nyc-tech-week-in-review-april-5-11-2026/" target="_blank" class="source-link">AlleyWatch</a> · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Asia startup funding reached highest level in 3+ years in Q1 2026: $27.4B deployed across seed-to-growth stage, up 20% QoQ and nearly 2x YoY, driven by China rebound.</div>
+                <div class="macro-source"><a href="https://links.email.crunchbase.com/s/c/ti12yivbBAc76g6L3Q-5GOdZ6n9m218xW28tVNVysaqodFk_SUEzK2eIikfKeRc58u7QjrrM-cuVCWh30Rbw6xQyppKg-INovAr8biDn5xqJpJnuD2qWrVnKEGsVkY6DG8KdQTNEs3Q3lxhoHzmK6wtek0RHku1TCdvo-xt7tUq6LeKeso1dy-AKxyzM0-c0feOQVNpbKmIzIQALKtBz7w4tLNirlQOwYP3JwzZ1MB5bw2-ETeq4S8j-D72n9pcXan1sarUTCGFx7qo8S1pzLx3EhH173YqIm8bm--prayMdUZOV2n7poIyVlWlq4mhhths1LYXi6OOmQmS8GvnmVO4Zes-XB_RwB4S8DWB2XLkX_ReywFCacV849JwbhR77KYg-5KkOKGZUyfjBHu6gfuBZ7L1NwDj9NScIFDd3VdiGgFL0RfhDoOW5cXjUVTJyQ9F_wHshAwNhgPTTWUaWdZEcbTsFFsrAwklHz-fg6ChkleJAVzd3Yq8NUaIOWOZIcZ_JBz4ISrP2RYrnuc2pF1qf4ARVuCEDPAmP4OWWYk1coA3Um3tqzMBFVLKaVg3fd0L6qMFhRPmB4ZQZu8mFQPHv27iFCrukJU0lnkCGK_QPtM5wTENaIxEsk5fJwoBfpo2OoTTibfBtJRzprDsoKBfPhqsMXtla4y4ZV52AQCmsWqLjmfH-0KKjx0yEzxiGE1MNaKj0dV_lok3OjYmfiaoPuDFebRHLR2Oebc3v_qLQ9zmLhMJ2a7afpL5yuli-zJfyniRFxe4xcNgPILK_kpsjh9LefeOKyTMnd4JNkKZhV7aL5WVSzHwyOwHc2BmRpfYa2Zm4Q4b7HRkNVaKk93Pg16ki1wG1gpmc/l4mP1ZgIfauCNNhjGycgOlXFScAWq5ii/19" target="_blank" class="source-link">Crunchbase</a> · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Capital concentration trend: funding flowing into bigger rounds rather than more deals across Asia and fintech globally.</div>
+                <div class="macro-source"><a href="https://links.email.crunchbase.com/s/c/_83GjfRTmoSdz5o4Q49qbD_-4whZcL9b6b4akYiYetRpdbsUf8Qn6SOCv83LXvaSGK2Y2TwF4AVLAZ94l5gh33RgvH4kiUN2RiNScWyvq3SQZ-4LAejbjjDlAlma_APjawtL5c8O_pUo5UBmZRU4jdUe6AhYUJW-SZaQ8OFxA5oO5IG23EMo_V88XPA5njzmTJHiroR7eU-HD5bhxpR7y6R4dzUKqUoXRvWWT5A1ZwKBIhkApvvgBHQBvHqfQI0MVy5mpeO38fVFgytQI0QH4JJxXINO5-kvNZPzQiJtjZJ57GFu50fvdNzIcyD3MPcWxqEcOpc803SeiqkAJdV4sBQZZW7YdjVSZea7qy3c6Ctrc2mog8wPysA270fYj13CT0gBDG-1XZTpNxKZ8WyR3PCsqZ4IJoMi9qxh7eB3Tj-u68iNDvC4DKcD-L3LN_8CfwAwPyZQeXtdT6TiiCZbs8huFzugTP8hF-blLBOKrUv-PJTO6bKdXSMFEiuJPdZVaEQSIX_L8uRpn0kCOdqSOdMj6FX2TVJmA3KeaA4X9_MQyLAcn5C-WGjf75f4evpPWcB6oxa0eiuh2St4TI2tCVpr2n8AU6zCoFznIOwOhg/olI7PJfWWqKyA12wC85wkymT8BT-JRY-/19" target="_blank" class="source-link">Crunchbase</a> · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Fintech funding increased in Q1 2026 despite lower deal count.</div>
+                <div class="macro-source">Crunchbase · 2026-04-14</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">AI &amp; Machine Learning <span class="macro-cat-count">6</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Stanford AI Index Report reveals widening gap between AI experts and the general public, with public concerns rising about job displacement, healthcare impacts, and economic security.</div>
+                <div class="macro-source">TechCrunch · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Microsoft is developing enterprise-grade AI agents with enhanced security controls, positioned as safer alternatives to open-source tools like OpenClaw.</div>
+                <div class="macro-source">TechCrunch · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">OpenAI publicly challenges Anthropic&#x27;s claims about model capabilities and inflated performance metrics.</div>
+                <div class="macro-source">StrictlyVC · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Kepler Communications&#x27; 40-GPU orbital compute cluster is now operational with Sophia Space as an initial customer, opening a new frontier in distributed cloud computing.</div>
+                <div class="macro-source"><a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" target="_blank" class="source-link">TechCrunch</a> · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Anthropic&#x27;s run-rate revenue has reached $30 billion (up from $19B in March, $9B at end of 2025), with 1,000+ enterprises each spending $1M+ annually on Claude (doubled in &lt;2 months).</div>
+                <div class="macro-source">Axios Pro Rata · 2026-04-14</div>
+            </div>
+            <div class="macro-item">
+                <div class="macro-signal">Anthropic&#x27;s organic revenue growth ($21B in ~1 year) surpasses OpenAI (~$25B annualized) despite fewer users, and exceeds all historical growth benchmarks including Google (2002–2005) and Snowflake.</div>
+                <div class="macro-source">Axios Pro Rata · 2026-04-14</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">Policy &amp; Regulation <span class="macro-cat-count">1</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Anthropic is engaging with the Trump administration regarding its new Mythos model, signaling government interest in AI capabilities.</div>
+                <div class="macro-source">StrictlyVC · 2026-04-14</div>
+            </div></div><div class="macro-group"><div class="macro-cat-label">Macro &amp; Markets <span class="macro-cat-count">1</span></div>
+            <div class="macro-item">
+                <div class="macro-signal">Flipkart (Walmart-owned) and Amazon expanding aggressively in Indian quick-commerce market via heavy discounting and geographic expansion, squeezing independent startups.</div>
+                <div class="macro-source"><a href="https://techcrunch.com/2026/04/11/walmart-owned-flipkart-amazon-are-squeezing-indias-quick-commerce-startups/" target="_blank" class="source-link">TechCrunch</a> · 2026-04-14</div>
+            </div></div>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="section-title">Headlines</div>
+        
+        <div class="headline-row must-read">
+            <div class="headline-top">
+                <span class="headline-badge mr">MUST READ</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/microsoft-slowed-ai-spending-now-playing-catchup" target="_blank" class="deal-link">Microsoft Slowed AI Spending. Now It&#x27;s Playing Catchup</a> </div>
+            <div class="headline-insight">Microsoft&#x27;s earlier pullback on AI capex was a strategic mistake; the company is now forced into a catchup sprint, signaling that AI infrastructure spending is accelerating and caution equals competitive risk.</div>
+        </div>
+        <div class="headline-row must-read">
+            <div class="headline-top">
+                <span class="headline-badge mr">MUST READ</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/cisco-talks-buy-ai-security-startup-astrix-least-250-million" target="_blank" class="deal-link">Cisco in Talks to Buy AI Security Startup Astrix for at Least $250 Million</a> </div>
+            <div class="headline-insight">An incumbent moving $250M+ into AI agent security validates that infrastructure vulnerabilities are now a boardroom priority, not an emerging concern.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/handshake-mercor-revenue-surges-demand-human-contractors-train-ai" target="_blank" class="deal-link">Handshake, Mercor Revenue Surges on Demand for Human Contractors to Train AI</a></div>
+            <div class="headline-insight">Contractor platforms are capturing real revenue from AI labs, proving human-in-the-loop data collection is now infrastructure, not cost.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/reinforcement-learning-gym-startup-buoyed-labs-appetite-training-data-reaches-750-million-valuation" target="_blank" class="deal-link">&#x27;Reinforcement Learning Gym&#x27; Startup, Buoyed by Labs&#x27; Appetite For Training Data, Reaches $750 Million Valuation</a></div>
+            <div class="headline-insight">RL training platforms hitting unicorn+ valuations shows infrastructure supporting agents is now a primary cost and competitive lever for labs.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/tokenmaxxing-tide-may-turning" target="_blank" class="deal-link">The &#x27;Tokenmaxxing&#x27; Tide May Already Be Turning</a></div>
+            <div class="headline-insight">Crypto infrastructure buildout sentiment is reversing, creating valuation risk for token-dependent startups.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">The Information</span>
+            </div>
+            <div class="headline-title"><a href="https://www.theinformation.com/articles/self-taught-programmer-became-father-claude-code" target="_blank" class="deal-link">How a Self-Taught Programmer Became the Father of Claude Code</a></div>
+            <div class="headline-insight">Claude Code&#x27;s origin story highlights Anthropic&#x27;s developer-first strategy, validating agentic AI in the productivity/IDE layer.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">Ars Technica</span>
+            </div>
+            <div class="headline-title"><a href="https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees" target="_blank" class="deal-link">Meta spins up AI version of Mark Zuckerberg to engage with employees</a></div>
+            <div class="headline-insight">AI agents are now live in corporate operations at hyperscalers; adoption is crossing from external products into internal workflow.</div>
+        </div>
+        <div class="headline-row">
+            <div class="headline-top">
+                <span class="headline-badge wn">WORTH NOTING</span>
+                <span class="headline-source">Ars Technica</span>
+            </div>
+            <div class="headline-title"><a href="https://arstechnica.com/science/2026/04/shock-from-iran-war-has-trump-vision-for-us-energy-dominance-flailing" target="_blank" class="deal-link">Shock from Iran war has Trump&#x27;s vision for US energy dominance flailing</a></div>
+            <div class="headline-insight">Geopolitical instability is derailing US energy independence strategy, creating macro headwinds for climate tech capital cycles.</div>
+        </div>
+    </div>
+
+    
+
+    
+    <div class="section">
+        <div class="section-title">Markets</div>
+        <div class="empty-note">No macro data yet.</div>
+    </div>
+
+    <div class="footer">
+        <a href="./" style="color: var(--blue);">← Archive index</a> ·
+        <a href="../" style="color: var(--blue);">Today's brief →</a>
+    </div>
+</div>
+</body>
+</html>
