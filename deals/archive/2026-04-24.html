@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellation Intelligence Brief</title>
+    <title>Intelligence Brief — 2026-04-24</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
 :root {
@@ -316,37 +316,26 @@ body {
 </head>
 <body>
 <div class="page">
-
+    <a href="../" class="back-link">← Back to today</a>
     <div class="header">
         <div class="title">Stellation Intelligence Brief</div>
-        <div class="meta-line">April 24, 2026 — Today</div>
+        <div class="meta-line">Friday, April 24, 2026</div>
         <div class="stats-bar">
-            <span class="stat"><strong>0</strong> deals today</span>
+            <span class="stat"><strong>0</strong> deals</span>
             <span class="stat"><strong>10</strong> headlines</span>
             <span class="stat"><strong>6</strong> signals</span>
-            <span class="stat"><strong>0</strong> portfolio hits</span>
+            <span class="stat"><strong>0</strong> macro</span>
         </div>
     </div>
 
-    <nav class="nav" id="nav">
-        <a href="#sources" class="active" onclick="scrollTo_(event,'sources')">Sources</a>
-        <a href="#headlines" onclick="scrollTo_(event,'headlines')">Headlines</a>
-        <a href="#twitter" onclick="scrollTo_(event,'twitter')">Twitter</a>
-        <a href="#markets" onclick="scrollTo_(event,'markets')">Markets</a>
-        <a href="#companies" onclick="scrollTo_(event,'companies')">Companies</a>
-        <a href="#portfolio" onclick="scrollTo_(event,'portfolio')">Portfolio</a>
-        <a href="#synthesis" onclick="scrollTo_(event,'synthesis')">Synthesis</a>
-        <a href="#patterns" onclick="scrollTo_(event,'patterns')">Patterns</a>
-        <a href="archive/" class="archive-link">Archive (13)</a>
-    </nav>
-
-    <div class="section" id="sources">
-        <div class="section-title">Today's Deals</div>
-        <div class="empty-note">No deals scanned today yet.</div>
+    <div class="section">
+        <div class="section-title">Deals</div>
+        <div class="empty-note">No deals this day.</div>
         
     </div>
 
-    <div class="section" id="headlines">
+    
+    <div class="section">
         <div class="section-title">Headlines</div>
         
         <div class="headline-row must-read">
@@ -431,7 +420,8 @@ body {
         </div>
     </div>
 
-    <div class="section" id="twitter">
+    
+    <div class="section">
         <div class="section-title">Twitter Pulse</div>
         
         <div class="tweet-card">
@@ -484,202 +474,16 @@ body {
         </div>
     </div>
 
-    <div class="section" id="markets">
+    
+    <div class="section">
         <div class="section-title">Markets</div>
-        
-    <div class="markets-grid">
-        <div class="market-card">
-            <div class="market-label">CRYPTO</div>
-            <div class="market-row">
-                <span class="market-ticker">BTC</span>
-                <span class="market-price">$78,237</span>
-                <span class="chg-up">▲ +0.5% 24h</span>
-            </div>
-            <div class="market-row">
-                <span class="market-ticker">ETH</span>
-                <span class="market-price">$2,326</span>
-                <span class="chg-down">▼ -0.2% 24h</span>
-            </div>
-            <div class="market-row">
-                <span class="market-ticker">DeFi TVL</span>
-                <span class="market-price">$83.8B</span>
-                <span class="chg-down">▼ -14.7% 7d</span>
-            </div>
-            <div class="market-row">
-                <span class="market-ticker">Fear/Greed</span>
-                <span class="market-price" style="color: var(--gold)">39</span>
-                <span class="market-sub" style="color: var(--gold)">Fear</span>
-            </div>
-            <div class="market-row">
-                <span class="market-ticker">Stablecoins</span>
-                <span class="market-price">$267.5B</span>
-                <span class="market-sub">USDT+USDC</span>
-            </div>
-        </div>
-        <div class="market-card">
-            <div class="market-label">ENERGY</div>
-            <div class="market-row">
-                <span class="market-ticker">WTI Crude</span>
-                <span class="market-price">$95.08</span>
-                <span class="chg-up">▲ +13.4% 7d</span>
-            </div>
-            <div class="market-row">
-                <span class="market-ticker">Nat Gas</span>
-                <span class="market-price">$2.70</span>
-                <span class="chg-up">▲ +1.1% 7d</span>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="section" id="companies">
-        <div class="section-title">Companies Mentioned Today</div>
-        
-        <div class="empty-note">No companies today.</div>
-    </div>
-
-    <div class="section" id="portfolio">
-        <div class="section-title">Portfolio Map (rolling 7 days)</div>
-        <div class="section-note">Sector overlap between this week's deals and Stellation portfolio. <a href="https://hitalbot.github.io/jeska/portfolio/" class="deal-link" style="color: var(--blue);">Full portfolio tracker &rarr;</a></div>
-        
-            <div class="port-row active">
-                <span class="port-name">Tapestry</span>
-                <span class="port-sectors">Fintech, Crypto, Consumer</span>
-                <span class="port-adjacent">Spektr ($20M)</span>
-            </div>
-            <div class="port-row active">
-                <span class="port-name">Vybe</span>
-                <span class="port-sectors">AI, Computer Vision</span>
-                <span class="port-adjacent">Antioch ($8.5M), Shield AI ($2.0B), Mind Robotics ($500M)</span>
-            </div>
-            <div class="port-row active">
-                <span class="port-name">Hopscotch</span>
-                <span class="port-sectors">Fintech, B2B Payments</span>
-                <span class="port-adjacent">Spektr ($20M)</span>
-            </div>
-            <div class="port-row active">
-                <span class="port-name">Mainframe</span>
-                <span class="port-sectors">AI, Productivity</span>
-                <span class="port-adjacent">Antioch ($8.5M), Shield AI ($2.0B), Mind Robotics ($500M)</span>
-            </div>
-        <div class="port-row quiet">
-            <span class="port-quiet">No adjacent deals this week: Revin, Hearth Display, Software Applications Inc, Block Party, AddGlow, Diem, Enigma Labs, Indify, Koodos Labs, PromptLayer, Strobe, swsh</span>
-        </div>
-    </div>
-
-    <div class="section" id="synthesis">
-        <div class="section-title">Synthesis</div>
-        <div class="section-note">Analysis, not fact. Every claim should trace to a source above.</div>
-        <div class="synthesis-box">
-        <div class="synthesis-label">The brief</div>
-        <div class="syn-point" style="font-family: Newsreader, Georgia, serif; font-size: 0.95rem; margin-bottom: 20px;"><strong>Defense autonomy just swallowed $2.4B in a single week — Shield AI at $2B, two unnamed aerospace startups at $200M each — and the market still calls this a niche. It&#x27;s not a niche. It&#x27;s the next decade of defense procurement.</strong></div>
-        <div class="syn-bullet">No new deals in newsletters today.</div>
-<div class="syn-bullet">Total tracked: 20 all-time.</div>
-        </div>
-    </div>
-
-    <div class="section" id="patterns">
-        <div class="section-title">Patterns Tracking</div>
-        
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Agentic AI Revenue Inflection</span>
-                <span class="pattern-badge pst-established">ESTABLISHED</span>
-            </div>
-            <div class="pattern-evidence">Garry Tan&#x27;s three-layer agentic architecture (fat skills, fat code, thin harness) is crystallizing as an industry standard. CLAUDE.md hit 15K GitHub stars. M2M payments in production. The infrastructure layer is being written in real time.</div>
-            <div class="pattern-counter">Counter: Architecture standards in AI have a shelf life of 18 months before the next capability jump obsoletes them. Companies building to today&#x27;s three-layer standard may find themselves optimizing for a paradigm that GPT-6 makes irrelevant.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Agent Infrastructure Security as Attack Surface</span>
-                <span class="pattern-badge pst-established">ESTABLISHED</span>
-            </div>
-            <div class="pattern-evidence">Claude Mythos Preview completed an end-to-end AISI cyber range evaluation — first frontier model to achieve this. AI security benchmarks are being formalized at the frontier level.</div>
-            <div class="pattern-counter">Counter: AISI cyber range completion is an Anthropic marketing event as much as a genuine security benchmark. Formal evaluations lag real-world threats by definition — passing yesterday&#x27;s test says nothing about tomorrow&#x27;s attack vector.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Outcome-Based AI Pricing Model</span>
-                <span class="pattern-badge pst-building">BUILDING</span>
-            </div>
-            <div class="pattern-evidence">Insufficient new deal or signal data this week to update status. Pattern holds from prior weeks — no contradicting evidence.</div>
-            <div class="pattern-counter">Counter: Outcome-based pricing requires trustworthy outcome measurement. In complex workflows, attribution is murky — &#x27;did the AI close the deal or did the human?&#x27; is a question most enterprise buyers can&#x27;t answer cleanly.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Prediction Markets Legitimization</span>
-                <span class="pattern-badge pst-established">ESTABLISHED</span>
-            </div>
-            <div class="pattern-evidence">Kalshi disclosed an additional undisclosed round. Continued capital activity with no new structural evidence this week — pattern holds from prior weeks.</div>
-            <div class="pattern-counter">Counter: Prediction markets attract sophisticated actors who systematically exploit information asymmetry. Retail participation — the engine of liquidity and revenue — may drop sharply once users experience consistent losses against better-informed counterparties.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Specialized Compute for Agentic AI</span>
-                <span class="pattern-badge pst-established">ESTABLISHED</span>
-            </div>
-            <div class="pattern-evidence">Arm launched production-ready agent-specific silicon this week. Tesla AI5 taped out — chip design locked, manufacturing started, with AI6 and Dojo3 in development. This is production hardware, not roadmap.</div>
-            <div class="pattern-counter">Counter: Arm&#x27;s agent chip is a marketing story built on existing architecture. True agent-specific silicon requires fundamentally different memory hierarchies and instruction sets. The hardware may be &#x27;optimized&#x27; in the way airlines optimize boarding — it sounds good but doesn&#x27;t move the needle.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Defense Autonomy Capital Concentration</span>
-                <span class="pattern-badge pst-established">ESTABLISHED</span>
-            </div>
-            <div class="pattern-evidence">Shield AI raised $2B, two unnamed Southern California autonomous military aerospace startups each raised $200M — $2.4B into defense autonomous systems in a single week. This follows an established pattern from prior weeks.</div>
-            <div class="pattern-counter">Counter: Defense tech VC is structurally dependent on government contracts that take years to materialize. Three undisclosed leads and zero named customers across $2.4B of rounds suggests this may be strategic capital concentration without near-term revenue — the acqui-hire risk is real.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">AI Perception Gap as Builder Advantage</span>
-                <span class="pattern-badge pst-building">BUILDING</span>
-            </div>
-            <div class="pattern-evidence">Paul Graham noted Google&#x27;s AI-generated search summaries systematically produce misleading results — partially correct answers that users trust. ChatGPT flagged the quality gap itself. The delta between perceived and actual AI quality is widening.</div>
-            <div class="pattern-counter">Counter: Quality gaps in Google&#x27;s AI get fixed faster than any startup can capitalize on them. The perception gap is a 6-month window, not a durable moat.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Machine-to-Machine Payment Infrastructure</span>
-                <span class="pattern-badge pst-building">BUILDING</span>
-            </div>
-            <div class="pattern-evidence">Patrick Collison confirmed M2M payments are in daily production use across multiple Stripe businesses — upgraded from &#x27;emerging&#x27; to &#x27;building&#x27; based on this production confirmation.</div>
-            <div class="pattern-counter">Counter: Stripe has enormous incentive to talk up AI payments — it expands their TAM narrative. &#x27;Consistent daily usage across multiple businesses&#x27; is vague. Until we see transaction volume numbers, this could be 12 companies doing $50 in M2M transactions daily.</div>
-        </div>
-        <div class="pattern-row">
-            <div class="pattern-top">
-                <span class="pattern-name">Big Tech Satellite Infrastructure Consolidation</span>
-                <span class="pattern-badge pst-emerging">EMERGING</span>
-            </div>
-            <div class="pattern-evidence">Amazon acquired Globalstar for $11.57B — the satellite company that powers Apple Emergency SOS. This is the first major satellite acquisition by a cloud hyperscaler at this price point.</div>
-            <div class="pattern-counter">Counter: Globalstar&#x27;s core business is emergency SOS — a low-volume, high-reliability use case. Amazon paid $11.57B for infrastructure that serves niche applications. The AI connectivity thesis may be the narrative, but the assets may not support it.</div>
-        </div>
+        <div class="empty-note">No macro data yet.</div>
     </div>
 
     <div class="footer">
-        Stellation VC · Today's intelligence only. <a href="archive/" style="color: var(--blue);">View past days →</a>
+        <a href="./" style="color: var(--blue);">← Archive index</a> ·
+        <a href="../" style="color: var(--blue);">Today's brief →</a>
     </div>
-
 </div>
-<script>
-function scrollTo_(e, id) {
-    e.preventDefault();
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-    e.target.classList.add('active');
-}
-const sections = ['sources','headlines','twitter','markets','companies','portfolio','synthesis','patterns'];
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 80;
-    let current = sections[0];
-    for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollY) current = id;
-    }
-    document.querySelectorAll('.nav a').forEach(a => {
-        if (a.classList.contains('archive-link')) return;
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
-});
-</script>
 </body>
 </html>
